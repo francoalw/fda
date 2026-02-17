@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Fora do Abismo | Mestre Weber</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Special+Elite&family=Metamorphous&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Special+Elite&family=Metamorphous&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --abyss-black: #050507;
@@ -11,9 +14,15 @@
             --stone-grey: #2a2a2e;
             --ink-parchment: #d1d1d1;
             --glow-violet: #8a2be2;
+            --glow-red: #ff0000;
+            --glow-low: #7d7dff;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             background-color: var(--abyss-black);
@@ -121,7 +130,9 @@
             font-size: 0.85rem;
         }
 
-        .npc-tag.important { border-left-color: #ffd700; }
+        .npc-tag.important {
+            border-left-color: #ff3700;
+        }
 
         .lore-entry {
             font-size: 1rem;
@@ -138,6 +149,36 @@
             margin-bottom: 5px;
         }
 
+        .lore-entry-principal {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+            padding-left: 15px;
+            border-left: 1px solid #333;
+        }
+
+        .lore-entry-principal span {
+            color: var(--glow-red);
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .lore-entry-low {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+            padding-left: 15px;
+            border-left: 1px solid #333;
+        }
+
+        .lore-entry-low span {
+            color: var(--glow-low);
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
         .location-banner {
             background: linear-gradient(90deg, #1a0b2e, transparent);
             padding: 15px;
@@ -146,10 +187,51 @@
         }
 
         /* Custom Scroll */
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-thumb { background: var(--glow-violet); }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--glow-violet);
+        }
+
+        .data-table {
+            width: 100%;
+            max-width: 500px;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            background-color: #fdf6e3;
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: 1px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #1a0b2e;
+            border-bottom: 2px solid #1a0b2e;
+            font-size: 0.9rem;
+        }
+
+        .data-table td {
+            padding: 1px 1px;
+            color: #333;
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #e2ebf0ab;
+        }
+
+        .titulo-tabela {
+            font-family: Arial, sans-serif;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+        }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -161,51 +243,51 @@
         <div class="pj-card">
             <img src="faneaurel.jpg" class="pj-portrait">
             <h3>Fane Aurel</h3>
-            <p>Bárbaro– Nível 03</p>
+            <p>Bárbaro– Nível 04</p>
         </div>
         <div class="pj-card">
             <img src="moirapedraescura.jpeg" class="pj-portrait">
             <h3>Moira Pedraescura</h3>
-            <p>Barda– Nível 03</p>
+            <p>Barda– Nível 04</p>
         </div>
         <div class="pj-card">
             <img src="rudeus.jpeg" class="pj-portrait">
             <h3>Rudeus</h3>
-            <p>Paladino– Nível 03</p>
+            <p>Paladino– Nível 04</p>
         </div>
         <div class="pj-card">
             <img src="vaalnailo.jpeg" class="pj-portrait">
             <h3>Vaal Nailo</h3>
-            <p>Bruxo– Nível 03</p>
+            <p>Bruxo– Nível 04</p>
         </div>
     </section>
 
     <main class="dashboard-main">
-        
+
         <div class="left-side">
             <div class="location-banner">
-                <h2 style="font-family: 'Cinzel Decorative'; margin:0">📍 Local Atual: Velkynvelve</h2>
-                <p style="font-size: 0.8rem;">O posto avançado Drow.</p>
+                <h2 style="font-family: 'Cinzel Decorative'; margin:0">📍 Local Atual: Arredores do Lago Negro</h2>
+                <p style="font-size: 0.8rem;">Há 312km do Bosque Nunca Claro.</p>
             </div>
 
             <div class="data-box">
                 <h2>📜 Diário de Missões</h2>
-                <div class="lore-entry">
+                <div class="lore-entry-principal">
                     <span>MISSÃO PRINCIPAL</span>
-                    Escapar de Velkynvelve, o posto avançado Drow.
-                </div>
-                <div class="lore-entry">
-                    <span>RUMOR RECENTE</span>
-                    Dizem que um demônio de duas cabeças foi visto vagando pelo Lago Darklake. A loucura está se espalhando.
+                    Chegar à superfície.
                 </div>
                 <div class="lore-entry">
                     <span>OBJETIVO ATUAL</span>
-                    Encontrar o equipamento roubado e libertar os outros prisioneiros antes da próxima patrulha.
+                    Sobreviver.
+                </div>
+                <div class="lore-entry-low">
+                    <span>RUMOR RECENTE</span>
+                    Os ferimentos de Jorlan foram causados por um Limo no <strong>Lago Negro</strong>.
                 </div>
             </div>
 
             <div class="data-box" style="margin-top: 30px;">
-                <h2>👥 Outros Prisioneiros (NPCs)</h2>
+                <h2>👥 Companheiros (NPCs)</h2>
                 <div class="npc-grid">
                     <div class="npc-tag"><strong>Buppido</strong><br>Derro Bajulador</div>
                     <div class="npc-tag"><strong>Prince Derendil</strong><br>Quaggoth Elfo</div>
@@ -213,73 +295,205 @@
                     <div class="npc-tag"><strong>Jimjar</strong><br>Gnomo Apostador</div>
                     <div class="npc-tag"><strong>Ront</strong><br>Orc Valentão</div>
                     <div class="npc-tag"><strong>Sarith Kzekarith</strong><br>Drow Acusado</div>
-                    <div class="npc-tag"><strong>Shuushar, o Desperto</strong><br>Kuo-toa Pacifista</div>
                     <div class="npc-tag"><strong>Stool</strong><br>Miconide Broto</div>
                     <div class="npc-tag"><strong>Topsy</strong><br>Gnomo das Profundezas irmão de Turvy</div>
                     <div class="npc-tag"><strong>Turvy</strong><br>Gnomo das Profundezas irmão de Topsy</div>
                 </div>
             </div>
 
-            <div class="data-box" style="margin-top: 20px; font-size: 0.8rem; background: #1a0b2e;">
-                <h2>⚠️Status de Perseguição</h2>
-                <p>[Vazio]</p>
+            <div class="data-box"
+                style="margin-top: 20px; font-size: 1rem; background: #1a0b2e; font-family: Arial, sans-serif;">
+                <h2>📋Lembrete de Regras</h2>
+                <p><strong>Desidratação [risco]</strong></p>
+                <p>Se uma criatura consumir menos do que a quantidade necessária de água em um dia, ela adquire 1 nível
+                    de Exaustão ao final do dia. A Exaustão resultante da desidratação não pode ser removida até que a
+                    criatura ingira a quantidade total de água necessária por dia.</p>
+                <div class="titulo-tabela">Necessidade de Água por Dia:</div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Tamanho</th>
+                            <th>Água</th>
+                            <th>Tamanho</th>
+                            <th>Água</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Minúsculo</td>
+                            <td>1,25 litros</td>
+                            <td>Grande</td>
+                            <td>16 litros</td>
+                        </tr>
+                        <tr>
+                            <td>Pequeno</td>
+                            <td>4 litros</td>
+                            <td>Enorme</td>
+                            <td>60 litros</td>
+                        </tr>
+                        <tr>
+                            <td>Médio</td>
+                            <td>4 litros</td>
+                            <td>Colossal</td>
+                            <td>240 litros</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong><br><br>Desnutrição [risco]</strong></p>
+                <p>Uma criatura que consome menos da metade da comida necessária para um dia deve ser bem-sucedida em
+                    uma salvaguarda de Constituição CD 10 ou adquire 1 nível de Exaustão ao final do dia. Uma criatura
+                    que não consome nada por 5 dias adquire automaticamente 1 nível de Exaustão ao final do quinto dia,
+                    além de um nível adicional ao final de cada dia subsequente sem comida. A Exaustão causada por
+                    desnutrição não pode ser removida até que a criatura consuma a quantidade total de comida necessária
+                    para um dia. </p>
+                <div class="titulo-tabela">Necessidade de Comida por Dia:</div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Tamanho</th>
+                            <th>Comida</th>
+                            <th>Tamanho</th>
+                            <th>Água</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Minúsculo</td>
+                            <td>125 gramas</td>
+                            <td>Grande</td>
+                            <td>2 kg</td>
+                        </tr>
+                        <tr>
+                            <td>Pequeno</td>
+                            <td>0,5 kg</td>
+                            <td>Enorme</td>
+                            <td>08 kg</td>
+                        </tr>
+                        <tr>
+                            <td>Médio</td>
+                            <td>0,5 kg</td>
+                            <td>Colossal</td>
+                            <td>32 kg</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong><br><br>Forrageando</strong></p>
+                <p>Os aventureiros precisam forragear para sobreviver em sua jornada. Encontrar sustento no Subterrâneo
+                    é difícil, mas não impossível. Personagens podem conseguir comida e água se o grupo viajar em um
+                    ritmo normal ou lento. Um personagem buscando recursos faz um teste de Sabedoria (Sobrevivência). A
+                    CD varia conforme alguns lugares do Subterrâneo. Em adição a forragear, magias como criar alimentos
+                    e bom fruto podem ajudar a fornecer provisões para o grupo, e há sempre a chance de os personagens
+                    encontrarem outros de quem eles possam comprar ou roubar provisões. Adicionalmente, muitas criaturas
+                    que os aventureiros possam encontrar e matar podem ser aproveitadas, embora a carne que elas possuam
+                    apodreça após um único dia se não for consumida. Comer carne estragada pode requerer um teste de
+                    resistência de Constituição para manter a refeição no estômago, um teste de resistência de Sanidade
+                    para evitar adquirir um nível de loucura dessa experiência terrível, ou ambos.</p>
+                <div class="titulo-tabela">Comida Provida por Criatura:</div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Tamanho da Criatura</th>
+                            <th>Comida Fornecida</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Minúsculo</td>
+                            <td>0,5 kg</td>
+                        </tr>
+                        <tr>
+                            <td>Pequeno</td>
+                            <td>02 kg</td>
+                        </tr>
+                        <tr>
+                            <td>Médio</td>
+                            <td>08 kg</td>
+                        </tr>
+                        <tr>
+                            <td>Grande</td>
+                            <td>16 kg</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
         <aside class="right-side">
             <div class="data-box" style="border-color: var(--drow-purple); background: rgba(10, 10, 15, 0.9);">
-    <h2>📌Destino</h2>
-    <ul style="list-style: none; font-size: 0.85rem; padding: 0;">
-        
-        <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
-            <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Buppido</strong>
-             O derro sabe como chegar a Gracklstugh a partir da rota sul saindo de Velkynvelve. Ele também pode achar o caminho para Gracklstugh a partir do Lago Escuro. Buppido incita os personagens a ir a Gracklstugh para adquirir equipamentos melhores e para satisfazer seu desejo de retornar ao seu povo.</li>
+                <h2>📌Destino</h2>
+                <ul style="list-style: none; font-size: 0.85rem; padding: 0;">
 
-        <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
-            <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Príncipe Derendil</strong>
-            O quaggoth não pode oferecer nenhuma direção útil, mas fica satisfeito em acompanhar o grupo, ansioso para ir ao mundo da superfície.
-        </li>
+                    <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
+                        <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Buppido</strong>
+                        O derro sabe como chegar a Gracklstugh a partir da rota sul saindo de Velkynvelve. Ele também
+                        pode achar o caminho para Gracklstugh a partir do Lago Escuro. Buppido incita os personagens a
+                        ir a Gracklstugh para adquirir equipamentos melhores e para satisfazer seu desejo de retornar ao
+                        seu povo.
+                    </li>
 
-        <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
-            <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Eldeth Feldrun</strong>
-             Não está familiarizada com essa região do Subterrâneo e não pode guiar, mas fornece um bônus nos testes de Sobrevivência do grupo.
-            </li>
+                    <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
+                        <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Príncipe
+                            Derendil</strong>
+                        O quaggoth não pode oferecer nenhuma direção útil, mas fica satisfeito em acompanhar o grupo,
+                        ansioso para ir ao mundo da superfície.
+                    </li>
 
-        <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
-            <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Jimjar</strong>
-            Jimjar pode guiar o grupo para Pedra do Massacre do Refúgio a partir da rota norte de Velkynvelve. A cidade svirfneblin dará aos personagens acesso à superfície, embora Jimjar não veja problema em visitar outros lugares interessantes no caminho, bem como em levar Stool de volta para sua casa.
-        </li>
+                    <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
+                        <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Eldeth
+                            Feldrun</strong>
+                        Não está familiarizada com essa região do Subterrâneo e não pode guiar, mas fornece um bônus nos
+                        testes de Sobrevivência do grupo.
+                    </li>
 
-        <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
-            <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Ront</strong>
-             Ront desconhece o Subterrâneo e não pode guiar. Ele está disposto a ficar por perto dos aventureiros enquanto eles estiverem buscando um caminho que o leve de volta para o mundo da superfície.
-        </li>
+                    <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
+                        <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Jimjar</strong>
+                        Jimjar pode guiar o grupo para Pedra do Massacre do Refúgio a partir da rota norte de
+                        Velkynvelve. A cidade svirfneblin dará aos personagens acesso à superfície, embora Jimjar não
+                        veja problema em visitar outros lugares interessantes no caminho, bem como em levar Stool de
+                        volta para sua casa.
+                    </li>
 
-        <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
-            <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Sarith Kzekarit</strong>
-         O melhor guia em potencial no grupo. Ele pode guiar para qualquer região do Subterrâneo mostrada no mapa, mas vai encorajar os personagens a viajarem para o Bosque Nunca Claro. Ele quer tirar vantagem da oferta de Stool de santuário.
-        </li>
+                    <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
+                        <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Ront</strong>
+                        Ront desconhece o Subterrâneo e não pode guiar. Ele está disposto a ficar por perto dos
+                        aventureiros enquanto eles estiverem buscando um caminho que o leve de volta para o mundo da
+                        superfície.
+                    </li>
 
-        <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
-            <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Shuushar</strong>
-            Shuushar pode navegar através do Lago Escuro uma vez que o grupo esteja dentro de aproximadamente cinco quilômetros de qualquer parte dele. Ele está disposto a viajar com os personagens e guiá-los, e sugere visitar a cidade kuo-toa Sloobludop para adquirir barcos. Shuushar deseja retornar para seu próprio povo na esperança de guiá-los para o esclarecimento que ele alcançou.
-        </li>
+                    <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
+                        <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Sarith
+                            Kzekarit</strong>
+                        O melhor guia em potencial no grupo. Ele pode guiar para qualquer região do Subterrâneo mostrada
+                        no mapa, mas vai encorajar os personagens a viajarem para o Bosque Nunca Claro. Ele quer tirar
+                        vantagem da oferta de Stool de santuário.
+                    </li>
 
-        <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
-            <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Stool</strong>
-           Não pode orientar e não tem nenhum conhecimento da área local, mas quer desesperadamente retornar para seu lar no Bosque Nunca Claro, suplicando aos personagens (e principalmente ao Vaal) que o levem para lá. Ele clama que seu povo ficará agradecido e oferecerá ao grupo abrigo e ajuda, e descreve seu governante como um sábio nos caminhos ocultos de Subterrâneo.
-        </li>
+                    <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
+                        <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Stool</strong>
+                        Não pode orientar e não tem nenhum conhecimento da área local, mas quer desesperadamente
+                        retornar para seu lar no Bosque Nunca Claro, suplicando aos personagens (e principalmente ao
+                        Vaal) que o levem para lá. Ele clama que seu povo ficará agradecido e oferecerá ao grupo abrigo
+                        e ajuda, e descreve seu governante como um sábio nos caminhos ocultos de Subterrâneo.
+                    </li>
 
-        <li style="margin-bottom: 5px;">
-            <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Topsy e Turvy</strong>
-             Podem guiar o grupo para Pedra do Massacre do Refúgio, mas também aceitam qualquer caminho.
-     </li>
+                    <li style="margin-bottom: 5px;">
+                        <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Topsy e
+                            Turvy</strong>
+                        Podem guiar o grupo para Pedra do Massacre do Refúgio, mas também aceitam qualquer caminho.
+                    </li>
 
-    </ul>
-</div>
+                </ul>
+            </div>
+            <div class="data-box" style="margin-top: 20px; font-size: 0.8rem; background: #1a0b2e;">
+                <h2>⚠️Status de Perseguição</h2>
+                <p>Nível atual: 4</p>
+            </div>
         </aside>
 
     </main>
 
 </body>
+
 </html>
