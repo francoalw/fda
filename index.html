@@ -197,29 +197,45 @@
 
         .data-table {
             width: 100%;
-            max-width: 500px;
+            /* Removido o max-width fixo para permitir que a tabela respire */
             border-collapse: collapse;
             font-family: Arial, sans-serif;
             background-color: #fdf6e3;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Um toque de sombra para profundidade */
         }
 
         .data-table th {
             text-align: left;
-            padding: 1px;
+            padding: 12px 15px;
+            /* Aumentado para melhor respiro */
             text-transform: uppercase;
             font-weight: bold;
             color: #1a0b2e;
             border-bottom: 2px solid #1a0b2e;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            /* Impede que o título da coluna quebre em 2 linhas */
         }
 
         .data-table td {
-            padding: 1px 1px;
+            padding: 10px 15px;
+            /* Espaçamento interno mais confortável */
             color: #333;
+            border-bottom: 1px solid #eee;
+            /* Linha sutil para separar as linhas */
+            vertical-align: middle;
         }
 
         .data-table tr:nth-child(even) {
-            background-color: #e2ebf0ab;
+            background-color: #f2f7f9;
+            /* Cor levemente ajustada para contraste */
+        }
+
+        /* Efeito de hover para ajudar a guiar o olhar na linha */
+        .data-table tr:hover {
+            background-color: #f9f9f9;
         }
 
         .titulo-tabela {
@@ -418,8 +434,8 @@
                     </tbody>
                 </table>
 
-        <p><strong><br><br>RITMO DE VIAGEM NO SUBTERRÂNEO</strong></p>
-         <table class="data-table">
+                <p><strong><br><br>RITMO DE VIAGEM NO SUBTERRÂNEO</strong></p>
+                <table class="data-table">
                     <thead>
                         <tr>
                             <th>Ritmo</th>
@@ -444,9 +460,82 @@
                             <td>Forrageio aprimorado.</td>
                         </tr>
                     </tbody>
-         </table>
+                </table>
+
+                <p><strong><br><br>DISTÂNCIA DE VIAGEM NO SUBTERRÂNEO</strong></p>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Localidade</th>
+                            <th>Velkynvelve</th>
+                            <th>Sloobludop</th>
+                            <th>Gracklstugh</th>
+                            <th>Bosque Nunca Claro</th>
+                            <th>Pedra do Massacre do Refúgio</th>
+                            <th>Menzoberranzan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Velkynvelve</td>
+                            <td>–</td>
+                            <td>72 km</td>
+                            <td>252 km</td>
+                            <td>324 km</td>
+                            <td>180 km</td>
+                            <td>234 km</td>
+                        </tr>
+                        <tr>
+                            <td>Sloobludop</td>
+                            <td>72 km</td>
+                            <td>–</td>
+                            <td>180 km</td>
+                            <td>234 km</td>
+                            <td>180 km</td>
+                            <td>180 km</td>
+                        </tr>
+                        <tr>
+                            <td>Gracklstugh</td>
+                            <td>252 km</td>
+                            <td>180 km</td>
+                            <td>–</td>
+                            <td>180 km</td>
+                            <td>180 km</td>
+                            <td>243 km</td>
+                        </tr>
+                        <tr>
+                            <td>Bosque Nunca Claro</td>
+                            <td>324 km</td>
+                            <td>234 km</td>
+                            <td>108 km</td>
+                            <td>–</td>
+                            <td>144 km</td>
+                            <td>216 km</td>
+                        </tr>
+                        <tr>
+                            <td>Pedra do Massacre do Refúgio</td>
+                            <td>270 km</td>
+                            <td>180 km</td>
+                            <td>180 km</td>
+                            <td>144 km</td>
+                            <td>–</td>
+                            <td>72 km</td>
+                        </tr>
+                        <tr>
+                            <td>Menzoberranzan</td>
+                            <td>234 km</td>
+                            <td>180 km</td>
+                            <td>243 km</td>
+                            <td>216 km</td>
+                            <td>72 km</td>
+                            <td>–</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
             </div>
-            </div>
+        </div>
 
         <aside class="right-side">
             <div class="data-box" style="border-color: var(--drow-purple); background: rgba(10, 10, 15, 0.9);">
@@ -516,7 +605,7 @@
             </div>
             <div class="data-box" style="margin-top: 20px; font-size: 0.8rem; background: #1a0b2e;">
                 <h2>⚠️Status de Perseguição</h2>
-                <p>Nível atual: 2</p>
+                <p>Nível atual: 3</p>
             </div>
         </aside>
 
@@ -525,6 +614,3 @@
 </body>
 
 </html>
-
-
-
