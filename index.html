@@ -31,6 +31,10 @@
             font-family: 'Special Elite', cursive;
             min-height: 100vh;
             padding: 20px;
+            max-width: 900px;
+            /* Garanta que o 'px' esteja aqui */
+            margin: 0 auto;
+            /* <--- O SEGREDO ESTÁ AQUI */
         }
 
         header {
@@ -95,10 +99,7 @@
         /* --- SEÇÃO DE DADOS (CONTEÚDO) --- */
         .dashboard-main {
             display: grid;
-            grid-template-columns: 1fr 300px;
             gap: 30px;
-            max-width: 1400px;
-            margin: 0 auto;
         }
 
         .data-box {
@@ -197,54 +198,61 @@
 
         .data-table {
             width: 100%;
-            /* Removido o max-width fixo para permitir que a tabela respire */
             border-collapse: collapse;
-            font-family: Arial, sans-serif;
-            background-color: #fdf6e3;
+            background-color: #111;
+            /* Mudei para combinar com o tema */
             margin: 20px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            /* Um toque de sombra para profundidade */
+            color: var(--ink-parchment);
         }
 
         .data-table th {
             text-align: left;
             padding: 12px 15px;
-            /* Aumentado para melhor respiro */
             text-transform: uppercase;
-            font-weight: bold;
-            color: #1a0b2e;
-            border-bottom: 2px solid #1a0b2e;
+            color: var(--glow-violet);
+            border-bottom: 2px solid var(--drow-purple);
             font-size: 0.85rem;
-            white-space: nowrap;
-            /* Impede que o título da coluna quebre em 2 linhas */
         }
 
         .data-table td {
             padding: 10px 15px;
-            /* Espaçamento interno mais confortável */
-            color: #333;
-            border-bottom: 1px solid #eee;
-            /* Linha sutil para separar as linhas */
-            vertical-align: middle;
+            border-bottom: 1px solid #222;
         }
 
+        /* Zebrado da tabela: usamos um cinza muito escuro para não brigar com o fundo */
         .data-table tr:nth-child(even) {
-            background-color: #f2f7f9;
-            /* Cor levemente ajustada para contraste */
+            background-color: rgba(255, 255, 255, 0.03);
+            /* Um toque de luz apenas para distinguir as linhas */
         }
 
-        /* Efeito de hover para ajudar a guiar o olhar na linha */
+        /* Efeito de hover: destaca a linha com um brilho sutil da cor principal */
         .data-table tr:hover {
-            background-color: #f9f9f9;
+            background-color: rgba(138, 43, 226, 0.1);
+            /* Usa o tom violeta para guiar o olhar */
+            cursor: default;
         }
 
         .titulo-tabela {
-            font-family: Arial, sans-serif;
+            /* Trocado Arial pela fonte de máquina de escrever para manter o estilo */
+            font-family: 'Special Elite', cursive;
             text-transform: uppercase;
             font-weight: bold;
             font-size: 0.9rem;
-            margin-bottom: 2px;
+            margin-bottom: 8px;
+            color: var(--glow-violet);
+            /* Dá destaque ao título da seção */
+            letter-spacing: 1px;
         }
+
+        /* Ajuste extra: garantir que as células tenham contraste no tema dark */
+        .data-table td {
+            color: var(--ink-parchment);
+            border-bottom: 1px solid #222;
+        }
+
+        /* * {
+            outline: 1px solid red !important;
+        } */
     </style>
 </head>
 
@@ -259,22 +267,22 @@
         <div class="pj-card">
             <img src="faneaurel.jpg" class="pj-portrait">
             <h3>Fane Aurel</h3>
-            <p>Bárbaro– Nível 04</p>
+            <p>Humano– Bárbaro</p>
         </div>
         <div class="pj-card">
             <img src="moirapedraescura.jpeg" class="pj-portrait">
             <h3>Moira Pedraescura</h3>
-            <p>Barda– Nível 04</p>
+            <p>Drow– Barda</p>
         </div>
         <div class="pj-card">
             <img src="rudeus.jpeg" class="pj-portrait">
             <h3>Rudeus</h3>
-            <p>Paladino– Nível 04</p>
+            <p>Humano– Paladino</p>
         </div>
         <div class="pj-card">
             <img src="vaalnailo.jpeg" class="pj-portrait">
             <h3>Vaal Nailo</h3>
-            <p>Bruxo– Nível 04</p>
+            <p>Meio Elfo– Bruxo</p>
         </div>
     </section>
 
@@ -282,9 +290,9 @@
 
         <div class="left-side">
             <div class="location-banner">
-                <h2 style="font-family: 'Cinzel Decorative'; margin:0">📍 Local Atual: Arredores do Lago Negro</h2>
-                <p style="font-size: 0.8rem;">Há 15 km de Sloobludop.</p>
-                <p style="font-size: 0.8rem;">Há 288 km do Bosque Nunca Claro.</p>
+                <h2 style="font-family: 'Cinzel Decorative'; margin:0">📍 Localização: Gracklstugh</h2>
+                <!-- <p style="font-size: 0.8rem;">Há 15 km de Sloobludop.</p>
+                <p style="font-size: 0.8rem;">Há 288 km do Bosque Nunca Claro.</p> -->
             </div>
 
             <div class="data-box">
@@ -292,6 +300,10 @@
                 <div class="lore-entry-principal">
                     <span>MISSÃO PRINCIPAL</span>
                     Chegar à superfície.
+                </div>
+                <div class="lore-entry-principal">
+                    <span>EVENTO RECENTE</span>
+                    <strong>Demogorgon</strong> emergiu em <strong>Sloobludop</strong>.
                 </div>
                 <div class="lore-entry">
                     <span>OBJETIVO ATUAL</span>
@@ -308,7 +320,7 @@
                 <div class="npc-grid">
                     <div class="npc-tag"><strong>Buppido</strong><br>Derro Bajulador</div>
                     <div class="npc-tag"><strong>Prince Derendil</strong><br>Quaggoth Elfo</div>
-                    <div class="npc-tag"><strong>Eldeth Feldrun</strong><br>Anã do Escudo</div>
+                    <!-- <div class="npc-tag"><strong>Eldeth Feldrun</strong><br>Anã do Escudo</div> -->
                     <div class="npc-tag"><strong>Jimjar</strong><br>Gnomo Apostador</div>
                     <div class="npc-tag"><strong>Ront</strong><br>Orc Valentão</div>
                     <div class="npc-tag"><strong>Sarith Kzekarith</strong><br>Drow Acusado</div>
@@ -538,7 +550,7 @@
             </div>
         </div>
 
-        <aside class="right-side">
+        <!-- <aside class="right-side">
             <div class="data-box" style="border-color: var(--drow-purple); background: rgba(10, 10, 15, 0.9);">
                 <h2>📌Destino</h2>
                 <ul style="list-style: none; font-size: 0.85rem; padding: 0;">
@@ -607,17 +619,10 @@
                 <h2>⚠️Status de Perseguição</h2>
                 <p>Nível atual: 2</p>
             </div>
-        </aside>
+        </aside> -->
 
     </main>
 
 </body>
 
 </html>
-
-
-
-
-
-
-
