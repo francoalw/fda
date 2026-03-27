@@ -32,9 +32,7 @@
             min-height: 100vh;
             padding: 20px;
             max-width: 900px;
-            /* Garanta que o 'px' esteja aqui */
             margin: 0 auto;
-            /* <--- O SEGREDO ESTÁ AQUI */
         }
 
         header {
@@ -50,7 +48,6 @@
             letter-spacing: 4px;
         }
 
-        /* --- SEÇÃO DOS PJS (TOP) --- */
         .pj-row {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -96,7 +93,6 @@
             text-transform: uppercase;
         }
 
-        /* --- SEÇÃO DE DADOS (CONTEÚDO) --- */
         .dashboard-main {
             display: grid;
             gap: 30px;
@@ -107,20 +103,12 @@
     border: 1px solid #222;
     padding: 20px;
     position: relative;
-    
-    /* Prepara a suavidade do movimento */
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    will-change: transform; /* Otimiza a performance da animação */
 }
 
 .data-box:hover {
-    /* Levanta 5px para cima */
     transform: translateY(-5px);
-    
-    /* Borda levemente mais clara para dar destaque */
     border-color: #444;
-    
-    /* Sombra suave para reforçar a elevação */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -140,7 +128,6 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            /* Garante que você ainda possa clicar nos botões abaixo */
             z-index: 999;
         }
 
@@ -149,24 +136,19 @@
             width: 4px;
             height: 4px;
             background: #fdfd86;
-            /* Cor do vagalume */
             border-radius: 50%;
             box-shadow: 0 0 10px 2px rgba(253, 253, 134, 0.8);
-            /* O brilho */
             opacity: 0;
             animation: move linear infinite alternate, fade ease-in-out infinite alternate;
         }
 
-        /* Animação de aparecer e desaparecer */
         @keyframes fade {
             0% {
                 opacity: 0;
             }
-
             50% {
                 opacity: 1;
             }
-
             100% {
                 opacity: 0;
             }
@@ -177,14 +159,11 @@
     transform: translate(0, 0);
   }
   to {
-    /* Usa as variáveis que definimos no JS */
     transform: translate(var(--move-x), var(--move-y));
   }
 }
 
-        /* O movimento será controlado individualmente via JS para ser aleatório */
-
-        .npc-grid {
+.npc-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 15px;
@@ -251,36 +230,25 @@
     padding: 15px;
     margin-bottom: 20px;
     border-radius: 4px;
-    
-    /* Base para o efeito gótico */
+
     border-left: 3px solid #3a1a5e;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    color: #a3a3a3; /* Texto levemente acinzentado/fantasmagórico */
+    color: #a3a3a3;
 }
 
 .location-banner:hover {
-    /* Gradiente mais profundo e dramático */
     background: linear-gradient(90deg, #2d0a3d, #0d0216);
-    
-    /* Glow Sombrio (Efeito de névoa/aura) */
     box-shadow: inset 0 0 20px rgba(138, 43, 226, 0.2), 
                 0 0 15px rgba(0, 0, 0, 0.8);
-    
-    /* Borda que "acende" como um feitiço */
     border-left: 3px solid #8a2be2;
-    
-    /* Movimento sutil para a direita */
     transform: translateX(8px);
-    
-    /* Texto ganha nitidez e um brilho pálido */
     color: #e0e0e0;
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
-/* Efeito de "fumaça" passando ao dar hover (opcional) */
 .location-banner::after {
     content: '';
     position: absolute;
@@ -296,11 +264,9 @@
     left: 100%;
 }
 
-        /* Custom Scroll */
         ::-webkit-scrollbar {
             width: 4px;
         }
-
         ::-webkit-scrollbar-thumb {
             background: var(--glow-violet);
         }
@@ -328,32 +294,25 @@
             border-bottom: 1px solid #222;
         }
 
-        /* Zebrado da tabela: usamos um cinza muito escuro para não brigar com o fundo */
         .data-table tr:nth-child(even) {
             background-color: rgba(255, 255, 255, 0.03);
-            /* Um toque de luz apenas para distinguir as linhas */
         }
 
-        /* Efeito de hover: destaca a linha com um brilho sutil da cor principal */
         .data-table tr:hover {
             background-color: rgba(138, 43, 226, 0.1);
-            /* Usa o tom violeta para guiar o olhar */
             cursor: default;
         }
 
         .titulo-tabela {
-            /* Trocado Arial pela fonte de máquina de escrever para manter o estilo */
             font-family: 'Special Elite', cursive;
             text-transform: uppercase;
             font-weight: bold;
             font-size: 0.9rem;
             margin-bottom: 8px;
             color: var(--glow-violet);
-            /* Dá destaque ao título da seção */
             letter-spacing: 1px;
         }
 
-        /* Ajuste extra: garantir que as células tenham contraste no tema dark */
         .data-table td {
             color: var(--ink-parchment);
             border-bottom: 1px solid #222;
