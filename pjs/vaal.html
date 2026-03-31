@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaal</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --bg-color: #0b0c10;
+            --text-color: #c5c6c7;
+            --primary-color: #66fcf1;
+            /* Ciano luminescente */
+            --secondary-color: #45a29e;
+            --drow-purple: #4b0082;
+            --blood-red: #8a0303;
+        }
+
+        body {
+            max-width: 900px;
+            margin: 0 auto;
+            /* O 'auto' nas laterais centraliza o bloco na tela */
+            font-family: 'Lora', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 20px;
+            background-image: radial-gradient(circle at center, #1f1b24 0%, #0b0c10 100%);
+            min-height: 100vh;
+
+            /* Garantir que o conteúdo interno também se comporte bem */
+            display: flex;
+            flex-direction: column;
+        }
+
+        div.container {
+            min-width: 100%;
+            justify-content: center;
+            max-height: 190px;
+            /* Ajuste o valor conforme sua necessidade */
+            overflow: hidden;
+            /* Impede que o conteúdo saia para fora da borda */
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(102, 252, 241, 0.3);
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 2px solid var(--drow-purple);
+            margin-bottom: 20px;
+        }
+
+        .btn-voltar {
+            position: relative;
+            top: -30px;
+            left: -130px;
+            display: inline-block;
+            opacity: 70%;
+            padding: 10px 10px;
+            /* Estética Gótica */
+            background-color: #4b0082;
+            /* Preto profundo */
+            color: var(--text-color);
+            /* Prata envelhecida */
+            font-family: 'Lora', serif;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            /* Bordas e Sombras */
+            border: 1px solid #000000;
+            /* Borda cor de sangue seco */
+            border-radius: 5px;
+            /* Cantos retos são mais "severos" */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+
+            font-size: 0.8rem;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: 1000;
+        }
+
+        .btn-voltar:hover {
+            opacity: 50%;
+            cursor: pointer;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .card-danger {
+            border-left-color: var(--blood-red);
+        }
+
+        .character-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            /* AFASTAMENTO HORIZONTAL: */
+            /* O primeiro valor (0px) é topo/baixo, o segundo (20px) é esquerda/direita */
+            padding: 20px 60px 15px 50px;
+
+            border-bottom: 2px solid var(--stone-grey);
+            margin-bottom: 30px;
+        }
+
+        .character-header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            /* Ajuste conforme necessário */
+            color: white;
+            /* Ou sua variável de cor principal */
+        }
+
+        .character-header .subtitle {
+            margin-top: 5px;
+            font-size: 1.1em;
+            color: #a0a0a0;
+            /* Um cinza mais claro */
+        }
+
+        /* Container Principal */
+        .container {
+            margin: 0 auto;
+            background-color: rgba(20, 20, 25, 0.8);
+            border: 1px solid #333;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(75, 0, 130, 0.2);
+            overflow: hidden;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .header-photo {
+            margin-left: 20px;
+            /* Espaço entre o texto e a foto */
+            flex-shrink: 0;
+            /* Impede a imagem de encolher */
+        }
+
+        .npc-name {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .pj-name {
+            font-weight: bold;
+            color: var(--blood-red);
+        }
+
+        .quote {
+            font-style: italic;
+            border-left: 3px solid var(--primary-color);
+            padding-left: 10px;
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        .vaal-photo {
+            width: 150px;
+            /* Largura da foto */
+            height: 150px;
+            /* Altura da foto (igual à largura para ficar quadrada/circular) */
+            object-fit: cover;
+            /* Garante que a imagem preencha o espaço sem distorcer */
+            border-radius: 50%;
+            /* Torna a foto circular */
+            border: 3px solid var(--glow-violet);
+            /* Borda opcional com a cor temática */
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+            /* Glow sutil opcional */
+        }
+
+        .subtitle {
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+
+        /* Estilo das Abas */
+        .tab-menu {
+            display: flex;
+            background-color: #1a1a1d;
+            border-bottom: 2px solid var(--drow-purple);
+        }
+
+        .tab-button {
+            flex: 1;
+            background-color: inherit;
+            color: var(--text-color);
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .tab-button:hover {
+            background-color: rgba(75, 0, 130, 0.4);
+            color: var(--primary-color);
+        }
+
+        .tab-button.active {
+            background-color: var(--drow-purple);
+            color: white;
+            text-shadow: 0 0 5px #fff;
+        }
+
+        /* Conteúdo das Abas */
+        .tab-content {
+            display: none;
+            animation: fadeEffect 0.5s;
+        }
+
+        @keyframes fadeEffect {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        ul {
+            list-style-type: square;
+            color: var(--secondary-color);
+        }
+
+        ul li span {
+            color: var(--text-color);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header class="character-header">
+            <div class="header-content">
+                <a href="../index.html" class="btn-voltar">← Voltar</a>
+
+                <h1>Vaal Nailo</h1>
+                <div class="subtitle">Humano | Bruno | Chamado Abissal</div>
+            </div>
+
+            <div class="header-photo">
+                <img src="vaalnailo.png" alt="Vaal" class="vaal-photo">
+            </div>
+        </header>
+    </div>
+
+    <div class="tab-menu">
+        <button class="tab-button active" onclick="openTab(event, 'Lore')">História</button>
+        <button class="tab-button" onclick="openTab(event, 'Objetivos')">Desejos & Missões</button>
+        <button class="tab-button" onclick="openTab(event, 'MinhaOpiniao')">Relações</button>
+    </div>
+
+    <div id="Lore" class="tab-content" style="display: block;">
+        <h2>QUEM É VAAL NAILO?</h2>
+
+        <hr style="border-color: #333;">
+        <p>Filho de mãe humana, e um pai elfo misterioso, Vaal segue no Subterrâneo buscando respostas a respeito de seu
+            pai e sobre a doença misteriosa que levou sua mãe.</p>
+    </div>
+
+    <div id="Objetivos" class="tab-content">
+        <div class="grid-2">
+            <div>
+                <h2>Desejos Profundos</h2>
+                <div class="card">
+                    <h3>Encontrar seu pai</h3>
+                    <p>Sabe pouco de seu pai, apenas que se envolveu com uma humana (sua mãe), e abandonou a família.
+                        Quer compreender o porquê do abandono.</p>
+                </div>
+                <div class="card">
+                    <h3>Se livrar do pacto</h3>
+                    <p>Vaal pretende livrar sua alma do pacto com uma entidade desconhecida, em seu colar.</p>
+                </div>
+            </div>
+
+            <div>
+                <h2>Missões Pessoais</h2>
+                <div class="card card-danger">
+                    <h3>Levar Stool para casa</h3>
+                    <p>O Miconide Broto, suplica por sua casa no Bosque Nunca Claro. Ainda que o mesmo diga se sentir em
+                        casa, seu 'coração' está cheio de dor e medo.</p>
+                </div>
+                <div class="card card-danger">
+                    <h3>Ir para <strong>FORA DO ABISMO.</strong></h3>
+                    <p>Vaal deseja, acima de tudo, sair do Subterrâneo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="MinhaOpiniao" class="tab-content">
+        <p><em>"Pela primira vez em muito tempo, desde o leito de morte de minha mãe, me sinto acolhido..."</em></p>
+        <h2>Opinião de Rudeus sobre seus aliados</h2>
+
+        <div class="card">
+            <span class="npc-name">Buppido:</span>
+            <p>"Raiva. Muito ódio no momento. Me culpo, pois eu sabia que ele estava prestes a realizar um sacrifício, ainda que eu não sabia que seria um membro do grupo. Ele fez o que eu mais odeio.. Descartou alguém."</p>
+        </div>
+
+        <div class="card card-danger">
+            <span class="pj-name">Coveshes:</span>
+            <p>"Gosto muito dele, apesar de odiar algumas ações tomadas no calor do momento. É um aliado  formidável, tanto em combate quanto a respeito de suas crenças."</p>
+        </div>
+
+        <div class="card card-danger">
+            <span class="pj-name">Fane Aurel:</span>
+            <p>"É uma grande incógnita para mim. Gosto muito dele como pessoa, notei que tem muitas dores e problemas passados, mas ainda não consegui entender a profundidade disso. Ele é quase um irmão mais velho para mim, alguém que sofreu muito e desejo ajudar."</p>
+        </div>
+
+        <div class="card">
+            <span class="npc-name">Jimjar:</span>
+            <p>"Eu o adoro. Eu o adoro por que ele é uma pessoa muito claramente deitada em suas vontades. Ele aposta com quem quer, mesmo perdendo, e sempre deseja ganhar. Ter vencido algumas apostas dele me deixa contente. Ele é um aliado muito útil de forma verbal, e eu gosto dele."</p>
+        </div>
+
+        <div class="card">
+            <span class="npc-name">Príncipe Derendil:</span>
+            <p>"Alguém por quem me coloco em seu lugar. Ele não é um elfo, e nem um Quaggoth. Ele se sente um elfo. Está perdendo seus trijeitos? Sim. Mas não deseja ser reconhecido como uma fera, da mesma maneira que sou reconhecido como um elfo ainda que não desejo ser."</p>
+        </div>
+
+        <div class="card">
+            <span class="npc-name">Ront:</span>
+            <p>"O Ront é um cara que eu tinha um problema pessoal. Mas conforme o tempo passou, e Coveshes agiu em sua vida. Gostaria de entender o que ele vai julgar como certo."</p>
+        </div>
+
+        <div class="card">
+            <span class="npc-name">Sarith Kzekarith:</span>
+            <p>"Eu gosto dele. Vejo ele como segundo líder, além do Coveshes. Por mais que ele tenha provado sua confiança, ten ho um pé atrás com ele."</p>
+        </div>
+
+        <div class="card">
+            <span class="npc-name">Stool:</span>
+            <p>"Eu, de verdade, vejo ele como fosse um familiar. Um priminho, um irmãozinho, um filho.. Alguém que se apegou a mim de início, num instante que eu estava desgostoso a respeito de minha própria vida. Isso me libertou o pensamento de que talvez a vida não seja tão ruim. Sua disposição em criar uma armada para nos ajudar na caverna dos Basiliscos me deixou orgulhoso."</p>
+        </div>
+
+        <div class="card">
+            <span class="npc-name">Topsy & Turvy:</span>
+            <p>"Eu no começo sentia um ódio imprescindível deles. Agora, os considero meus 'mestres' e estou amando de paixão interpretar isso. Estou entrando no faz de conta deles."</p>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+
+            // Esconde todo o conteúdo das abas
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Remove a classe "active" de todos os botões
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Mostra a aba atual e adiciona a classe "active" no botão clicado
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+
+</html>
