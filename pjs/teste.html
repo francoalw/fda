@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Special+Elite&display=swap');
+
+        :root {
+            --abyss-black: #050507;
+            --glow-red: #ff0000; /* Asmodeus */
+            --glow-low: #7d7dff; /* Tyr */
+            --stone-grey: #2a2a2e;
+            --ink-parchment: #d1d1d1;
+        }
+
+        .divine-meter-container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border: 1px solid var(--stone-grey);
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 40px auto;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.9);
+        }
+
+        .labels {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            font-family: 'Cinzel Decorative', serif;
+            letter-spacing: 2px;
+        }
+
+        .deity-name {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .asmodeus {
+            color: var(--glow-red);
+            text-shadow: 0 0 10px var(--glow-red);
+        }
+
+        .tyr {
+            color: var(--glow-low);
+            text-shadow: 0 0 10px var(--glow-low);
+        }
+
+        /* A BARRA */
+        .progress-rail {
+            width: 100%;
+            height: 12px;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 6px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 10px #000;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 33.33%; /* O valor 1/3 */
+            background: linear-gradient(90deg, var(--glow-red) 0%, #4a0000 100%);
+            box-shadow: 0 0 15px var(--glow-red);
+            transition: width 1s ease-in-out;
+            position: relative;
+        }
+
+        /* Divisória de Medição */
+        .markers {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 5px;
+            margin-top: 8px;
+            color: #444;
+            font-family: 'Special Elite', monospace;
+            font-size: 0.8rem;
+        }
+
+        .counter-text {
+            margin-top: 20px;
+            font-family: 'Special Elite', cursive;
+            color: var(--ink-parchment);
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+        .fraction {
+            color: var(--glow-red);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="divine-meter-container">
+    <div class="labels">
+        <span class="deity-name asmodeus">Asmodeus</span>
+        <span class="deity-name tyr">Tyr</span>
+    </div>
+
+    <div class="progress-rail">
+        <div class="progress-fill"></div>
+    </div>
+
+    <div class="markers">
+        <span>Condenação</span>
+        <span>Equilíbrio</span>
+        <span>Justiça</span>
+    </div>
+
+    <div class="counter-text">
+        Influência Maligna: <span class="fraction">1 / 3</span> marcos atingidos.
+        <br>
+        <small style="color: #666;">"A balança pende para o abismo..."</small>
+    </div>
+</div>
+
+</body>
+</html>
