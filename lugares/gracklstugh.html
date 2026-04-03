@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <link rel="icon" type="image/png"
+        href="https://preview.redd.it/dnd-ampersand-tokens-for-world-maps-v0-criv1vtambf31.png?width=256&format=png&auto=webp&s=dc236ed2b6c19de305ad43944d1b306b652093b3">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracklstugh</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --bg-color: #0b0c10;
+            --text-color: #c5c6c7;
+            --primary-color: #66fcf1;
+            --secondary-color: #45a29e;
+            --drow-purple: #4b0082;
+            --blood-red: #8a0303;
+        }
+
+        body {
+            max-width: 900px;
+            margin: 0 auto;
+            /* O 'auto' nas laterais centraliza o bloco na tela */
+            font-family: 'Lora', serif;
+            background-color: #100a05;
+            color: var(--text-color);
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        div.container {
+            min-width: 100%;
+            justify-content: center;
+            max-height: 190px;
+            overflow: hidden;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(102, 252, 241, 0.3);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--drow-purple);
+            margin-bottom: 20px;
+        }
+
+        #forja-container {
+    position: fixed; /* Fixado na tela mesmo ao rolar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Importante: permite clicar no que está atrás */
+    z-index: 9999; /* Garante que fique acima de tudo */
+    overflow: hidden;
+}
+
+.brasa {
+    position: absolute;
+    bottom: -20px;
+    background: #ffcc00;
+    border-radius: 50%;
+    opacity: 0.8;
+    filter: blur(1px);
+    box-shadow: 0 0 10px #ff4500, 0 0 20px #ff8c00;
+    animation: subir var(--duracao) infinite ease-in;
+}
+
+@keyframes subir {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-50vh) translateX(var(--oscilacao)) scale(0.8);
+    }
+    100% {
+        transform: translateY(-110vh) translateX(calc(var(--oscilacao) * 2)) scale(0.2);
+        opacity: 0;
+    }
+}
+
+        .btn-voltar {
+            position: relative;
+            top: -3.4em;
+            left: -4.9rem;
+            display: inline-block;
+            opacity: 70%;
+            padding: 0.5rem 0.5rem;
+            background-color: #4b0082;
+            color: var(--text-color);
+            font-family: 'Lora', serif;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+            font-size: 9px;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: 1000;
+        }
+
+        .btn-voltar:hover {
+            opacity: 50%;
+            cursor: pointer;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .card-danger {
+            border-left-color: var(--blood-red);
+        }
+
+        .container {
+            margin: 0 auto;
+            background-color: rgba(20, 20, 25, 0.8);
+            border: 1px solid #333;
+            border-radius: 6px;
+            box-shadow: 0 0 20px rgba(75, 0, 130, 0.2);
+            overflow: hidden;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .local-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--stone-grey);
+        }
+
+        .local-header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: rgb(255, 0, 0);
+        }
+
+        .local-header .subtitle {
+            margin-top: 5px;
+            font-size: 1.1em;
+            color: #a0a0a0;
+            /* Um cinza mais claro */
+        }
+
+
+
+        .local-photo {
+            flex: 1;
+            max-width: 28rem;
+            border-radius: 1rem;
+            margin-top: -3rem;
+            position: relative;
+        }
+
+        .nome-local {
+    margin-left: 5rem;  /* Empurra para a direita */
+    margin-top: -4rem;  /* Sobe o conteúdo (como você fez com a foto) */
+    text-align: left;   /* Controla o alinhamento do texto interno */
+}
+
+        .localopen-name {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .localblock-name {
+            font-weight: bold;
+            color: var(--blood-red);
+        }
+
+        .quote {
+            font-style: italic;
+            border-left: 3px solid var(--primary-color);
+            padding-left: 10px;
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        .subtitle {
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+
+        /* Estilo das Abas */
+        .tab-menu {
+            display: flex;
+            background-color: #1a1a1d;
+            border-bottom: 2px solid var(--drow-purple);
+
+        }
+
+        .tab-button {
+            flex: 1;
+            background-color: inherit;
+            color: var(--text-color);
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .tab-button:hover {
+            background-color: rgba(75, 0, 130, 0.4);
+            color: var(--primary-color);
+        }
+
+        .tab-button.active {
+            background-color: var(--drow-purple);
+            color: white;
+            text-shadow: 0 0 5px #fff;
+        }
+
+        /* Conteúdo das Abas */
+        .tab-content {
+            display: none;
+            animation: fadeEffect 0.5s;
+        }
+
+        @keyframes fadeEffect {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        ul {
+            list-style-type: square;
+            color: var(--secondary-color);
+        }
+
+        ul li span {
+            color: var(--text-color);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="forja-container"></div>
+
+    <div class="container">
+        <header class="local-header">
+            <div class="nome-local">
+                <a href="../index.html" class="btn-voltar">← Voltar</a>
+
+                <h1>Gracklstugh</h1>
+                <div class="subtitle">A Cidade das Lâminas</div>
+            </div>
+
+            <div>
+                <img src="https://static.wikia.nocookie.net/forgottenrealms/images/5/50/Gracklstugh.jpg/revision/latest/scale-to-width-down/1000?cb=20151217163217 alt="
+                    Gracklstugh" class="local-photo">
+            </div>
+        </header>
+    </div>
+
+    <div class="tab-menu">
+        <button class="tab-button active" onclick="openTab(event, 'Descricao')">Descrição</button>
+        <button class="tab-button" onclick="openTab(event, 'criaturasimportantes')">Criaturas Importantes</button>
+        <button class="tab-button" onclick="openTab(event, 'LocaisNotaveis')">Locais Notáveis</button>
+    </div>
+
+    <div id="Descricao" class="tab-content" style="display: block;">
+        <p style="text-align: justify;">Gracklstugh (pronuncia-se GRÁCS-TÚG), é uma cidade
+            duergar às margens do Lago Negro, na Underdark.</p>
+
+        <h2>Geografia</h2>
+        <p style="text-align: justify;"></p>A cidade fica a cerca de 243km de Menzoberranzan, do outro lado do Lago
+        Negro.
+        <br>O acesso a Gracklstugh pode ser alcançado pelo Lago Negro.</p>
+
+        <h2>Estrutura</h2>
+        <p style="text-align: justify;"></p>Gracklstugh é uma cidade caverna que desce pelo lado leste para se juntar
+        ao Lago negro como um porto subterrâneo. A cidade é pela luz do fogo de fundições misturadas entre estalagmites.
+        O ar cheira acre e é carregado de sons industriais: fogo, vapor e ferro
+        zumbindo. A fumaça persistente que preenche a caverna pode causar uma tosse persistente e às vezes fatal,
+        conhecida como pulmão de gral.
+        <br>
+        Laduguer's Furrow, também conhecido como "a Fenda", dividiu a cidade ao meio de norte a sul. Pontes conectam a
+        cidade mais alta aos bairros à beira do lago. O lado oeste era proibido para estrangeiros. </p>
+
+        <h2>História</h2>
+        <p style="text-align: justify;"></p>Gracklstugh foi fundada em −3717 DR por duergars que escaparam da queda de
+        Deep Shanatar e da subsequente escravidão de muitos anões cinzentos em Oryndoll.
+        <br>
+        Em −3392 DR, o Rei Horgar Steelshadow II começou a unir os clãs duergar em Gracklstugh, criando o Reino
+        Profundo. Nos últimos séculos, porém, o Reino Profundo restringiu seu alcance à própria cidade e seus arredores.
+        <br>
+        O poder do Reino Profundo começou a cair durante as Batalhas dos Deepbear contra os quaggodos de −1803 DR até
+        cerca de −1350 DR.
+        <br>
+        Por voltado século XIV DR, o Rei Tarngardt Steelshadow (avô de Horgar Steelshadow IV; rei desde 972 DR) foi
+        manipulado e controlado pelo Conselho dos Savants. Após sua morte, Horgar IV assumiu o trono, mas reconheceu a
+        ameaça dos savants e planejou matar ou pelo menos expulsar todos os derro de Gracklstugh.
+        <br>
+        Em 1372 DR, Horgar usou o Silêncio de Lolth e a fraqueza dos seguidores de Lolth como desculpa para atacar a
+        cidade drow de Menzoberranzan e assim consolidar seu poder sobre seus senhores. Ele se aliou a Nimor Imphraezl
+        dos Jaezred Chaulssin para avançar seus objetivos. Sob seu incentivo, Horgar liderou seu exército para o sucesso
+        contra os drow nos Pilares da Dor e ganhou aliados adicionais: a Legião Açoitada de Kaanyr Vhok e a traidora
+        Casa drow Agrach Dyrr, também alinhada aos Jaezred Chaulssin. Referido como o Cerco de Menzoberranzan, os
+        aliados então marcharam contra a cidade drow e a sitiaram por vários meses.
+        <br>
+        Em 28 de C, 1373 DR, o Silêncio de Lolth terminou e as sacerdotisas de Lolth recuperaram seus poderes. Kaanyr
+        Vhok posteriormente convocou suas forças de volta para a Fortaleza Hellgate; Os duergar restantes foram
+        facilmente derrotados e recuados. O cerco terminou oficialmente em 30 de Ches.
+        <br>Enquanto o exército duergar recuava, Nimor avançou e matou Horgar Steelshadow IV.
+        <br>Após a morte de Horgar IV, Horgar Steelshadow V ascendeu ao trono. </p>
+
+        <h2>Habitantes</h2>
+        <p style="text-align: justify;"></p>A cidade é principalmente lar de duergars, mas há uma minoria considerável
+        de derros que vivem lá, assim como vários durzagon, orogs e gigantes de pedra. Um terço da população total é
+        composto por escravos, nomeadamente goblins, anões do escudo, orcs, svirfneblin e humanos.
+        <br>A cidade recebia muitos mercadores visitantes, especialmente drow, duergar e kuo-toa. Estrangeiros são
+        obrigados a obter mandados de passagem para atravessar a cidade (além do distrito dos cais) e seus territórios.
+        No mercado negro, o Clã Muzgardt fornece mandados de passagem por 200 moedas de ouro por pessoa.
+        <br>Os principais clãs de Gracklstugh são:
+        <br>• Cahaldrho: Cervejeiros de ale
+        <br>• Dunnhaer: Artesãos tradicionais
+        <br>• Ekhlond: Artesãos/inventores experimentais
+        <br>• Gallakh: Criadores/domadores de feras
+        <br>• Haundavar: Construtores, pedreiros
+        <br>• Immur: Ferreiros de Armas
+        <br>• Muzgardt: Mercadores
+        <br>• Nauvrim: Mercenários
+        <br>• Takhul: Clero, alquimia
+        <br>• Thuldark: Proprietários, mercadores.</p>
+    </div>
+
+    <div id="criaturasimportantes" class="tab-content">
+        <div class="grid-2">
+            <div>
+                <h2>Criaturas Importantes</h2>
+                <p>O grupo ainda não teve acesso a estas informações.</p>
+                <!-- <div class="card">
+                    <h3>Destruir Velkynvelve</h3>
+                    <p>Coveshes deseja que Velkynvelve seja destruída para que ninguém mais seja escravizado.</p>
+                </div>
+                <div class="card">
+                    <h3>Segurança dos Aliados</h3>
+                    <p>Coveshes deseja levar todos os seus aliados em segurança em casa.</p>
+                </div>
+                <div class="card">
+                    <h3>Buscar o que lhe pertence</h3>
+                    <p>Após um pacto com Asmodeus, algo lhe foi prometido, e Coveshes ainda não o obteve.</p>
+                </div> -->
+            </div>
+
+            <!-- <div>
+                <h2>Missões Pessoais</h2>
+                <div class="card card-danger">
+                    <h3>Formar Aliança</h3>
+                    <p>Coveshes busca formar aliados no Subterrâneo, para que possam ajudá–lo no seu plano de derrubar
+                        Velkynvelve.</p>
+                </div>
+                <div class="card card-danger">
+                    <h3>Ponto Pacífico</h3>
+                    <p>Construir um templo em devoção a TYR, no Subterrâneo. No momento, planeja criálo na caa de Stool
+                        (Bosque Nunca Claro)</p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <div id="LocaisNotaveis" class="tab-content">
+        <p><em>O grupo não possui um guia para a cidade.</em></p>
+        <!-- <h2>DISTRITO DO LAGO ESCURO</h2>
+
+        <div class="card">
+            <span class="localopen-name">Cervejaria do Lago Escuro</span>
+            <p>Esta enorme e decrépita cervejaria é construída de blocos de pedra empilhados para formar paredes entre os caules petrificados de uma pequena floresta de cogumelos gigantes. Dentro há grandes cubas de cobre fumegando, enchendo o ar com um fedor pesado e ferroso. Dezenas de barris de cobre estão perto, e os corpulentos anões cinza enxameiam pelo lugar, amassando fungos, misturando massas de fermentação e enchendo toneis com cerveja fresca. Este complexo é o local de trabalho e lar do Clã Muzgardt, o clã duergar encarregado de fermentar a cerveja preta do Lago Escuro e no controle da fabricação e importação de outras beberagens. Não duergars não são bem-vindos dentro da cervejaria.</p>
+        </div>
+
+        <div class="card">
+            <span class="localopen-name">Docas do Lago Escuro</span>
+            <p>Estas movimentadas docas são utilizadas 
+principalmente por jangadas de fundo plano feitas
+de madeira de zurkheira e cogumelos-bola
+envernizados. Algumas dessas barcaças rústicas
+vem com remos ou moinhos de propulsão. As
+jangadas parecem desajeitadas, mas cada uma
+pode transportar toneladas de bens comerciais.</p>
+        </div>
+
+        <div class="card">
+            <span class="localopen-name">Forte Mirante do Lago</span>
+            <p>Uma fortaleza e templo dedicado a Laduguer 
+escavada no coração de uma estalagmite massiva na 
+costa do Lago Escuro. Ela é também o lar do Rei das 
+Profundezas e o centro de governo. Dunglorrin Torune 
+está repleta de chaminés de forjas pelas quais fumaça 
+é expelida e bordas das quais as catapultas podem 
+lançar pedras em invasores aquáticos.</p>
+        </div>
+
+        <div class="card">
+            <span class="localopen-name">O Pináculo Quebrado</span>
+            <p>Uma estalagmite quebrada eleva-se do Lago escuro a 
+cerca de 12 metros da costa, formando a base de uma 
+taverna construída com caules de fungos de forma 
+parecida a uma cabana. Uma ponte feita de lã de 
+rothé permite que clientes atravessem a água para ir 
+ao local.</p>
+        </div>
+
+        <div class="card">
+            <span class="localopen-name">O Covil de Ghohlbrorn</span>
+            <p>Esta hospedaria é o único estabelecimento em 
+Gracklstugh que aceita hóspedes não-duergars. 
+“Ghohlbrorn” significa “bulette” em Anão, e a 
+hospedaria é construída dentro de um pequeno 
+complexo de cavernas abaixo do Bazar da Lâmina na 
+fronteira norte do Distrito do Lago Escuro. Seus salões 
+são gelados e úmidos. Uma câmara central serve como 
+sala de jantar, ramificando-se para várias pequenas e 
+tortuosas salas ao longo das quais os quartos foram 
+escavados. É escura, claustrofóbica e desconfortável, 
+mas é segura e defensável.</p>
+        </div>
+
+        <h2>SULCO DE LADUGUER</h2>
+
+        <div class="card">
+            <span class="localblock-name">Postos de Guarda Abandonados</span>
+            <p>Próximo ao portão ocidental do Sulco de Laduguer,
+os duergars construíram uma série de postos de 
+guarda para manter-se de olho nos escravos derro 
+vivendo na Fenda Oeste. Eles foram abandonados 
+quando o Rei das Profundezas Tarngardt, avô do 
+atual monarca, libertou os derros, permitindo que 
+se espalhassem do Distrito da Fenda Oeste pra o da 
+Fenda Leste. Os postos de guarda agora permanecem 
+vazios, providenciando um local ideal para esconder
+se e ficar de olho no tráfego para dentro e para fora 
+das cercanias derro ao leste.</p>
+        </div>
+
+        <div class="card">
+            <span class="localblock-name">Grandes Portões</span>
+            <p>As aberturas que o Sulco de Laduguer criou nas 
+paredes da caverna de Gracklstugh estão
+bloqueadas por estruturas massivas de grades e 
+andaimes, cada um equipado com vários portões. 
+Cada portão é guardado por dois soldados
+duergars visíveis, além de mais 1d4 + 3 invisíveis.</p>
+        </div>
+
+        <div class="card">
+            <span class="localblock-name">Vaal:</span>
+            <p>"Ele é um cara quebrado que pouco a pouco está juntando os caquinhos de seu coração. E fico feliz por
+                isso, porém há caquinhos que não podem ser recuperados.. Eu gostaria de ajudá-lo a criar novos cacos
+                para ajudá-lo a ter de volta o que perdeu. Ele é um ótimo parceiro de trabalho e o recomendaria a
+                qualquer organização."</p>
+        </div> -->
+    </div>
+
+    <script>
+
+        function gerarBrasas() {
+        const container = document.getElementById('forja-container');
+        const quantidade = 40; // Ajuste a densidade aqui
+
+        for (let i = 0; i < quantidade; i++) {
+            const brasa = document.createElement('div');
+            brasa.className = 'brasa';
+            
+            // Valores aleatórios para naturalidade
+            const tamanho = Math.random() * 4 + 2 + 'px';
+            const posicaoX = Math.random() * 100 + 'vw';
+            const duracao = Math.random() * 3 + 3 + 's';
+            const atraso = Math.random() * 7 + 's';
+            const oscilacao = (Math.random() * 150 - 75) + 'px';
+
+            brasa.style.width = tamanho;
+            brasa.style.height = tamanho;
+            brasa.style.left = posicaoX;
+            brasa.style.setProperty('--duracao', duracao);
+            brasa.style.setProperty('--oscilacao', oscilacao);
+            brasa.style.animationDelay = atraso;
+
+            container.appendChild(brasa);
+        }
+    }
+
+    // Inicia o efeito ao carregar a página
+    window.onload = gerarBrasas;
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+
+            // Esconde todo o conteúdo das abas
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Remove a classe "active" de todos os botões
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Mostra a aba atual e adiciona a classe "active" no botão clicado
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+
+</html>
