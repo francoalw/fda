@@ -3,6 +3,10 @@
 
 <head>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
     <link rel="icon" type="image/png"
         href="https://preview.redd.it/dnd-ampersand-tokens-for-world-maps-v0-criv1vtambf31.png?width=256&format=png&auto=webp&s=dc236ed2b6c19de305ad43944d1b306b652093b3">
 
@@ -10,8 +14,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gracklstugh</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
-
         :root {
             --bg-color: #0b0c10;
             --text-color: #c5c6c7;
@@ -19,6 +21,7 @@
             --secondary-color: #45a29e;
             --drow-purple: #4b0082;
             --blood-red: #8a0303;
+            --glow-violet: #8a2be2;
         }
 
         body {
@@ -56,45 +59,56 @@
         }
 
         #forja-container {
-    position: fixed; /* Fixado na tela mesmo ao rolar */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Importante: permite clicar no que está atrás */
-    z-index: 9999; /* Garante que fique acima de tudo */
-    overflow: hidden;
-}
+            position: fixed;
+            /* Fixado na tela mesmo ao rolar */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            /* Importante: permite clicar no que está atrás */
+            z-index: 9999;
+            /* Garante que fique acima de tudo */
+            overflow: hidden;
+        }
 
-.brasa {
-    position: absolute;
-    bottom: -20px;
-    background: #ffcc00;
-    border-radius: 50%;
-    opacity: 0.8;
-    filter: blur(1px);
-    box-shadow: 0 0 10px #ff4500, 0 0 20px #ff8c00;
-    animation: subir var(--duracao) infinite ease-in;
-}
+        .brasa {
+            position: absolute;
+            bottom: -20px;
+            background: #ffcc00;
+            border-radius: 50%;
+            opacity: 0.8;
+            filter: blur(1px);
+            box-shadow: 0 0 10px #ff4500, 0 0 20px #ff8c00;
+            animation: subir var(--duracao) infinite ease-in;
+        }
 
-@keyframes subir {
-    0% {
-        transform: translateY(0) translateX(0) scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: translateY(-50vh) translateX(var(--oscilacao)) scale(0.8);
-    }
-    100% {
-        transform: translateY(-110vh) translateX(calc(var(--oscilacao) * 2)) scale(0.2);
-        opacity: 0;
-    }
-}
+        @keyframes subir {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: translateY(-50vh) translateX(var(--oscilacao)) scale(0.8);
+            }
+
+            100% {
+                transform: translateY(-110vh) translateX(calc(var(--oscilacao) * 2)) scale(0.2);
+                opacity: 0;
+            }
+        }
+
+
+        .nome-local {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
 
         .btn-voltar {
-            position: relative;
-            top: -3.4em;
-            left: -4.9rem;
+            align-self: flex-start;
+            position: static;
             display: inline-block;
             opacity: 70%;
             padding: 0.5rem 0.5rem;
@@ -148,7 +162,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid var(--stone-grey);
         }
 
         .local-header h1 {
@@ -175,10 +188,13 @@
         }
 
         .nome-local {
-    margin-left: 5rem;  /* Empurra para a direita */
-    margin-top: -4rem;  /* Sobe o conteúdo (como você fez com a foto) */
-    text-align: left;   /* Controla o alinhamento do texto interno */
-}
+            margin-left: 5rem;
+            /* Empurra para a direita */
+            margin-top: -4rem;
+            /* Sobe o conteúdo (como você fez com a foto) */
+            text-align: left;
+            /* Controla o alinhamento do texto interno */
+        }
 
         .localopen-name {
             font-weight: bold;
@@ -277,8 +293,8 @@
             </div>
 
             <div>
-                <img src="https://static.wikia.nocookie.net/forgottenrealms/images/5/50/Gracklstugh.jpg/revision/latest/scale-to-width-down/1000?cb=20151217163217 alt="
-                    Gracklstugh" class="local-photo">
+                <img src="https://static.wikia.nocookie.net/forgottenrealms/images/5/50/Gracklstugh.jpg/revision/latest/scale-to-width-down/1000?cb=20151217163217"
+                    alt="Gracklstugh" class="local-photo">
             </div>
         </header>
     </div>
@@ -290,69 +306,82 @@
     </div>
 
     <div id="Descricao" class="tab-content" style="display: block;">
-        <p style="text-align: justify;">Gracklstugh (pronuncia-se GRÁCS-TÚG), é uma cidade
+        <p style="text-align: justify;">Gracklstugh (pronuncia-se GRACS-TUG), é uma cidade
             duergar às margens do Lago Negro, na Underdark.</p>
 
         <h2>Geografia</h2>
         <p style="text-align: justify;">A cidade fica a cerca de 243km de Menzoberranzan, do outro lado do Lago
-        Negro.
-        <br>O acesso a Gracklstugh pode ser alcançado pelo Lago Negro.</p>
+            Negro.
+            <br>O acesso a Gracklstugh pode ser alcançado pelo Lago Negro.
+        </p>
 
         <h2>Estrutura</h2>
         <p style="text-align: justify;">Gracklstugh é uma cidade caverna que desce pelo lado leste para se juntar
-        ao Lago negro como um porto subterrâneo. A cidade é pela luz do fogo de fundições misturadas entre estalagmites.
-        O ar cheira acre e é carregado de sons industriais: fogo, vapor e ferro
-        zumbindo. A fumaça persistente que preenche a caverna pode causar uma tosse persistente e às vezes fatal,
-        conhecida como pulmão de gral.
-        <br>
-        Laduguer's Furrow, também conhecido como "a Fenda", dividiu a cidade ao meio de norte a sul. Pontes conectam a
-        cidade mais alta aos bairros à beira do lago. O lado oeste era proibido para estrangeiros. </p>
+            ao Lago negro como um porto subterrâneo. A cidade é pela luz do fogo de fundições misturadas entre
+            estalagmites.
+            O ar cheira acre e é carregado de sons industriais: fogo, vapor e ferro
+            zumbindo. A fumaça persistente que preenche a caverna pode causar uma tosse persistente e às vezes fatal,
+            conhecida como pulmão de gral.
+            <br>
+            Laduguer's Furrow, também conhecido como "a Fenda", dividiu a cidade ao meio de norte a sul. Pontes conectam
+            a
+            cidade mais alta aos bairros à beira do lago. O lado oeste era proibido para estrangeiros.
+        </p>
 
         <h2>História</h2>
         <p style="text-align: justify;">Gracklstugh foi fundada em −3717 DR por duergars que escaparam da queda de
-        Deep Shanatar e da subsequente escravidão de muitos anões cinzentos em Oryndoll.
-        <br>
-        Em −3392 DR, o Rei Horgar Steelshadow II começou a unir os clãs duergar em Gracklstugh, criando o Reino
-        Profundo. Nos últimos séculos, porém, o Reino Profundo restringiu seu alcance à própria cidade e seus arredores.
-        <br>
-        O poder do Reino Profundo começou a cair durante as Batalhas dos Deepbear contra os quaggodos de −1803 DR até
-        cerca de −1350 DR.
-        <br>
-        Por voltado século XIV DR, o Rei Tarngardt Steelshadow (avô de Horgar Steelshadow IV; rei desde 972 DR) foi
-        manipulado e controlado pelo Conselho dos Savants. Após sua morte, Horgar IV assumiu o trono, mas reconheceu a
-        ameaça dos savants e planejou matar ou pelo menos expulsar todos os derro de Gracklstugh.
-        <br>
-        Em 1372 DR, Horgar usou o Silêncio de Lolth e a fraqueza dos seguidores de Lolth como desculpa para atacar a
-        cidade drow de Menzoberranzan e assim consolidar seu poder sobre seus senhores. Ele se aliou a Nimor Imphraezl
-        dos Jaezred Chaulssin para avançar seus objetivos. Sob seu incentivo, Horgar liderou seu exército para o sucesso
-        contra os drow nos Pilares da Dor e ganhou aliados adicionais: a Legião Açoitada de Kaanyr Vhok e a traidora
-        Casa drow Agrach Dyrr, também alinhada aos Jaezred Chaulssin. Referido como o Cerco de Menzoberranzan, os
-        aliados então marcharam contra a cidade drow e a sitiaram por vários meses.
-        <br>
-        Em 28 de C, 1373 DR, o Silêncio de Lolth terminou e as sacerdotisas de Lolth recuperaram seus poderes. Kaanyr
-        Vhok posteriormente convocou suas forças de volta para a Fortaleza Hellgate; Os duergar restantes foram
-        facilmente derrotados e recuados. O cerco terminou oficialmente em 30 de Ches.
-        <br>Enquanto o exército duergar recuava, Nimor avançou e matou Horgar Steelshadow IV.
-        <br>Após a morte de Horgar IV, Horgar Steelshadow V ascendeu ao trono. </p>
+            Deep Shanatar e da subsequente escravidão de muitos anões cinzentos em Oryndoll.
+            <br>
+            Em −3392 DR, o Rei Horgar Steelshadow II começou a unir os clãs duergar em Gracklstugh, criando o Reino
+            Profundo. Nos últimos séculos, porém, o Reino Profundo restringiu seu alcance à própria cidade e seus
+            arredores.
+            <br>
+            O poder do Reino Profundo começou a cair durante as Batalhas dos Deepbear contra os quaggodos de −1803 DR
+            até
+            cerca de −1350 DR.
+            <br>
+            Por voltado século XIV DR, o Rei Tarngardt Steelshadow (avô de Horgar Steelshadow IV; rei desde 972 DR) foi
+            manipulado e controlado pelo Conselho dos Savants. Após sua morte, Horgar IV assumiu o trono, mas reconheceu
+            a
+            ameaça dos savants e planejou matar ou pelo menos expulsar todos os derro de Gracklstugh.
+            <br>
+            Em 1372 DR, Horgar usou o Silêncio de Lolth e a fraqueza dos seguidores de Lolth como desculpa para atacar a
+            cidade drow de Menzoberranzan e assim consolidar seu poder sobre seus senhores. Ele se aliou a Nimor
+            Imphraezl
+            dos Jaezred Chaulssin para avançar seus objetivos. Sob seu incentivo, Horgar liderou seu exército para o
+            sucesso
+            contra os drow nos Pilares da Dor e ganhou aliados adicionais: a Legião Açoitada de Kaanyr Vhok e a traidora
+            Casa drow Agrach Dyrr, também alinhada aos Jaezred Chaulssin. Referido como o Cerco de Menzoberranzan, os
+            aliados então marcharam contra a cidade drow e a sitiaram por vários meses.
+            <br>
+            Em 28 de C, 1373 DR, o Silêncio de Lolth terminou e as sacerdotisas de Lolth recuperaram seus poderes.
+            Kaanyr
+            Vhok posteriormente convocou suas forças de volta para a Fortaleza Hellgate; Os duergar restantes foram
+            facilmente derrotados e recuados. O cerco terminou oficialmente em 30 de Ches.
+            <br>Enquanto o exército duergar recuava, Nimor avançou e matou Horgar Steelshadow IV.
+            <br>Após a morte de Horgar IV, Horgar Steelshadow V ascendeu ao trono.
+        </p>
 
         <h2>Habitantes</h2>
         <p style="text-align: justify;">A cidade é principalmente lar de duergars, mas há uma minoria considerável
-        de derros que vivem lá, assim como vários durzagon, orogs e gigantes de pedra. Um terço da população total é
-        composto por escravos, nomeadamente goblins, anões do escudo, orcs, svirfneblin e humanos.
-        <br>A cidade recebia muitos mercadores visitantes, especialmente drow, duergar e kuo-toa. Estrangeiros são
-        obrigados a obter mandados de passagem para atravessar a cidade (além do distrito dos cais) e seus territórios.
-        No mercado negro, o Clã Muzgardt fornece mandados de passagem por 200 moedas de ouro por pessoa.
-        <br>Os principais clãs de Gracklstugh são:
-        <br>• Cahaldrho: Cervejeiros de ale
-        <br>• Dunnhaer: Artesãos tradicionais
-        <br>• Ekhlond: Artesãos/inventores experimentais
-        <br>• Gallakh: Criadores/domadores de feras
-        <br>• Haundavar: Construtores, pedreiros
-        <br>• Immur: Ferreiros de Armas
-        <br>• Muzgardt: Mercadores
-        <br>• Nauvrim: Mercenários
-        <br>• Takhul: Clero, alquimia
-        <br>• Thuldark: Proprietários, mercadores.</p>
+            de derros que vivem lá, assim como vários durzagon, orogs e gigantes de pedra. Um terço da população total é
+            composto por escravos, nomeadamente goblins, anões do escudo, orcs, svirfneblin e humanos.
+            <br>A cidade recebia muitos mercadores visitantes, especialmente drow, duergar e kuo-toa. Estrangeiros são
+            obrigados a obter mandados de passagem para atravessar a cidade (além do distrito dos cais) e seus
+            territórios.
+            No mercado negro, o Clã Muzgardt fornece mandados de passagem por 200 moedas de ouro por pessoa.
+            <br>Os principais clãs de Gracklstugh são:
+            <br>• Cahaldrho: Cervejeiros de ale
+            <br>• Dunnhaer: Artesãos tradicionais
+            <br>• Ekhlond: Artesãos/inventores experimentais
+            <br>• Gallakh: Criadores/domadores de feras
+            <br>• Haundavar: Construtores, pedreiros
+            <br>• Immur: Ferreiros de Armas
+            <br>• Muzgardt: Mercadores
+            <br>• Nauvrim: Mercenários
+            <br>• Takhul: Clero, alquimia
+            <br>• Thuldark: Proprietários, mercadores.
+        </p>
     </div>
 
     <div id="criaturasimportantes" class="tab-content">
@@ -485,33 +514,32 @@ duergars visíveis, além de mais 1d4 + 3 invisíveis.</p>
     <script>
 
         function gerarBrasas() {
-        const container = document.getElementById('forja-container');
-        const quantidade = 40; // Ajuste a densidade aqui
+            const container = document.getElementById('forja-container');
+            const quantidade = 40; // Ajuste a densidade aqui
 
-        for (let i = 0; i < quantidade; i++) {
-            const brasa = document.createElement('div');
-            brasa.className = 'brasa';
-            
-            // Valores aleatórios para naturalidade
-            const tamanho = Math.random() * 4 + 2 + 'px';
-            const posicaoX = Math.random() * 100 + 'vw';
-            const duracao = Math.random() * 3 + 3 + 's';
-            const atraso = Math.random() * 7 + 's';
-            const oscilacao = (Math.random() * 150 - 75) + 'px';
+            for (let i = 0; i < quantidade; i++) {
+                const brasa = document.createElement('div');
+                brasa.className = 'brasa';
 
-            brasa.style.width = tamanho;
-            brasa.style.height = tamanho;
-            brasa.style.left = posicaoX;
-            brasa.style.setProperty('--duracao', duracao);
-            brasa.style.setProperty('--oscilacao', oscilacao);
-            brasa.style.animationDelay = atraso;
+                // Valores aleatórios para naturalidade
+                const tamanho = Math.random() * 4 + 2 + 'px';
+                const posicaoX = Math.random() * 100 + 'vw';
+                const duracao = Math.random() * 3 + 3 + 's';
+                const atraso = Math.random() * 7 + 's';
+                const oscilacao = (Math.random() * 150 - 75) + 'px';
 
-            container.appendChild(brasa);
+                brasa.style.width = tamanho;
+                brasa.style.height = tamanho;
+                brasa.style.left = posicaoX;
+                brasa.style.setProperty('--duracao', duracao);
+                brasa.style.setProperty('--oscilacao', oscilacao);
+                brasa.style.animationDelay = atraso;
+
+                container.appendChild(brasa);
+            }
         }
-    }
 
-    // Inicia o efeito ao carregar a página
-    window.onload = gerarBrasas;
+        window.addEventListener('load', gerarBrasas);
 
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;

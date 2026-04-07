@@ -10,256 +10,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ront</title>
     <script type="text/javascript"
-        src="https://me.kes.v2.scr.kaspersky-labs.com/7EA5E9BB-55E1-4C31-9C21-4943DDFED2E4/main.js?attr=rCTaql1zB6aQ2CS4wj4WCJ5bguTDNi2Zw89PpbB2DOf4QMLlV3UxkHmXWmHS1U5FuzY8sMV1sQyNKS-2G7K1Yg"
         charset="UTF-8"></script>
-    <style>
+    <link rel="stylesheet" href="../css/npcs_shared.css">
+
+   <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
-
-        :root {
-            --bg-color: #0b0c10;
-            --text-color: #c5c6c7;
-            --primary-color: #66fcf1;
-            /* Ciano luminescente */
-            --secondary-color: #45a29e;
-            --drow-purple: #4b0082;
-            --blood-red: #8a0303;
-        }
-
-        body {
-            max-width: 900px;
-            margin: 0 auto;
-            /* O 'auto' nas laterais centraliza o bloco na tela */
-            font-family: 'Lora', serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            padding: 20px;
-            background-image: radial-gradient(circle at center, #1f1b24 0%, #0b0c10 100%);
-            min-height: 100vh;
-
-            /* Garantir que o conteúdo interno também se comporte bem */
-            display: flex;
-            flex-direction: column;
-        }
-
-        div.container {
-            min-width: 100%;
-            justify-content: center;
-            max-height: 190px;
-            /* Ajuste o valor conforme sua necessidade */
-            overflow: hidden;
-            /* Impede que o conteúdo saia para fora da borda */
-        }
-
-        h1,
-        h2,
-        h3 {
-            font-family: 'Cinzel', serif;
-            color: var(--primary-color);
-            text-shadow: 0 0 10px rgba(102, 252, 241, 0.3);
-        }
-
-        header {
-            text-align: center;
-            padding: 20px;
-            border-bottom: 2px solid var(--drow-purple);
-            margin-bottom: 20px;
-        }
-
-        .btn-voltar {
-            position: absolute;
-            top: 1.5rem;
-            left: 14.1rem;
-            display: inline-block;
-            opacity: 70%;
-            padding: 10px 10px;
-            /* Estética Gótica */
-            background-color: #4b0082;
-            /* Preto profundo */
-            color: var(--text-color);
-            /* Prata envelhecida */
-            font-family: 'Lora', serif;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            /* Bordas e Sombras */
-            border: 1px solid #000000;
-            /* Borda cor de sangue seco */
-            border-radius: 5px;
-            /* Cantos retos são mais "severos" */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
-
-            font-size: 0.8rem;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            z-index: 1000;
-        }
-
-        .btn-voltar:hover {
-            opacity: 50%;
-            cursor: pointer;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.03);
-            border-left: 4px solid var(--secondary-color);
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 0 4px 4px 0;
-        }
-
-        .card-danger {
-            border-left-color: var(--blood-red);
-        }
-
-        .character-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            /* AFASTAMENTO HORIZONTAL: */
-            /* O primeiro valor (0px) é topo/baixo, o segundo (20px) é esquerda/direita */
-            padding: 20px 60px 15px 50px;
-
-            border-bottom: 2px solid var(--stone-grey);
-            margin-bottom: 30px;
-        }
-
-        .character-header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            /* Ajuste conforme necessário */
-            color: white;
-            /* Ou sua variável de cor principal */
-        }
-
-        .character-header .subtitle {
-            margin-top: 5px;
-            font-size: 1.1em;
-            color: #a0a0a0;
-            /* Um cinza mais claro */
-        }
-
-        /* Container Principal */
-        .container {
-            margin: 0 auto;
-            background-color: rgba(20, 20, 25, 0.8);
-            border: 1px solid #333;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(75, 0, 130, 0.2);
-            overflow: hidden;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .header-photo {
-            margin-left: 20px;
-            /* Espaço entre o texto e a foto */
-            flex-shrink: 0;
-            /* Impede a imagem de encolher */
-        }
-
-        .npc-name {
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .pj-name {
-            font-weight: bold;
-            color: var(--blood-red);
-        }
-
-        .quote {
-            font-style: italic;
-            border-left: 3px solid var(--primary-color);
-            padding-left: 10px;
-            margin: 10px 0;
-            color: #fff;
-        }
-
-        .icon-photo {
-            width: 150px;
-            /* Largura da foto */
-            height: 150px;
-            /* Altura da foto (igual à largura para ficar quadrada/circular) */
-            object-fit: cover;
-            /* Garante que a imagem preencha o espaço sem distorcer */
-            border-radius: 50%;
-            /* Torna a foto circular */
-            border: 3px solid var(--glow-violet);
-            /* Borda opcional com a cor temática */
-            box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
-            /* Glow sutil opcional */
-        }
-
-        .subtitle {
-            font-style: italic;
-            color: var(--secondary-color);
-        }
-
-        /* Estilo das Abas */
-        .tab-menu {
-            display: flex;
-            background-color: #1a1a1d;
-            border-bottom: 2px solid var(--drow-purple);
-        }
-
-        .tab-button {
-            flex: 1;
-            background-color: inherit;
-            color: var(--text-color);
-            border: none;
-            outline: none;
-            cursor: pointer;
-            padding: 14px 16px;
-            transition: 0.3s;
-            font-family: 'Cinzel', serif;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .tab-button:hover {
-            background-color: rgba(75, 0, 130, 0.4);
-            color: var(--primary-color);
-        }
-
-        .tab-button.active {
-            background-color: var(--drow-purple);
-            color: white;
-            text-shadow: 0 0 5px #fff;
-        }
-
-        /* Conteúdo das Abas */
-        .tab-content {
-            display: none;
-            animation: fadeEffect 0.5s;
-        }
-
-        @keyframes fadeEffect {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        ul {
-            list-style-type: square;
-            color: var(--secondary-color);
-        }
-
-        ul li span {
-            color: var(--text-color);
-        }
     </style>
 </head>
 
 <body>
-
     <div class="container">
         <header class="character-header">
             <div class="header-content">
@@ -322,6 +81,11 @@ vez que suas tribos estão em guerra. No momento, Ront está aprendendocom Coves
     <div id="relacoes" class="tab-content">
         <p><em>"Ront vai fazer a escolha certa..."</em></p>
         <h2>Opinião de Ront sobre seus aliados</h2>
+
+                <div class="card">
+                    <span class="npc-name">Buppido:</span>
+        <p><em>"Meu irmão se estressa com a positividade de Coveshes. Eu acho ele maneiro"
+                </div>
 
         <div class="card card-danger">
             <span class="pj-name">Coveshes:</span>
