@@ -2,11 +2,15 @@
 <html lang="pt-br">
 
 <head>
+
+    <link rel="icon" type="image/png"
+        href="https://preview.redd.it/dnd-ampersand-tokens-for-world-maps-v0-criv1vtambf31.png?width=256&format=png&auto=webp&s=dc236ed2b6c19de305ad43944d1b306b652093b3">
+
+
     <meta charset="UTF-8">
-    <title>Fora do Abismo | Mestre Weber</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Special+Elite&family=Metamorphous&display=swap"
-        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ADICIONAR -->
+    <title>Fora do Abismo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&&display=swap" rel="stylesheet">
     <style>
         :root {
             --abyss-black: #050507;
@@ -46,97 +50,30 @@
             letter-spacing: 4px;
         }
 
-        .pj-row {
-            min-width: 945px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .pj-card {
-            display: block;
-            /* Garante que o link ocupe todo o espaço do card */
-            text-decoration: none;
-            /* Remove o sublinhado do texto */
+        .botao-lugar a {
             color: inherit;
-            /* Mantém as cores que você definiu para os textos */
-            background: rgba(15, 15, 20, 0.7);
-            backdrop-filter: blur(10px);
-            /* Efeito de vidro moderno */
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            /* Borda sutil */
-            border-top: 3px solid var(--glow-violet);
-            padding: 20px;
-            text-align: center;
-            border-radius: 12px;
-            /* Cantos arredondados dão um ar mais premium */
-
-            /* Transição mais fluida usando cubic-bezier */
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
+            text-decoration: none;
+            opacity: 1;
+            text-align: left;
         }
 
-        .pj-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            /* Sobe e cresce levemente */
-            background: rgba(25, 25, 35, 0.9);
-
-            /* Glow mais intenso e espalhado */
-            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.3),
-                0 0 10px rgba(138, 43, 226, 0.2);
-
-            border-color: var(--glow-violet);
+        .botao-lugar a:hover {
+            text-decoration: underline;
+            filter: brightness(1.2);
+            /* Dá um leve brilho ao passar o mouse */
         }
 
-        /* Efeito de brilho passando pelo card ao passar o mouse (opcional) */
-        .pj-card::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg,
-                    transparent,
-                    rgba(255, 255, 255, 0.05),
-                    transparent);
-            transition: 0.5s;
-        }
-
-        .pj-card:hover::after {
-            left: 100%;
-        }
-
-        .pj-portrait {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 10px;
-            border-radius: 50%;
-            border: 2px solid #444;
-            background: #111;
-            display: block;
-            object-fit: cover;
-        }
-
-        .pj-card h3 {
-            font-family: 'Cinzel Decorative', serif;
-            font-size: 1.1rem;
-            color: #fff;
-            margin-bottom: 5px;
-        }
-
-        .pj-card p {
-            font-size: 0.9rem;
-            color: var(--glow-violet);
+        .data-table th {
+            text-align: left;
+            padding: 12px 15px;
             text-transform: uppercase;
+            color: var(--glow-violet);
+            border-bottom: 2px solid var(--drow-purple);
+            font-size: 0.85rem;
         }
 
         .dashboard-main {
             display: grid;
-            gap: 30px;
         }
 
         .data-box {
@@ -207,23 +144,6 @@
             }
         }
 
-        .npc-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-        }
-
-        .npc-tag {
-            background: #111;
-            padding: 10px;
-            border-left: 2px solid var(--stone-grey);
-            font-size: 0.85rem;
-        }
-
-        .npc-tag.important {
-            border-left-color: #ff3700;
-        }
-
         .lore-entry {
             font-size: 1rem;
             margin-bottom: 15px;
@@ -269,12 +189,11 @@
             margin-bottom: 5px;
         }
 
-        .location-banner {
+        .local-banner {
             background: linear-gradient(90deg, #1a0b2e, transparent);
-            padding: 15px;
+            padding: 1rem;
             margin-bottom: 20px;
             border-radius: 4px;
-
             border-left: 3px solid #3a1a5e;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
@@ -283,7 +202,7 @@
             color: #a3a3a3;
         }
 
-        .location-banner:hover {
+        .local-banner:hover {
             background: linear-gradient(90deg, #2d0a3d, #0d0216);
             box-shadow: inset 0 0 20px rgba(138, 43, 226, 0.2),
                 0 0 15px rgba(0, 0, 0, 0.8);
@@ -293,7 +212,7 @@
             text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
         }
 
-        .location-banner::after {
+        .local-banner::after {
             content: '';
             position: absolute;
             top: 0;
@@ -304,8 +223,113 @@
             transition: 0.8s;
         }
 
-        .location-banner:hover::after {
+        .local-banner:hover::after {
             left: 100%;
+        }
+
+        .npc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .npc-tag {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            background: #111;
+            padding: 10px;
+            border-left: 2px solid var(--stone-grey);
+            font-size: 0.85rem;
+        }
+
+        .npc-tag:hover {
+            border-color: var(--primary-color);
+            transform: scale(1.03);
+            transition: all 0.2s ease;
+        }
+
+        .npc-tag.important {
+            border-left-color: #ff3700;
+        }
+
+        .pj-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .pj-card {
+            display: block;
+            /* Garante que o link ocupe todo o espaço do card */
+            text-decoration: none;
+            /* Remove o sublinhado do texto */
+            color: inherit;
+            /* Mantém as cores que você definiu para os textos */
+            background: rgba(15, 15, 20, 0.7);
+            backdrop-filter: blur(10px);
+            /* Efeito de vidro moderno */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            /* Borda sutil */
+            border-top: 3px solid var(--glow-violet);
+            padding: 20px;
+            text-align: center;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pj-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: rgba(25, 25, 35, 0.9);
+            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.3),
+                0 0 10px rgba(138, 43, 226, 0.2);
+            border-color: var(--glow-violet);
+        }
+
+        .pj-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(0, 255, 187, 0.05),
+                    transparent);
+            transition: 0.5s;
+        }
+
+        .pj-card:hover::after {
+            left: 100%;
+        }
+
+        .pj-portrait {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 10px;
+            border-radius: 50%;
+            border: 2px solid #444;
+            background: #111;
+            display: block;
+            object-fit: cover;
+        }
+
+        .pj-card h3 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .pj-card p {
+            font-size: 0.9rem;
+            color: var(--glow-violet);
+            text-transform: uppercase;
         }
 
         ::-webkit-scrollbar {
@@ -323,15 +347,6 @@
             /* Mudei para combinar com o tema */
             margin: 20px 0;
             color: var(--ink-parchment);
-        }
-
-        .data-table th {
-            text-align: left;
-            padding: 12px 15px;
-            text-transform: uppercase;
-            color: var(--glow-violet);
-            border-bottom: 2px solid var(--drow-purple);
-            font-size: 0.85rem;
         }
 
         .data-table td {
@@ -358,12 +373,6 @@
             letter-spacing: 1px;
         }
 
-        /* Ajuste extra: garantir que as células tenham contraste no tema dark */
-        .data-table td {
-            color: var(--ink-parchment);
-            border-bottom: 1px solid #222;
-        }
-
         /* * {
             outline: 1px solid red !important;
         } */
@@ -375,21 +384,21 @@
     <div id="firefly-container"></div>
 
     <header>
-        <h1>Fora do Abismo</h1>
+        <h1>Fora do Abismo| Mestre Weber</h1>
         <p style="font-size: 0.8rem; opacity: 0.6;">D&D 2024 • Mestre Weber</p>
     </header>
 
     <section class="pj-row">
         <a href="pjs/rudeus.html" class="pj-card">
-            <img src="pjs/rudeus.jpeg" class="pj-portrait">
+            <img src="pjs/rudeus.jpeg" class="pj-portrait" alt="Retrato de Coveshes" loading="lazy">
             <h3>Coveshes</h3>
         </a>
         <a href="pjs/fane.html" class="pj-card">
-            <img src="pjs/faneaurel.jpg" class="pj-portrait" alt="Retrato de Fane Aurel">
+            <img src="pjs/faneaurel.jpg" class="pj-portrait" alt="Retrato de Fane Aurel" loading="lazy">
             <h3>Fane Aurel</h3>
         </a>
         <a href="pjs/vaal.html" class="pj-card">
-            <img src="pjs/vaalnailo.png" class="pj-portrait">
+            <img src="pjs/vaalnailo.png" class="pj-portrait" alt="Retrato de Vaal" loading="lazy">
             <h3>Vaal</h3>
         </a>
     </section>
@@ -397,343 +406,286 @@
     <main class="dashboard-main">
 
         <div class="left-side">
-            <div class="location-banner">
-                <h2 style="font-family: 'Cinzel Decorative'; margin:0">📍 Localização: Gracklstugh</h2>
-                <!-- <p style="font-size: 0.8rem;">Há 15 km de Sloobludop.</p>
-                <p style="font-size: 0.8rem;">Há 288 km do Bosque Nunca Claro.</p> -->
+            <a href="lugares/gracklstugh.html" class="local-banner"
+                style="text-decoration: none; margin-bottom: 08px; display: block;">
+                <h2 style="font-family: 'Cinzel Decorative'; margin: 0;">
+                    📍 Localização: Gracklstugh
+                </h2>
+            </a>
+            <!-- <p style="font-size: 0.8rem;">Ponto de Interesse para <strong>Buppido</strong>.</p> -->
+            <!-- <p style="font-size: 0.8rem;">Há 288 km do Bosque Nunca Claro.</p> -->
+        </div>
+
+        <div class="data-box">
+            <h2>📜 Diário de Missões</h2>
+            <div class="lore-entry-principal">
+                <span>MISSÃO PRINCIPAL</span>
+                Chegar à superfície.
             </div>
-
-            <div class="data-box">
-                <h2>📜 Diário de Missões</h2>
-                <div class="lore-entry-principal">
-                    <span>MISSÃO PRINCIPAL</span>
-                    Chegar à superfície.
-                </div>
-                <div class="lore-entry-principal">
-                    <span>EVENTO RECENTE</span>
-                    <strong>Demogorgon</strong> emergiu em <strong>Sloobludop</strong>.
-                </div>
-                <!-- <div class="lore-entry">
-                    <span>OBJETIVO ATUAL</span>
-                    Sobreviver.
-                </div> -->
-                <div class="lore-entry-low">
-                    <span>RUMOR RECENTE</span>
-                    Os ferimentos de Jorlan foram causados por um Limo no <strong>Lago Negro</strong>.
-                </div>
+            <div class="lore-entry-principal">
+                <span>EVENTO RECENTE</span>
+                <strong>Demogorgon</strong> emergiu em <strong>Sloobludop</strong>.
             </div>
-
-            <div class="data-box" style="margin-top: 30px;">
-                <h2>👥 Companheiros (NPCs)</h2>
-                <div class="npc-grid">
-                    <div class="npc-tag"><strong>Buppido</strong><br>Derro Bajulador</div>
-                    <div class="npc-tag"><strong>Prince Derendil</strong><br>Quaggoth Elfo</div>
-                    <!-- <div class="npc-tag"><strong>Eldeth Feldrun</strong><br>Anã do Escudo</div> -->
-                    <div class="npc-tag"><strong>Jimjar</strong><br>Gnomo Apostador</div>
-                    <div class="npc-tag"><strong>Ront</strong><br>Orc Valentão</div>
-                    <div class="npc-tag"><strong>Sarith Kzekarith</strong><br>Drow Acusado</div>
-                    <div class="npc-tag"><strong>Stool</strong><br>Miconide Broto</div>
-                    <div class="npc-tag"><strong>Topsy</strong><br>Gnomo das Profundezas irmão de Turvy</div>
-                    <div class="npc-tag"><strong>Turvy</strong><br>Gnomo das Profundezas irmão de Topsy</div>
-                </div>
+            <div class="lore-entry">
+                <span>DESCOBERTA RECENTE</span>
+                Graz'zt está indo ao encontro de seu filho.
             </div>
-
-            <div class="data-box"
-                style="margin-top: 20px; font-size: 1rem; background: #1a0b2e; font-family: Arial, sans-serif;">
-                <h2>📋Lembrete de Regras</h2>
-                <p><strong>Desidratação [risco]</strong></p>
-                <p>Se uma criatura consumir menos do que a quantidade necessária de água em um dia, ela adquire 1 nível
-                    de Exaustão ao final do dia. A Exaustão resultante da desidratação não pode ser removida até que a
-                    criatura ingira a quantidade total de água necessária por dia.</p>
-                <div class="titulo-tabela">Necessidade de Água por Dia:</div>
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Tamanho</th>
-                            <th>Água</th>
-                            <th>Tamanho</th>
-                            <th>Água</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Minúsculo</td>
-                            <td>1,25 litros</td>
-                            <td>Grande</td>
-                            <td>16 litros</td>
-                        </tr>
-                        <tr>
-                            <td>Pequeno</td>
-                            <td>2 litros</td>
-                            <td>Enorme</td>
-                            <td>60 litros</td>
-                        </tr>
-                        <tr>
-                            <td>Médio</td>
-                            <td>4 litros</td>
-                            <td>Colossal</td>
-                            <td>240 litros</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <p><strong><br><br>Desnutrição [risco]</strong></p>
-                <p>Uma criatura que consome menos da metade da comida necessária para um dia deve ser bem-sucedida em
-                    uma salvaguarda de Constituição CD 10 ou adquire 1 nível de Exaustão ao final do dia. Uma criatura
-                    que não consome nada por 5 dias adquire automaticamente 1 nível de Exaustão ao final do quinto dia,
-                    além de um nível adicional ao final de cada dia subsequente sem comida. A Exaustão causada por
-                    desnutrição não pode ser removida até que a criatura consuma a quantidade total de comida necessária
-                    para um dia. </p>
-                <div class="titulo-tabela">Necessidade de Comida por Dia:</div>
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Tamanho</th>
-                            <th>Comida</th>
-                            <th>Tamanho</th>
-                            <th>Comida</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Minúsculo</td>
-                            <td>125 gramas</td>
-                            <td>Grande</td>
-                            <td>2 kg</td>
-                        </tr>
-                        <tr>
-                            <td>Pequeno</td>
-                            <td>0,25 kg</td>
-                            <td>Enorme</td>
-                            <td>08 kg</td>
-                        </tr>
-                        <tr>
-                            <td>Médio</td>
-                            <td>0,5 kg</td>
-                            <td>Colossal</td>
-                            <td>32 kg</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <p><strong><br><br>Forrageando</strong></p>
-                <p>Os aventureiros precisam forragear para sobreviver em sua jornada. Encontrar sustento no Subterrâneo
-                    é difícil, mas não impossível. Personagens podem conseguir comida e água se o grupo viajar em um
-                    ritmo normal ou lento. Um personagem buscando recursos faz um teste de Sabedoria (Sobrevivência). A
-                    CD varia conforme alguns lugares do Subterrâneo. Em adição a forragear, magias como criar alimentos
-                    e bom fruto podem ajudar a fornecer provisões para o grupo, e há sempre a chance de os personagens
-                    encontrarem outros de quem eles possam comprar ou roubar provisões. Adicionalmente, muitas criaturas
-                    que os aventureiros possam encontrar e matar podem ser aproveitadas, embora a carne que elas possuam
-                    apodreça após um único dia se não for consumida. Comer carne estragada pode requerer um teste de
-                    resistência de Constituição para manter a refeição no estômago, um teste de resistência de Sanidade
-                    para evitar adquirir um nível de loucura dessa experiência terrível, ou ambos.</p>
-                <div class="titulo-tabela">Comida Provida por Criatura:</div>
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Tamanho da Criatura</th>
-                            <th>Comida Fornecida</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Minúsculo</td>
-                            <td>0,5 kg</td>
-                        </tr>
-                        <tr>
-                            <td>Pequeno</td>
-                            <td>02 kg</td>
-                        </tr>
-                        <tr>
-                            <td>Médio</td>
-                            <td>08 kg</td>
-                        </tr>
-                        <tr>
-                            <td>Grande</td>
-                            <td>16 kg</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <p><strong><br><br>RITMO DE VIAGEM NO SUBTERRÂNEO</strong></p>
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Ritmo</th>
-                            <th>Distância por dia</th>
-                            <th>Efeito</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Rápido</td>
-                            <td>12 km</td>
-                            <td>CD de Sorte elevada, sem forrageio.</td>
-                        </tr>
-                        <tr>
-                            <td>Normal</td>
-                            <td>09 km</td>
-                            <td>CD de Sorte padrão, forrageio comum.</td>
-                        </tr>
-                        <tr>
-                            <td>Lento</td>
-                            <td>06 km</td>
-                            <td>CD de Sorte diminuída, forrageio aprimorado.</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <p><strong><br><br>DISTÂNCIA DE VIAGEM NO SUBTERRÂNEO</strong></p>
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Localidade</th>
-                            <th>Velkynvelve</th>
-                            <th>Sloobludop</th>
-                            <th>Gracklstugh</th>
-                            <th>Bosque Nunca Claro</th>
-                            <th>Pedra do Massacre do Refúgio</th>
-                            <th>Menzoberranzan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Velkynvelve</td>
-                            <td>–</td>
-                            <td>72 km</td>
-                            <td>252 km</td>
-                            <td>324 km</td>
-                            <td>180 km</td>
-                            <td>234 km</td>
-                        </tr>
-                        <tr>
-                            <td>Sloobludop</td>
-                            <td>72 km</td>
-                            <td>–</td>
-                            <td>180 km</td>
-                            <td>234 km</td>
-                            <td>180 km</td>
-                            <td>180 km</td>
-                        </tr>
-                        <tr>
-                            <td>Gracklstugh</td>
-                            <td>252 km</td>
-                            <td>180 km</td>
-                            <td>–</td>
-                            <td>180 km</td>
-                            <td>180 km</td>
-                            <td>243 km</td>
-                        </tr>
-                        <tr>
-                            <td>Bosque Nunca Claro</td>
-                            <td>324 km</td>
-                            <td>234 km</td>
-                            <td>108 km</td>
-                            <td>–</td>
-                            <td>144 km</td>
-                            <td>216 km</td>
-                        </tr>
-                        <tr>
-                            <td>Pedra do Massacre do Refúgio</td>
-                            <td>270 km</td>
-                            <td>180 km</td>
-                            <td>180 km</td>
-                            <td>144 km</td>
-                            <td>–</td>
-                            <td>72 km</td>
-                        </tr>
-                        <tr>
-                            <td>Menzoberranzan</td>
-                            <td>234 km</td>
-                            <td>180 km</td>
-                            <td>243 km</td>
-                            <td>216 km</td>
-                            <td>72 km</td>
-                            <td>–</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-
+            <div class="lore-entry-low">
+                <span>RUMOR RECENTE</span>
+                Os ferimentos de Jorlan foram causados por um Limo no <strong>Lago Negro</strong>.
             </div>
         </div>
 
-        <!-- <aside class="right-side">
-            <div class="data-box" style="border-color: var(--drow-purple); background: rgba(10, 10, 15, 0.9);">
-                <h2>📌Destino</h2>
-                <ul style="list-style: none; font-size: 0.85rem; padding: 0;">
+        <div class="data-box">
+            <h2>👥 Companheiros</h2>
 
-                    <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
-                        <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Buppido</strong>
-                        O derro sabe como chegar a Gracklstugh a partir da rota sul saindo de Velkynvelve. Ele também
-                        pode achar o caminho para Gracklstugh a partir do Lago Escuro. Buppido incita os personagens a
-                        ir a Gracklstugh para adquirir equipamentos melhores e para satisfazer seu desejo de retornar ao
-                        seu povo.
-                    </li>
-
-                    <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
-                        <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Príncipe
-                            Derendil</strong>
-                        O quaggoth não pode oferecer nenhuma direção útil, mas fica satisfeito em acompanhar o grupo,
-                        ansioso para ir ao mundo da superfície.
-                    </li>
-
-                    <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
-                        <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Eldeth
-                            Feldrun</strong>
-                        Não está familiarizada com essa região do Subterrâneo e não pode guiar, mas fornece um bônus nos
-                        testes de Sobrevivência do grupo.
-                    </li>
-
-                    <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
-                        <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Jimjar</strong>
-                        Jimjar pode guiar o grupo para Pedra do Massacre do Refúgio a partir da rota norte de
-                        Velkynvelve. A cidade svirfneblin dará aos personagens acesso à superfície, embora Jimjar não
-                        veja problema em visitar outros lugares interessantes no caminho, bem como em levar Stool de
-                        volta para sua casa.
-                    </li>
-
-                    <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
-                        <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Ront</strong>
-                        Ront desconhece o Subterrâneo e não pode guiar. Ele está disposto a ficar por perto dos
-                        aventureiros enquanto eles estiverem buscando um caminho que o leve de volta para o mundo da
-                        superfície.
-                    </li>
-
-                    <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
-                        <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Sarith
-                            Kzekarit</strong>
-                        O melhor guia em potencial no grupo. Ele pode guiar para qualquer região do Subterrâneo mostrada
-                        no mapa, mas vai encorajar os personagens a viajarem para o Bosque Nunca Claro.
-                    </li>
-
-                    <li style="margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 10px;">
-                        <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Stool</strong>
-                        Não pode orientar e não tem nenhum conhecimento da área local, mas quer desesperadamente
-                        retornar para seu lar no Bosque Nunca Claro, suplicando aos personagens (e principalmente ao
-                        Vaal) que o levem para lá. Ele clama que seu povo ficará agradecido e oferecerá ao grupo abrigo
-                        e ajuda, e descreve seu governante como um sábio nos caminhos ocultos de Subterrâneo.
-                    </li>
-
-                    <li style="margin-bottom: 5px;">
-                        <strong style="color: var(--glow-violet); display: block; margin-bottom: 3px;">Topsy e
-                            Turvy</strong>
-                        Podem guiar o grupo para Pedra do Massacre do Refúgio, mas também aceitam qualquer caminho.
-                    </li>
-
-                </ul>
+            <h3 style="color: var(--secondary-color); margin-bottom: 8px;">Sobreviventes</h3>
+            <div class="npc-grid">
+                <a href="npcs/jimjar.html" class="npc-tag"><strong>Jimjar</strong><br>Gnomo Apostador</a>
+                <a href="npcs/derendil.html" class="npc-tag"><strong>Prince Derendil</strong><br>Elfo Amaldiçoado</a>
+                <a href="npcs/ront.html" class="npc-tag"><strong>Ront</strong><br>Orc Valentão</a>
+                <a href="npcs/sarith.html" class="npc-tag"><strong>Sarith Kzekarith</strong><br>Drow Acusado</a>
+                <a href="npcs/stool.html" class="npc-tag"><strong>Stool</strong><br>Miconide Broto</a>
+                <a href="npcs/topsy.html" class="npc-tag"><strong>Topsy</strong><br>Gnomo das Profundezas irmão de
+                    Turvy</a>
+                <a href="npcs/turvy.html" class="npc-tag"><strong>Turvy</strong><br>Gnomo das Profundezas irmão de
+                    Topsy</a>
             </div>
-            <div class="data-box" style="margin-top: 20px; font-size: 0.8rem; background: #1a0b2e;">
-                <h2>⚠️Status de Perseguição</h2>
-                <p>Nível atual: 2</p>
-            </div>
-        </aside> -->
 
+            <h3 style="color: var(--blood-red); margin-top: 20px; margin-bottom: 8px;">Mortos</h3>
+            <div class="npc-grid">
+                <a href="npcs/eldeth.html" class="npc-tag"
+                    style="opacity: 0.5; border-color: var(--blood-red);"><strong>Eldeth Feldrun</strong><br>Anã do
+                    Escudo</a>
+                <a href="npcs/buppido.html" class="npc-tag"
+                    style="opacity: 0.5; border-color: var(--blood-red);"><strong>Buppido</strong><br>Gnomo das
+                    Profundezas</a>
+            </div>
+        </div>
+
+        <div class="data-box"
+            style="margin-top: 20px; font-size: 1rem; background: #1a0b2e; font-family: Arial, sans-serif;">
+            <h2>📋Lembrete de Regras</h2>
+            <p><strong>Desidratação [risco]</strong></p>
+            <p>Se uma criatura consumir menos do que a quantidade necessária de água em um dia, ela adquire 1 nível
+                de Exaustão ao final do dia. A Exaustão resultante da desidratação não pode ser removida até que a
+                criatura ingira a quantidade total de água necessária por dia.</p>
+            <div class="titulo-tabela">Necessidade de Água por Dia:</div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Tamanho</th>
+                        <th>Água</th>
+                        <th>Tamanho</th>
+                        <th>Água</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Minúsculo</td>
+                        <td>1,25 litros</td>
+                        <td>Grande</td>
+                        <td>16 litros</td>
+                    </tr>
+                    <tr>
+                        <td>Pequeno</td>
+                        <td>2 litros</td>
+                        <td>Enorme</td>
+                        <td>60 litros</td>
+                    </tr>
+                    <tr>
+                        <td>Médio</td>
+                        <td>4 litros</td>
+                        <td>Colossal</td>
+                        <td>240 litros</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong><br><br>Desnutrição [risco]</strong></p>
+            <p>Uma criatura que consome menos da metade da comida necessária para um dia deve ser bem-sucedida em
+                uma salvaguarda de Constituição CD 10 ou adquire 1 nível de Exaustão ao final do dia. Uma criatura
+                que não consome nada por 5 dias adquire automaticamente 1 nível de Exaustão ao final do quinto dia,
+                além de um nível adicional ao final de cada dia subsequente sem comida. A Exaustão causada por
+                desnutrição não pode ser removida até que a criatura consuma a quantidade total de comida necessária
+                para um dia. </p>
+            <div class="titulo-tabela">Necessidade de Comida por Dia:</div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Tamanho</th>
+                        <th>Comida</th>
+                        <th>Tamanho</th>
+                        <th>Comida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Minúsculo</td>
+                        <td>125 gramas</td>
+                        <td>Grande</td>
+                        <td>2 kg</td>
+                    </tr>
+                    <tr>
+                        <td>Pequeno</td>
+                        <td>0,25 kg</td>
+                        <td>Enorme</td>
+                        <td>08 kg</td>
+                    </tr>
+                    <tr>
+                        <td>Médio</td>
+                        <td>0,5 kg</td>
+                        <td>Colossal</td>
+                        <td>32 kg</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong><br><br>Forrageando</strong></p>
+            <p>Os aventureiros precisam forragear para sobreviver em sua jornada. Encontrar sustento no Subterrâneo
+                é difícil, mas não impossível. Personagens podem conseguir comida e água se o grupo viajar em um
+                ritmo normal ou lento. Um personagem buscando recursos faz um teste de Sabedoria (Sobrevivência). A
+                CD varia conforme alguns lugares do Subterrâneo. Em adição a forragear, magias como criar alimentos
+                e bom fruto podem ajudar a fornecer provisões para o grupo, e há sempre a chance de os personagens
+                encontrarem outros de quem eles possam comprar ou roubar provisões. Adicionalmente, muitas criaturas
+                que os aventureiros possam encontrar e matar podem ser aproveitadas, embora a carne que elas possuam
+                apodreça após um único dia se não for consumida. Comer carne estragada pode requerer um teste de
+                resistência de Constituição para manter a refeição no estômago, um teste de resistência de Sanidade
+                para evitar adquirir um nível de loucura dessa experiência terrível, ou ambos.</p>
+            <div class="titulo-tabela">Comida Provida por Criatura:</div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Tamanho da Criatura</th>
+                        <th>Comida Fornecida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Minúsculo</td>
+                        <td>0,5 kg</td>
+                    </tr>
+                    <tr>
+                        <td>Pequeno</td>
+                        <td>02 kg</td>
+                    </tr>
+                    <tr>
+                        <td>Médio</td>
+                        <td>08 kg</td>
+                    </tr>
+                    <tr>
+                        <td>Grande</td>
+                        <td>16 kg</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong><br><br>RITMO DE VIAGEM NO SUBTERRÂNEO</strong></p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Ritmo</th>
+                        <th>Distância por dia</th>
+                        <th>Efeito</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rápido</td>
+                        <td>12 km</td>
+                        <td>CD de Sorte elevada, sem forrageio.</td>
+                    </tr>
+                    <tr>
+                        <td>Normal</td>
+                        <td>09 km</td>
+                        <td>CD de Sorte padrão, forrageio comum.</td>
+                    </tr>
+                    <tr>
+                        <td>Lento</td>
+                        <td>06 km</td>
+                        <td>CD de Sorte diminuída, forrageio aprimorado.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong><br><br>DISTÂNCIA DE VIAGEM NO SUBTERRÂNEO</strong></p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Localidade</th>
+                        <th>Velkynvelve</th>
+                        <th>Sloobludop</th>
+                        <th class="botao-lugar"><a href="lugares\gracklstugh.html">Gracklstugh</a></th>
+                        <th>Bosque Nunca Claro</th>
+                        <th>Pedra do Massacre do Refúgio</th>
+                        <th>Menzoberranzan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Velkynvelve</td>
+                        <td>–</td>
+                        <td>72 km</td>
+                        <td>252 km</td>
+                        <td>324 km</td>
+                        <td>180 km</td>
+                        <td>234 km</td>
+                    </tr>
+                    <tr>
+                        <td>Sloobludop</td>
+                        <td>72 km</td>
+                        <td>–</td>
+                        <td>180 km</td>
+                        <td>234 km</td>
+                        <td>180 km</td>
+                        <td>180 km</td>
+                    </tr>
+                    <tr>
+                        <td>Gracklstugh</td>
+                        <td>252 km</td>
+                        <td>180 km</td>
+                        <td>–</td>
+                        <td>180 km</td>
+                        <td>180 km</td>
+                        <td>243 km</td>
+                    </tr>
+                    <tr>
+                        <td>Bosque Nunca Claro</td>
+                        <td>324 km</td>
+                        <td>234 km</td>
+                        <td>108 km</td>
+                        <td>–</td>
+                        <td>144 km</td>
+                        <td>216 km</td>
+                    </tr>
+                    <tr>
+                        <td>Pedra do Massacre do Refúgio</td>
+                        <td>270 km</td>
+                        <td>180 km</td>
+                        <td>180 km</td>
+                        <td>144 km</td>
+                        <td>–</td>
+                        <td>72 km</td>
+                    </tr>
+                    <tr>
+                        <td>Menzoberranzan</td>
+                        <td>234 km</td>
+                        <td>180 km</td>
+                        <td>243 km</td>
+                        <td>216 km</td>
+                        <td>72 km</td>
+                        <td>–</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
     </main>
 
 </body>
 
-<script>const container = document.getElementById('firefly-container');
+<script>
+    const container = document.getElementById('firefly-container');
     const fireflyCount = 30; // Quantidade de vagalumes
 
     for (let i = 0; i < fireflyCount; i++) {
@@ -758,6 +710,7 @@
         firefly.style.setProperty('--move-y', `${(Math.random() - 0.5) * 30}vh`);
 
         container.appendChild(firefly);
-    }</script>
+    }
+</script>
 
 </html>

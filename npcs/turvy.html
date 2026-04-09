@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <link rel="icon" type="image/png"
+        href="https://preview.redd.it/dnd-ampersand-tokens-for-world-maps-v0-criv1vtambf31.png?width=256&format=png&auto=webp&s=dc236ed2b6c19de305ad43944d1b306b652093b3">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turvy</title>
+    <link rel="stylesheet" href="../css/npcs_shared.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header class="character-header">
+            <div class="header-content">
+                <a href="../index.html" class="btn-voltar">← Voltar</a>
+
+                <h1>Turvy</h1>
+                <div class="subtitle">Gnomo das Profundezas | Especialista em Fungos</div>
+            </div>
+            <div class="header-photo">
+                <img src="turvy.webp" alt="Turvy" class="icon-photo">
+            </div>
+        </header>
+    </div>
+
+    <div class="tab-menu">
+        <button class="tab-button active" onclick="openTab(event, 'Lore')">História</button>
+        <button class="tab-button" onclick="openTab(event, 'Objetivos')">Desejos & Missões</button>
+        <button class="tab-button" onclick="openTab(event, 'relacoes')">Relações</button>
+    </div>
+
+    <div id="Lore" class="tab-content" style="display: block;">
+        <h2>QUEM É TURVY?</h2>
+
+        <hr style="border-color: #333;">
+        <p style="text-align: justify;">Gnomo das profundezas gêmeo de Topsy, Turvy é originalmente da Pedra do Massacre
+            do
+            Refúgio, no Subterrâneo. Foi capturado pelos
+            drows enquanto tinha saído para coletar cogumelos
+            nos túneis perto de sua casa. Turvy tem apenas alguns
+            tufos de cabelo no topo de sua cabeça, não fosse por
+            isso, careca. Turvy constantemente resmunga e murmura
+            sombriamente, e possui alguma fixação inexplicável com as fases da lua, sempre buscando saber
+            qual a próxima Lua Cheia.
+    </div>
+
+    <div id="Objetivos" class="tab-content">
+        <div class="grid-2">
+            <div>
+                <h2>Desejos Profundos</h2>
+                <div class="card">
+                    <h3>Saber quando será a próxima Lua Cheia</h3>
+                    <p>Turvy anseia por essa informação.
+                </div>
+            </div>
+
+            <div>
+                <h2>Missões Pessoais</h2>
+                <div class="card card-danger">
+                    <h3>Retornar a Pedra do Massacre do Refúgio</h3>
+                    <p>Turvy deseja retornar ao seu lar.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="relacoes" class="tab-content">
+        <p><em>"Vaal desgraçado, irei te estripar e devorar seus órgãos!!"
+                <h2>Opinião de e Turvy sobre seus aliados</h2>
+
+                <div class="card">
+                    <span class="npc-name">Buppido:</span>
+                    <p><em>"Você se acha um deus? Com essa faquinha?! Eu vou enfiar ela no seu rabo!!"
+                </div>
+
+                <div class="card card-danger">
+                    <span class="pj-name">Coveshes:</span>
+                    <p><em>"Fala muito e faz pouco!! Manda esse tal de Tyr vir aqui embaixo que eu esfrego ele nas paredes!"
+                </div>
+
+                <div class="card">
+                    <span class="npc-name">Eldeth Feldrun:</span>
+                    <p><em>"Foi tarde essazinha aí! Uma mulher não tem o que agregar no grupo dos RAPAZES!"
+                </div>
+
+                <div class="card card-danger">
+                    <span class="pj-name">Fane Aurel:</span>
+                    <p><em>"Eu gosto da sua barba! Quando você morrer eu vou arrancar ela de você e colar na minha
+                            cabeça!"
+                </div>
+
+                <div class="card">
+                    <span class="npc-name">Jimjar:</span>
+                    <p><em>"Quer apostar que o Ront te esmaga com um soco só? Ein?? Por que não???"
+                </div>
+
+                <div class="card">
+                    <span class="npc-name">Príncipe Derendil:</span>
+                    <p><em>"Não há escapatória pra você, maldito! Vai continuar um Quaggoth até o fim da sua vida, seu
+                            BOSTA!"
+                </div>
+
+                <div class="card">
+                    <span class="npc-name">Ront:</span>
+                    <p><em>"Você não sabe o que quer! Não sabe o que fazer! A decisão certa é tirar a própria vida, seu
+                            imbecil!"
+                </div>
+
+                <div class="card">
+                    <span class="npc-name">Stool:</span>
+                    <p><em>"Você não serve pra nada, criatura estranha!"
+                </div>
+
+                <div class="card card-danger">
+                    <span class="pj-name">Vaal:</span>
+                    <p><em>"Esse elfo desgraçado parece saboroso... irei devorá-lo na primeira oportunidade!"
+                </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+
+            // Esconde todo o conteúdo das abas
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Remove a classe "active" de todos os botões
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Mostra a aba atual e adiciona a classe "active" no botão clicado
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+
+</html>

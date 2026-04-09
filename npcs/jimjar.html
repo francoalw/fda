@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <link rel="icon" type="image/png"
+        href="https://preview.redd.it/dnd-ampersand-tokens-for-world-maps-v0-criv1vtambf31.png?width=256&format=png&auto=webp&s=dc236ed2b6c19de305ad43944d1b306b652093b3">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jimjar</title>
+    <script type="text/javascript" charset="UTF-8"></script>
+    <link rel="stylesheet" href="../css/npcs_shared.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header class="character-header">
+            <div class="header-content">
+                <a href="../index.html" class="btn-voltar">← Voltar</a>
+
+                <h1>Jimjar</h1>
+                <div class="subtitle">Gnomo das Profundezas | Espião | Exilado da Pedra do Massacre do Refúgio</div>
+            </div>
+
+            <div class="header-photo">
+                <img src="jimjar.webp" alt="´Jimjar" class="icon-photo">
+            </div>
+        </header>
+    </div>
+
+    <div class="tab-menu">
+        <button class="tab-button active" onclick="openTab(event, 'Lore')">História</button>
+        <button class="tab-button" onclick="openTab(event, 'Objetivos')">Desejos & Missões</button>
+        <button class="tab-button" onclick="openTab(event, 'relacoes')">Relações</button>
+    </div>
+
+    <div id="Lore" class="tab-content" style="display: block;">
+        <h2>QUEM É JIMJAR?</h2>
+
+        <hr style="border-color: #333;">
+        <p style="text-align: justify;">O gnomo das profundezas é um ladino imprudente com uma atitude despreocupada,
+            apaixonado por
+            moedas e obsessão por apostar qualquer coisa em praticamente qualquer situação. No entanto, ele é um homem
+            de palavra e anota todas as dívidas e créditos, que sempre honrava. Jimjar também possui uma
+            habilidade incrível de esconder riquezas significativas em seu corpo.</p>
+        <p style="text-align: justify;">Jimjar foi exilado por seu povo por causa de sua obsessão por jogos de azar, que
+            outros gnomos das profundezas viam como sinal de loucura do abismo. Embora não faça questão de retornar para
+            sua casa, ele guia
+            os outros se solicitado.</p>
+        <p style="text-align: justify;">Jimjar foi capturado por elfos negros quando estava saqueando espólios de uma
+            batalha.</p>
+    </div>
+
+    <div id="Objetivos" class="tab-content">
+        <div class="grid-2">
+            <div>
+                <h2>Desejos Profundos</h2>
+                <div class="card">
+                    <h3>Vingança</h3>
+                    <p>Jimjar não se importa de ganhar ou perder uma aposta, o que importa para ele é a satifação da
+                        competição. Porém, ele se recusa a perder tantas apostas para Vaal, e gostaria de vencer alguma
+                        em algum momento.</p>
+                </div>
+            </div>
+
+            <div>
+                <h2>Missões Pessoais</h2>
+                <div class="card card-danger">
+                    <h3>Lâmina Divina</h3>
+                    <p>Jimjar deseja obter a lâmina que pertence a Buppido, pois ela tem efeitos visuais que o cativam.</p>
+                </div>
+                <div class="card card-danger">
+                    <h3>ODD 99x</h3>
+                    <p>Ainda que vencer ou perder seja irrelevante para ele, Jimjar tem em mente que só morrerá
+                        satisfeito após vencer uma aposta impossível..</p>
+                </div>
+                <div class="card card-danger">
+                    <h3>Rei Jimjar</h3>
+                    <p>Nos últimos dias, Jimjar chegou a conclusão que seria um excelente rei, então decidiu obter o
+                        reinado dos elfos dourados, o reino Nelrindenvane do Príncipe Derendil, através de apostas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="relacoes" class="tab-content">
+        <p><em>"A sorte sempre me sorri!"</em></p>
+        <h2>Opinião de Jimjar sobre seus aliados</h2>
+
+        <div class="card">
+            <span class="npc-name">Buppido:</span>
+            <p><em>"Ainda não entendi qual a desse tio.. Mas essa faca que ele usa.. Vai ser minha."
+        </div>
+
+        <div class="card card-danger">
+            <span class="pj-name">Coveshes:</span>
+            <p>"Esse tio é bem forte, aposto que será o único sobrevivente no fim disso tudo."</p>
+        </div>
+
+        <div class="card">
+            <span class="npc-name">Eldeth Feldrun:</span>
+            <p>"Era gente boa. Mas não aceitava apostar o escudo.."</p>
+        </div>
+
+        <div class="card card-danger">
+            <span class="pj-name">Fane Aurel:</span>
+            <p>"Era bem apegado à Eldeth. Espero que, agora que ela se foi, o tio aceite apostar esse escudo
+                eventualmente."</p>
+        </div>
+
+        <div class="card">
+            <span class="npc-name">Príncipe Derendil:</span>
+            <p>"Aposto que ele não vai conseguir voltar a sua forma élfica... Já era, tio!"</p>
+        </div>
+
+        <div class="card">
+            <span class="npc-name">Ront:</span>
+            <p>"Esse deve valer uma boa aposta de carteado."</p>
+        </div>
+
+        <div class="card">
+            <span class="npc-name">Sarith Kzekarith:</span>
+            <p>"Aposto que ele vai nos trair.. Mas também aposto que não.. Se fosse o fazer, já teria feito."<br>De toda
+                forma, caso formos para a Pedra do Massacre do Refúgio, precisaremos nos distanciar dele, lá drows não
+                são permitidos.
+            </p>
+        </div>
+
+        <div class="card">
+            <span class="npc-name">Stool:</span>
+            <p>"Aposto que vai ser o próximo a morrer.."</p>
+        </div>
+
+        <div class="card">
+            <span class="npc-name">Topsy & Turvy:</span>
+            <p>"Esses dois tem algo muito sombrio a esconder.. E eu não sei o que é.."</p>
+        </div>
+
+        <div class="card card-danger">
+            <span class="pj-name">Vaal:</span>
+            <p>"Eu não sei o que ele tem de especial, mas é IMPOSSÍVEL ele perder alguma aposta.. Esse tio esconde algum segredo, e eu vou descobrir qual é.."
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+
+            // Esconde todo o conteúdo das abas
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Remove a classe "active" de todos os botões
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Mostra a aba atual e adiciona a classe "active" no botão clicado
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+
+</html>

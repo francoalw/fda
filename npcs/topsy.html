@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <link rel="icon" type="image/png"
+        href="https://preview.redd.it/dnd-ampersand-tokens-for-world-maps-v0-criv1vtambf31.png?width=256&format=png&auto=webp&s=dc236ed2b6c19de305ad43944d1b306b652093b3">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topsy</title>
+    <link rel="stylesheet" href="../css/npcs_shared.css">
+
+   <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header class="character-header">
+            <div class="header-content">
+                <a href="../index.html" class="btn-voltar">← Voltar</a>
+
+                <h1>Topsy</h1>
+                <div class="subtitle">Gnomo das Profundezas | Especialista em Fungos</div>
+            </div>
+
+            <div class="header-photo">
+                <img src="topsy.webp" alt="Topsy" class="icon-photo">
+            </div>
+        </header>
+    </div>
+
+    <div class="tab-menu">
+        <button class="tab-button active" onclick="openTab(event, 'Lore')">História</button>
+        <button class="tab-button" onclick="openTab(event, 'Objetivos')">Desejos & Missões</button>
+        <button class="tab-button" onclick="openTab(event, 'relacoes')">Relações</button>
+    </div>
+
+    <div id="Lore" class="tab-content" style="display: block;">
+        <h2>QUEM É TOPSY?</h2>
+
+        <hr style="border-color: #333;">
+        <p style="text-align: justify;">Gnomo das profundezas gêmeo de Turvy, Topsy é originalmente da Pedra do Massacre do
+            Refúgio, no Subterrâneo. Ele foi capturado pelos
+            drows enquanto tinha saído para coletar cogumelos
+            nos túneis perto de sua casa. Como a maior parte
+            dos outros svirfneblin, Topsy tem um cabelo fibroso
+            emaranhado. Topsy é de longe mais sociável que seu irmão, e constantemente repete ou traduz o
+            que seu irmão diz. Topsy possuem alguma fixação inexplicável com as fases da lua, sempre buscando saber
+            qual a próxima Lua Cheia.
+    </div>
+
+    <div id="Objetivos" class="tab-content">
+        <div class="grid-2">
+            <div>
+                <h2>Desejos Profundos</h2>
+                <div class="card">
+                    <h3>Saber quando será a próxima Lua Cheia</h3>
+                    <p>Topsy anseia por essa informação.
+                </div>
+            </div>
+
+            <div>
+                <h2>Missões Pessoais</h2>
+                <div class="card card-danger">
+                    <h3>Retornar a Pedra do Massacre do Refúgio</h3>
+                    <p>Topsy desejam retornar ao seu lar.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="relacoes" class="tab-content">
+        <p><em>"O que meu irmão quer dizer, é que ele está com muita fome.."
+                <h2>Opinião de Topsy e Turvy sobre seus aliados</h2>
+
+                <div class="card">
+                    <span class="npc-name">Buppido:</span>
+        <p><em>"Não acreditamos muito no seu posto divino."
+                </div>
+
+                <div class="card card-danger">
+                    <span class="pj-name">Coveshes:</span>
+        <p><em>"Meu irmão acredita que o senhor fala mais do que deveria, como se desse fungos aos cães, senhor."
+                </div>
+
+                <div class="card">
+                    <span class="npc-name">Eldeth Feldrun:</span>
+        <p><em>"A relação dela com Fane Aurel é de partir o coração. Sinto muito por tudo que ocorreu, e meu irmão também."
+                </div>
+
+                <div class="card card-danger">
+                    <span class="pj-name">Fane Aurel:</span>
+        <p><em>"Achamos sua barba maneira, senhor."
+                </div>
+
+                <div class="card">
+                    <span class="npc-name">Jimjar:</span>
+        <p><em>"Meu irmão tenta pregar peças nele, usando apostas. Ainda não funcionou. Eu acho ele maluco."
+                </div>
+
+                <div class="card">
+                    <span class="npc-name">Príncipe Derendil:</span>
+        <p><em>"Não acreditamos muito no que ele tem a dizer. Achamos que aqui embaixo quase todos mentem."
+                </div>
+
+                <div class="card">
+                    <span class="npc-name">Ront:</span>
+        <p><em>"Ele é grande. E perigoso. Mas tem uma mente frágil. Combinação perigosa."
+                </div>
+
+                <div class="card">
+                    <span class="npc-name">Stool:</span>
+        <p><em>"Meu irmão não vê utilidade nele. Eu acho que ele serve pra eu subir e alcançar cogumelos saborosos."
+                </div>
+
+                <div class="card card-danger">
+                    <span class="pj-name">Vaal:</span>
+        <p><em>"Meu irmão sente algo que não compreendo direito, a respeito do Vaal. Eu acho ele legal e gostaria de ser amigo dele, suas habilidades com magia me inspiram."
+                </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+
+            // Esconde todo o conteúdo das abas
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Remove a classe "active" de todos os botões
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Mostra a aba atual e adiciona a classe "active" no botão clicado
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+
+</html>
