@@ -4,7 +4,7 @@
 <head>
 
     <link rel="icon" type="image/png"
-        href="https://preview.redd.it/dnd-ampersand-tokens-for-world-maps-v0-criv1vtambf31.png?width=256&format=png&auto=webp&s=dc236ed2b6c19de305ad43944d1b306b652093b3">
+        href="midia/foundryicon.png">
 
 
     <meta charset="UTF-8">
@@ -255,23 +255,19 @@
 
         .pj-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
             margin-bottom: 20px;
+            width: 100%;
         }
 
         .pj-card {
             display: block;
-            /* Garante que o link ocupe todo o espaço do card */
             text-decoration: none;
-            /* Remove o sublinhado do texto */
             color: inherit;
-            /* Mantém as cores que você definiu para os textos */
             background: rgba(15, 15, 20, 0.7);
             backdrop-filter: blur(10px);
-            /* Efeito de vidro moderno */
             border: 1px solid rgba(255, 255, 255, 0.1);
-            /* Borda sutil */
             border-top: 3px solid var(--glow-violet);
             padding: 20px;
             text-align: center;
@@ -384,11 +380,19 @@
     <div id="firefly-container"></div>
 
     <header>
-        <h1>Fora do Abismo| Mestre Weber</h1>
-        <p style="font-size: 0.8rem; opacity: 0.6;">D&D 2024 • Mestre Weber</p>
+        <h1>Fora do Abismo| Pathfinder 2e</h1>
+        <p style="font-size: 0.8rem; opacity: 0.6;">Mestre Weber</p>
     </header>
 
     <section class="pj-row">
+        <a href="pjs/apolo.html" class="pj-card">
+            <img src="pjs/apolo.png" class="pj-portrait" alt="Retrato de Coveshes" loading="lazy">
+            <h3>Apolo</h3>
+        </a>
+        <a href="pjs/atena.html" class="pj-card">
+            <img src="pjs/atena.jpg" class="pj-portrait" alt="Retrato de Coveshes" loading="lazy">
+            <h3>Atena</h3>
+        </a>
         <a href="pjs/rudeus.html" class="pj-card">
             <img src="pjs/rudeus.jpeg" class="pj-portrait" alt="Retrato de Coveshes" loading="lazy">
             <h3>Coveshes</h3>
@@ -420,19 +424,12 @@
             <h2>📜 Diário de Missões</h2>
             <div class="lore-entry-principal">
                 <span>MISSÃO PRINCIPAL</span>
-                Chegar à superfície.
-            </div>
-            <div class="lore-entry-principal">
-                <span>EVENTO RECENTE</span>
-                <strong>Demogorgon</strong> emergiu em <strong>Sloobludop</strong>.
+                Conseguir métodos de sair de Gracklstugh, para ir à superfície.
             </div>
             <div class="lore-entry">
-                <span>DESCOBERTA RECENTE</span>
-                Graz'zt está indo ao encontro de seu filho.
-            </div>
-            <div class="lore-entry-low">
-                <span>RUMOR RECENTE</span>
-                Os ferimentos de Jorlan foram causados por um Limo no <strong>Lago Negro</strong>.
+                <span>REVELAÇÕES RECENTES</span>
+                Aberrações Mutacarnadas estão sendo criadas em gracklstugh.<br>
+                <strong>Buppido</strong> está vivo.
             </div>
         </div>
 
@@ -457,128 +454,15 @@
                 <a href="npcs/eldeth.html" class="npc-tag"
                     style="opacity: 0.5; border-color: var(--blood-red);"><strong>Eldeth Feldrun</strong><br>Anã do
                     Escudo</a>
-                <a href="npcs/buppido.html" class="npc-tag"
+                <!-- <a href="npcs/buppido.html" class="npc-tag"
                     style="opacity: 0.5; border-color: var(--blood-red);"><strong>Buppido</strong><br>Gnomo das
-                    Profundezas</a>
+                    Profundezas</a> -->
             </div>
         </div>
 
         <div class="data-box"
             style="margin-top: 20px; font-size: 1rem; background: #1a0b2e; font-family: Arial, sans-serif;">
             <h2>📋Lembrete de Regras</h2>
-            <p><strong>Desidratação [risco]</strong></p>
-            <p>Se uma criatura consumir menos do que a quantidade necessária de água em um dia, ela adquire 1 nível
-                de Exaustão ao final do dia. A Exaustão resultante da desidratação não pode ser removida até que a
-                criatura ingira a quantidade total de água necessária por dia.</p>
-            <div class="titulo-tabela">Necessidade de Água por Dia:</div>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Tamanho</th>
-                        <th>Água</th>
-                        <th>Tamanho</th>
-                        <th>Água</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Minúsculo</td>
-                        <td>1,25 litros</td>
-                        <td>Grande</td>
-                        <td>16 litros</td>
-                    </tr>
-                    <tr>
-                        <td>Pequeno</td>
-                        <td>2 litros</td>
-                        <td>Enorme</td>
-                        <td>60 litros</td>
-                    </tr>
-                    <tr>
-                        <td>Médio</td>
-                        <td>4 litros</td>
-                        <td>Colossal</td>
-                        <td>240 litros</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <p><strong><br><br>Desnutrição [risco]</strong></p>
-            <p>Uma criatura que consome menos da metade da comida necessária para um dia deve ser bem-sucedida em
-                uma salvaguarda de Constituição CD 10 ou adquire 1 nível de Exaustão ao final do dia. Uma criatura
-                que não consome nada por 5 dias adquire automaticamente 1 nível de Exaustão ao final do quinto dia,
-                além de um nível adicional ao final de cada dia subsequente sem comida. A Exaustão causada por
-                desnutrição não pode ser removida até que a criatura consuma a quantidade total de comida necessária
-                para um dia. </p>
-            <div class="titulo-tabela">Necessidade de Comida por Dia:</div>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Tamanho</th>
-                        <th>Comida</th>
-                        <th>Tamanho</th>
-                        <th>Comida</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Minúsculo</td>
-                        <td>125 gramas</td>
-                        <td>Grande</td>
-                        <td>2 kg</td>
-                    </tr>
-                    <tr>
-                        <td>Pequeno</td>
-                        <td>0,25 kg</td>
-                        <td>Enorme</td>
-                        <td>08 kg</td>
-                    </tr>
-                    <tr>
-                        <td>Médio</td>
-                        <td>0,5 kg</td>
-                        <td>Colossal</td>
-                        <td>32 kg</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <p><strong><br><br>Forrageando</strong></p>
-            <p>Os aventureiros precisam forragear para sobreviver em sua jornada. Encontrar sustento no Subterrâneo
-                é difícil, mas não impossível. Personagens podem conseguir comida e água se o grupo viajar em um
-                ritmo normal ou lento. Um personagem buscando recursos faz um teste de Sabedoria (Sobrevivência). A
-                CD varia conforme alguns lugares do Subterrâneo. Em adição a forragear, magias como criar alimentos
-                e bom fruto podem ajudar a fornecer provisões para o grupo, e há sempre a chance de os personagens
-                encontrarem outros de quem eles possam comprar ou roubar provisões. Adicionalmente, muitas criaturas
-                que os aventureiros possam encontrar e matar podem ser aproveitadas, embora a carne que elas possuam
-                apodreça após um único dia se não for consumida. Comer carne estragada pode requerer um teste de
-                resistência de Constituição para manter a refeição no estômago, um teste de resistência de Sanidade
-                para evitar adquirir um nível de loucura dessa experiência terrível, ou ambos.</p>
-            <div class="titulo-tabela">Comida Provida por Criatura:</div>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Tamanho da Criatura</th>
-                        <th>Comida Fornecida</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Minúsculo</td>
-                        <td>0,5 kg</td>
-                    </tr>
-                    <tr>
-                        <td>Pequeno</td>
-                        <td>02 kg</td>
-                    </tr>
-                    <tr>
-                        <td>Médio</td>
-                        <td>08 kg</td>
-                    </tr>
-                    <tr>
-                        <td>Grande</td>
-                        <td>16 kg</td>
-                    </tr>
-                </tbody>
-            </table>
 
             <p><strong><br><br>RITMO DE VIAGEM NO SUBTERRÂNEO</strong></p>
             <table class="data-table">
@@ -593,17 +477,17 @@
                     <tr>
                         <td>Rápido</td>
                         <td>12 km</td>
-                        <td>CD de Sorte elevada, sem forrageio.</td>
+                        <td>CD de Sobrevivência elevada, sem forrageio.</td>
                     </tr>
                     <tr>
                         <td>Normal</td>
                         <td>09 km</td>
-                        <td>CD de Sorte padrão, forrageio comum.</td>
+                        <td>CD de Sobrevivência padrão, forrageio comum.</td>
                     </tr>
                     <tr>
                         <td>Lento</td>
                         <td>06 km</td>
-                        <td>CD de Sorte diminuída, forrageio aprimorado.</td>
+                        <td>CD de Sobrevivência diminuída, forrageio aprimorado.</td>
                     </tr>
                 </tbody>
             </table>
