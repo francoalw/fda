@@ -10,6 +10,10 @@
     --glow-violet: #8a2be2;
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     max-width: 900px;
     margin: 0 auto;
@@ -20,6 +24,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 h1, h2, h3 {
@@ -40,7 +45,7 @@ header {
     border-bottom: 2px solid var(--drow-purple);
 }
 
-/* ── PARTÍCULAS (brasas / vagalumes — cada lugar define o seu container e @keyframes localmente) ── */
+/* ── PARTÍCULAS ──────────────────────────────────────────────── */
 .particulas-container {
     position: fixed;
     top: 0;
@@ -59,18 +64,21 @@ header {
     flex-direction: column;
     align-items: flex-start;
     padding-left: 1rem;
+    min-width: 0;
 }
 
 .local-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    width: 100%;
+    overflow: hidden;
 }
 
 .local-header h1 {
     margin: 0;
     font-size: 2.5em;
-    color: rgb(255, 0, 0); /* sobrescreva no <style> local para mudar */
+    color: rgb(255, 0, 0);
 }
 
 .local-header .subtitle {
@@ -80,11 +88,13 @@ header {
 }
 
 .local-photo {
-    flex: 1;
-    max-width: 28rem;
+    flex-shrink: 0;
+    width: 28rem;
+    max-width: 50%;
     border-radius: 1rem;
     margin-top: -3rem;
-    position: relative;
+    display: block;
+    height: auto;
 }
 
 /* ── BOTÃO VOLTAR ────────────────────────────────────────────── */
@@ -132,7 +142,6 @@ header {
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 0 4px 4px 0;
-    box-sizing: border-box;
     width: 100%;
     display: flex;
     align-items: center;
@@ -145,7 +154,6 @@ header {
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 0 4px 4px 0;
-    box-sizing: border-box;
     width: 100%;
     display: flex;
     align-items: center;
@@ -168,6 +176,7 @@ header {
 
 .card-content {
     flex: 1;
+    min-width: 0; /* evita que texto longo expanda o flex item além do container */
 }
 
 .card-content p {
@@ -266,7 +275,6 @@ ul li span {
         padding: 10px;
     }
 
-    /* Header: foto some ou vai embaixo; nome ocupa largura toda */
     .local-header {
         flex-direction: column;
         align-items: flex-start;
@@ -277,10 +285,10 @@ ul li span {
         font-size: 1.6em;
     }
 
-    /* Foto do lugar: largura total, sem margin negativa */
+    /* foto ocupa largura total, sem margin negativa */
     .local-photo {
-        max-width: 100%;
         width: 100%;
+        max-width: 100%;
         margin-top: 0;
         border-radius: 0.5rem;
     }
@@ -289,14 +297,12 @@ ul li span {
         padding-left: 0.5rem;
     }
 
-    /* Abas: fonte menor para caber todas na mesma linha */
     .tab-button {
         font-size: 11px;
         padding: 12px 4px;
         letter-spacing: 0;
     }
 
-    /* Cards: avatar menor, gap menor */
     .card,
     .missao {
         gap: 12px;
