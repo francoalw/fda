@@ -12,41 +12,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gracklstugh</title>
-   <link rel="stylesheet" href="../css/lugares_shared.css">
+    <link rel="stylesheet" href="../css/lugares_shared.css">
+    <style>
+        /* exclusivo de Gracklstugh */
+        .brasa {
+            position: absolute;
+            bottom: -20px;
+            background: #ffcc00;
+            border-radius: 50%;
+            opacity: 0.8;
+            filter: blur(1px);
+            box-shadow: 0 0 10px #ff4500, 0 0 20px #ff8c00;
+            animation: subir var(--duracao) infinite ease-in;
+        }
 
-<!-- apenas o que é exclusivo de Gracklstugh: -->
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
-
-    /* animação de brasas — exclusiva deste lugar */
-    .brasa {
-        position: absolute;
-        bottom: -20px;
-        background: #ffcc00;
-        border-radius: 50%;
-        opacity: 0.8;
-        filter: blur(1px);
-        box-shadow: 0 0 10px #ff4500, 0 0 20px #ff8c00;
-        animation: subir var(--duracao) infinite ease-in;
-    }
-
-    @keyframes subir {
-        0%   { transform: translateY(0) translateX(0) scale(1); opacity: 1; }
-        50%  { transform: translateY(-50vh) translateX(var(--oscilacao)) scale(0.8); }
-        100% { transform: translateY(-110vh) translateX(calc(var(--oscilacao) * 2)) scale(0.2); opacity: 0; }
-    }
-</style>
+        @keyframes subir {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-50vh) translateX(var(--oscilacao)) scale(0.8);
+            }
+            100% {
+                transform: translateY(-110vh) translateX(calc(var(--oscilacao) * 2)) scale(0.2);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <div id="forja-container"></div>
+    <!-- FAÍSCAS: filho direto do body, fora de qualquer container com overflow:hidden -->
+    <div id="forja-container" class="particulas-container"></div>
 
     <div class="container">
         <header class="local-header">
             <div class="nome-local" style="margin-top: 1rem;">
                 <a href="../index.html" class="btn-voltar">← Voltar</a>
-
                 <h1>Gracklstugh</h1>
                 <div class="subtitle">A Cidade das Lâminas</div>
             </div>
@@ -195,20 +199,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- <div>
-                <h2>Missões Pessoais</h2>
-                <div class="card card-danger">
-                    <h3>Formar Aliança</h3>
-                    <p>Coveshes busca formar aliados no Subterrâneo, para que possam ajudá–lo no seu plano de derrubar
-                        Velkynvelve.</p>
-                </div>
-                <div class="card card-danger">
-                    <h3>Ponto Pacífico</h3>
-                    <p>Construir um templo em devoção a TYR, no Subterrâneo. No momento, planeja criálo na caa de Stool
-                        (Bosque Nunca Claro)</p>
-                </div>
-            </div> -->
         </div>
     </div>
 
@@ -220,7 +210,6 @@
                 <h4>AGENTES DUPLOS</h4>
                 <p><strong>Themberchaud</strong> ordenou que os aventureiros seguissem as ordens dos Guardiões da Chama,
                     mas que relatassem a ele primeiro e não aos guardiões.</p>
-                <!-- <h4>Recompensa: 50 peças de ouro por evidência.</h4> -->
             </div>
         </div>
 
@@ -229,8 +218,8 @@
                 <h4>CONSPIRAÇÕES EM GRACKLSTUGH?!</h4>
                 <p><strong>Errde Crânio Negro</strong> acredita que uma CONSPIRAÇÃO está se infiltrando entre as pessoas
                     de Gracklstugh. Ela recompensará os aventureiros se trouxerem evidências dessas CONSPIRAÇÕES para
-                    ela.prometeu solicitar ao <strong>Horgar Sombra de Aço V, O Rei das Profundezas</strong> passagem
-                    dos aventureiros para fora de Gracklstugh, desde que eles.</p>
+                    ela. Prometeu solicitar ao <strong>Horgar Sombra de Aço V, O Rei das Profundezas</strong> passagem
+                    dos aventureiros para fora de Gracklstugh, desde que eles cumpram.</p>
                 <h4>Recompensa: 50 peças de ouro por evidência.</h4>
             </div>
         </div>
@@ -243,7 +232,7 @@
                     aonde vai, e reportem a ela. Ou, caso vejam uma
                     oportunidade, capturam-no e tragam-no para
                     interrogatório ou matem-no e lhe tragam evidências de
-                    suas atividades..</p>
+                    suas atividades.</p>
                 <h4>Recompensa: Passagem para fora de Gracklstugh.</h4>
             </div>
         </div>
@@ -252,7 +241,7 @@
             <div class="card-content">
                 <h4>ORIGEM DOS ITENS</h4>
                 <p><strong>Ylsa Henstak</strong> é a única habitante de Gracklstugh com ítens da superfície. Ou ao menos costumava ser. Os derros recentemente estão utilizando dinheiro e joias da superfície para pagar por comida.</p>
-                <h4>Recompensa:  Ylsa irá fornecer aos aventureiros orientação para pelo menos o próximo estágio de sua jornada, incluindo conselhos valiosos sobre rotas.</h4>
+                <h4>Recompensa: Ylsa irá fornecer aos aventureiros orientação para pelo menos o próximo estágio de sua jornada, incluindo conselhos valiosos sobre rotas.</h4>
             </div>
         </div>
 
@@ -261,23 +250,19 @@
                 <h4>REUNIÃO COM OS GIGANTES DE PEDRA</h4>
                 <p><strong>Hgraam Orador de Pedra</strong>, após o incidente do gigante bicéfalo, convidou os
                     aventureiros para uma reunião.</p>
-                <!-- <h4>Recompensa: Passagem para fora de Gracklstugh.</h4> -->
             </div>
-        </div>
         </div>
     </div>
 
     <script>
-
         function gerarBrasas() {
             const container = document.getElementById('forja-container');
-            const quantidade = 40; // Ajuste a densidade aqui
+            const quantidade = 40;
 
             for (let i = 0; i < quantidade; i++) {
                 const brasa = document.createElement('div');
                 brasa.className = 'brasa';
 
-                // Valores aleatórios para naturalidade
                 const tamanho = Math.random() * 4 + 2 + 'px';
                 const posicaoX = Math.random() * 100 + 'vw';
                 const duracao = Math.random() * 3 + 3 + 's';
@@ -300,19 +285,16 @@
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
 
-            // Esconde todo o conteúdo das abas
             tabcontent = document.getElementsByClassName("tab-content");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
             }
 
-            // Remove a classe "active" de todos os botões
             tablinks = document.getElementsByClassName("tab-button");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
 
-            // Mostra a aba atual e adiciona a classe "active" no botão clicado
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
