@@ -1,4 +1,4 @@
-    :root {
+:root {
             --bg-color: #0b0c10;
             --text-color: #c5c6c7;
             --primary-color: #66fcf1;
@@ -12,15 +12,12 @@
         body {
             max-width: 900px;
             margin: 0 auto;
-            /* O 'auto' nas laterais centraliza o bloco na tela */
             font-family: 'Lora', serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             padding: 20px;
             background-image: radial-gradient(circle at center, #1f1b24 0%, #0b0c10 100%);
             min-height: 100vh;
-
-            /* Garantir que o conteúdo interno também se comporte bem */
             display: flex;
             flex-direction: column;
         }
@@ -29,9 +26,7 @@
             min-width: 100%;
             justify-content: center;
             max-height: 190px;
-            /* Ajuste o valor conforme sua necessidade */
             overflow: hidden;
-            /* Impede que o conteúdo saia para fora da borda */
         }
 
         h1,
@@ -89,7 +84,6 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            /* muda de center para top */
             padding: 20px 60px 15px 50px;
             margin-bottom: 30px;
         }
@@ -103,19 +97,15 @@
         .character-header h1 {
             margin: 0;
             font-size: 2.5em;
-            /* Ajuste conforme necessário */
             color: white;
-            /* Ou sua variável de cor principal */
         }
 
         .character-header .subtitle {
             margin-top: 5px;
             font-size: 1.1em;
             color: #a0a0a0;
-            /* Um cinza mais claro */
         }
 
-        /* Container Principal */
         .container {
             margin: 0 auto;
             background-color: rgba(20, 20, 25, 0.8);
@@ -133,24 +123,16 @@
 
         .header-photo {
             margin-left: 20px;
-            /* Espaço entre o texto e a foto */
             flex-shrink: 0;
-            /* Impede a imagem de encolher */
         }
 
         .icon-photo {
             width: 150px;
-            /* Largura da foto */
             height: 150px;
-            /* Altura da foto (igual à largura para ficar quadrada/circular) */
             object-fit: cover;
-            /* Garante que a imagem preencha o espaço sem distorcer */
             border-radius: 50%;
-            /* Torna a foto circular */
             border: 3px solid var(--glow-violet);
-            /* Borda opcional com a cor temática */
             box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
-            /* Glow sutil opcional */
         }
 
         .npc-name {
@@ -176,7 +158,6 @@
             color: var(--secondary-color);
         }
 
-        /* Estilo das Abas */
         .tab-menu {
             display: flex;
             background-color: #1a1a1d;
@@ -208,20 +189,14 @@
             text-shadow: 0 0 5px #fff;
         }
 
-        /* Conteúdo das Abas */
         .tab-content {
             display: none;
             animation: fadeEffect 0.5s;
         }
 
         @keyframes fadeEffect {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         ul {
@@ -231,4 +206,72 @@
 
         ul li span {
             color: var(--text-color);
+        }
+
+        /* ── RESPONSIVIDADE MOBILE ───────────────────────────── */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            /* Header do personagem: empilha foto em cima do texto */
+            .character-header {
+                flex-direction: column-reverse;
+                align-items: center;
+                padding: 16px 16px 10px;
+                text-align: center;
+                gap: 12px;
+            }
+
+            .header-content {
+                align-items: center;
+            }
+
+            .character-header h1 {
+                font-size: 1.6em;
+            }
+
+            .character-header .subtitle {
+                font-size: 0.95em;
+            }
+
+            .header-photo {
+                margin-left: 0;
+            }
+
+            .icon-photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            /* div.container tem max-height fixo; precisa crescer no mobile */
+            div.container {
+                max-height: none;
+            }
+
+            /* Grid de 2 colunas vira 1 coluna */
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            /* Abas: fonte menor para caber as 3 */
+            .tab-button {
+                font-size: 12px;
+                padding: 12px 6px;
+                letter-spacing: 0;
+            }
+
+            /* Cards com padding menor */
+            .card {
+                padding: 12px;
+            }
+
+            h2 {
+                font-size: 1.1rem;
+            }
+
+            h3 {
+                font-size: 1rem;
+            }
         }
