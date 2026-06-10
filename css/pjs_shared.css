@@ -202,9 +202,9 @@
                 padding: 10px;
             }
 
-            /* Header: foto centralizada em cima, texto embaixo */
+            /* Header: foto em cima, botão + nome embaixo */
             .character-header {
-                flex-direction: column-reverse;
+                flex-direction: column;
                 align-items: center;
                 padding: 16px 16px 10px;
                 text-align: center;
@@ -213,6 +213,7 @@
 
             .header-content {
                 align-items: center;
+                order: 2;
             }
 
             .character-header h1 {
@@ -225,6 +226,7 @@
 
             .header-photo {
                 margin-left: 0;
+                order: 1;
             }
 
             .pj-photo {
