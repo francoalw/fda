@@ -3,12 +3,10 @@
 
 <head>
 
-    <link rel="icon" type="image/png"
-        href="midia/foundryicon.png">
-
+    <link rel="icon" type="image/png" href="midia/foundryicon.png">
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ADICIONAR -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fora do Abismo</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&&display=swap" rel="stylesheet">
     <style>
@@ -35,7 +33,7 @@
             font-family: 'Special Elite', cursive;
             max-width: 900px;
             margin: 0 auto;
-            padding: 0 12px; /* RESPONSIVO: evita conteúdo colado nas bordas */
+            padding: 0 12px;
         }
 
         header {
@@ -51,14 +49,6 @@
             letter-spacing: 4px;
         }
 
-        /* RESPONSIVO: título menor em telas pequenas */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.4rem;
-                letter-spacing: 2px;
-            }
-        }
-
         .botao-lugar a {
             color: inherit;
             text-decoration: none;
@@ -69,7 +59,6 @@
         .botao-lugar a:hover {
             text-decoration: underline;
             filter: brightness(1.2);
-            /* Dá um leve brilho ao passar o mouse */
         }
 
         .data-table th {
@@ -108,13 +97,6 @@
             color: #eee;
         }
 
-        /* RESPONSIVO: h2 menor em telas pequenas */
-        @media (max-width: 600px) {
-            .data-box h2 {
-                font-size: 1.15rem;
-            }
-        }
-
         #firefly-container {
             position: fixed;
             top: 0;
@@ -137,27 +119,14 @@
         }
 
         @keyframes fade {
-            0% {
-                opacity: 0;
-            }
-
-            50% {
-                opacity: 1;
-            }
-
-            100% {
-                opacity: 0;
-            }
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
         }
 
         @keyframes move {
-            from {
-                transform: translate(0, 0);
-            }
-
-            to {
-                transform: translate(var(--move-x), var(--move-y));
-            }
+            from { transform: translate(0, 0); }
+            to { transform: translate(var(--move-x), var(--move-y)); }
         }
 
         .lore-entry {
@@ -220,8 +189,7 @@
 
         .local-banner:hover {
             background: linear-gradient(90deg, #2d0a3d, #0d0216);
-            box-shadow: inset 0 0 20px rgba(138, 43, 226, 0.2),
-                0 0 15px rgba(0, 0, 0, 0.8);
+            box-shadow: inset 0 0 20px rgba(138, 43, 226, 0.2), 0 0 15px rgba(0, 0, 0, 0.8);
             border-left: 3px solid #8a2be2;
             transform: translateX(8px);
             color: #e0e0e0;
@@ -247,13 +215,6 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 15px;
-        }
-
-        /* RESPONSIVO: npc-grid em 2 colunas no mobile */
-        @media (max-width: 480px) {
-            .npc-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
 
         .npc-tag {
@@ -284,20 +245,6 @@
             width: 100%;
         }
 
-        /* RESPONSIVO: cards dos PJs em 3 colunas no mobile */
-        @media (max-width: 600px) {
-            .pj-row {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 8px;
-            }
-        }
-
-        @media (max-width: 380px) {
-            .pj-row {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
         .pj-card {
             display: block;
             text-decoration: none;
@@ -315,27 +262,10 @@
             overflow: hidden;
         }
 
-        /* RESPONSIVO: padding menor e retrato menor em mobile */
-        @media (max-width: 600px) {
-            .pj-card {
-                padding: 12px 6px;
-            }
-
-            .pj-portrait {
-                width: 56px !important;
-                height: 56px !important;
-            }
-
-            .pj-card h3 {
-                font-size: 0.8rem !important;
-            }
-        }
-
         .pj-card:hover {
             transform: translateY(-8px) scale(1.02);
             background: rgba(25, 25, 35, 0.9);
-            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.3),
-                0 0 10px rgba(138, 43, 226, 0.2);
+            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.3), 0 0 10px rgba(138, 43, 226, 0.2);
             border-color: var(--glow-violet);
         }
 
@@ -346,10 +276,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg,
-                    transparent,
-                    rgba(0, 255, 187, 0.05),
-                    transparent);
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 187, 0.05), transparent);
             transition: 0.5s;
         }
 
@@ -393,7 +320,6 @@
             width: 100%;
             border-collapse: collapse;
             background-color: #111;
-            /* Mudei para combinar com o tema */
             margin: 20px 0;
             color: var(--ink-parchment);
         }
@@ -422,15 +348,160 @@
             letter-spacing: 1px;
         }
 
-        /* RESPONSIVO: tabelas com scroll horizontal */
-        .table-scroll {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
+        /* ── CARDS MOBILE: ritmo de viagem ───────────────────── */
+        .ritmo-cards {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            margin: 16px 0 20px;
         }
 
-        /* * {
-            outline: 1px solid red !important;
-        } */
+        .ritmo-card {
+            background: #111;
+            border-left: 3px solid var(--drow-purple);
+            padding: 12px 14px;
+        }
+
+        .ritmo-card .ritmo-nome {
+            color: var(--glow-violet);
+            font-weight: bold;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .ritmo-card .ritmo-dist {
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+            color: #bbb;
+        }
+
+        .ritmo-card .ritmo-efeito {
+            font-size: 0.85rem;
+            color: #888;
+            line-height: 1.4;
+        }
+
+        /* ── CARDS MOBILE: distâncias ────────────────────────── */
+        .dist-cards {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            margin: 16px 0 20px;
+        }
+
+        .dist-card {
+            background: #111;
+            border-left: 3px solid var(--drow-purple);
+            padding: 12px 14px;
+        }
+
+        .dist-card .dist-origem {
+            color: var(--glow-violet);
+            font-weight: bold;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 6px;
+        }
+
+        .dist-card .dist-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            padding: 3px 0;
+            border-bottom: 1px solid #1a1a1a;
+            color: #bbb;
+        }
+
+        .dist-card .dist-row:last-child {
+            border-bottom: none;
+        }
+
+        .dist-card .dist-row span:last-child {
+            color: var(--ink-parchment);
+            font-weight: bold;
+        }
+
+        .dist-card .dist-row span:first-child {
+            color: #888;
+        }
+
+        /* ── RESPONSIVIDADE GERAL ────────────────────────────── */
+        @media (max-width: 600px) {
+            body {
+                padding: 0 10px;
+            }
+
+            h1 {
+                font-size: 1.35rem;
+                letter-spacing: 2px;
+            }
+
+            .data-box h2 {
+                font-size: 1.1rem;
+            }
+
+            .pj-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .pj-card {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 16px;
+                padding: 14px 16px;
+                text-align: left;
+            }
+
+            .pj-portrait {
+                width: 56px;
+                height: 56px;
+                margin: 0;
+                flex-shrink: 0;
+            }
+
+            .pj-card h3 {
+                font-size: 1rem;
+                margin-bottom: 0;
+            }
+
+            .npc-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .npc-tag {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .npc-tag strong {
+                min-width: 120px;
+                flex-shrink: 0;
+            }
+
+            /* esconde tabelas, mostra cards */
+            .data-table { display: none; }
+            .ritmo-cards { display: flex; }
+            .dist-cards { display: flex; }
+
+            /* remove margin do <p><strong> que precede as tabelas */
+            .regras-titulo {
+                margin-top: 24px;
+                margin-bottom: 0;
+            }
+        }
+
+
+
+        /* * { outline: 1px solid red !important; } */
     </style>
 </head>
 
@@ -475,8 +546,6 @@
                     📍 Localização: Gracklstugh
                 </h2>
             </a>
-            <!-- <p style="font-size: 0.8rem;">Ponto de Interesse para <strong>Buppido</strong>.</p> -->
-            <!-- <p style="font-size: 0.8rem;">Há 288 km do Bosque Nunca Claro.</p> -->
         </div>
 
         <div class="data-box">
@@ -502,20 +571,14 @@
                 <a href="npcs/ront.html" class="npc-tag"><strong>Ront</strong><br>Orc Valentão</a>
                 <a href="npcs/sarith.html" class="npc-tag"><strong>Sarith Kzekarith</strong><br>Drow Acusado</a>
                 <a href="npcs/stool.html" class="npc-tag"><strong>Stool</strong><br>Miconide Broto</a>
-                <a href="npcs/topsy.html" class="npc-tag"><strong>Topsy</strong><br>Gnomo das Profundezas irmão de
-                    Turvy</a>
-                <a href="npcs/turvy.html" class="npc-tag"><strong>Turvy</strong><br>Gnomo das Profundezas irmão de
-                    Topsy</a>
+                <a href="npcs/topsy.html" class="npc-tag"><strong>Topsy</strong><br>Gnomo das Profundezas irmão de Turvy</a>
+                <a href="npcs/turvy.html" class="npc-tag"><strong>Turvy</strong><br>Gnomo das Profundezas irmão de Topsy</a>
             </div>
 
             <h3 style="color: var(--blood-red); margin-top: 20px; margin-bottom: 8px;">Mortos</h3>
             <div class="npc-grid">
                 <a href="npcs/eldeth.html" class="npc-tag"
-                    style="opacity: 0.5; border-color: var(--blood-red);"><strong>Eldeth Feldrun</strong><br>Anã do
-                    Escudo</a>
-                <!-- <a href="npcs/buppido.html" class="npc-tag"
-                    style="opacity: 0.5; border-color: var(--blood-red);"><strong>Buppido</strong><br>Gnomo das
-                    Profundezas</a> -->
+                    style="opacity: 0.5; border-color: var(--blood-red);"><strong>Eldeth Feldrun</strong><br>Anã do Escudo</a>
             </div>
         </div>
 
@@ -523,110 +586,180 @@
             style="margin-top: 20px; font-size: 1rem; background: #1a0b2e; font-family: Arial, sans-serif;">
             <h2>📋Lembrete de Regras</h2>
 
-            <p><strong><br><br>RITMO DE VIAGEM NO SUBTERRÂNEO</strong></p>
-            <!-- RESPONSIVO: wrapper para scroll horizontal -->
-            <div class="table-scroll">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Ritmo</th>
-                            <th>Distância por dia</th>
-                            <th>Efeito</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Rápido</td>
-                            <td>12 km</td>
-                            <td>CD de Sobrevivência elevada, sem forrageio.</td>
-                        </tr>
-                        <tr>
-                            <td>Normal</td>
-                            <td>09 km</td>
-                            <td>CD de Sobrevivência padrão, forrageio comum.</td>
-                        </tr>
-                        <tr>
-                            <td>Lento</td>
-                            <td>06 km</td>
-                            <td>CD de Sobrevivência diminuída, forrageio aprimorado.</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <p class="regras-titulo"><strong><br><br>RITMO DE VIAGEM NO SUBTERRÂNEO</strong></p>
+
+            <!-- Tabela: visível em desktop -->
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Ritmo</th>
+                        <th>Distância por dia</th>
+                        <th>Efeito</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rápido</td>
+                        <td>12 km</td>
+                        <td>CD de Sobrevivência elevada, sem forrageio.</td>
+                    </tr>
+                    <tr>
+                        <td>Normal</td>
+                        <td>09 km</td>
+                        <td>CD de Sobrevivência padrão, forrageio comum.</td>
+                    </tr>
+                    <tr>
+                        <td>Lento</td>
+                        <td>06 km</td>
+                        <td>CD de Sobrevivência diminuída, forrageio aprimorado.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Cards: visíveis apenas em mobile -->
+            <div class="ritmo-cards">
+                <div class="ritmo-card">
+                    <div class="ritmo-nome">Rápido</div>
+                    <div class="ritmo-dist">12 km por dia</div>
+                    <div class="ritmo-efeito">CD de Sobrevivência elevada, sem forrageio.</div>
+                </div>
+                <div class="ritmo-card">
+                    <div class="ritmo-nome">Normal</div>
+                    <div class="ritmo-dist">09 km por dia</div>
+                    <div class="ritmo-efeito">CD de Sobrevivência padrão, forrageio comum.</div>
+                </div>
+                <div class="ritmo-card">
+                    <div class="ritmo-nome">Lento</div>
+                    <div class="ritmo-dist">06 km por dia</div>
+                    <div class="ritmo-efeito">CD de Sobrevivência diminuída, forrageio aprimorado.</div>
+                </div>
             </div>
 
-            <p><strong><br><br>DISTÂNCIA DE VIAGEM NO SUBTERRÂNEO</strong></p>
-            <!-- RESPONSIVO: wrapper para scroll horizontal -->
-            <div class="table-scroll">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Localidade</th>
-                            <th>Velkynvelve</th>
-                            <th>Sloobludop</th>
-                            <th class="botao-lugar"><a href="lugares\gracklstugh.html">Gracklstugh</a></th>
-                            <th>Bosque Nunca Claro</th>
-                            <th>Pedra do Massacre do Refúgio</th>
-                            <th>Menzoberranzan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Velkynvelve</td>
-                            <td>–</td>
-                            <td>72 km</td>
-                            <td>252 km</td>
-                            <td>324 km</td>
-                            <td>180 km</td>
-                            <td>234 km</td>
-                        </tr>
-                        <tr>
-                            <td>Sloobludop</td>
-                            <td>72 km</td>
-                            <td>–</td>
-                            <td>180 km</td>
-                            <td>234 km</td>
-                            <td>180 km</td>
-                            <td>180 km</td>
-                        </tr>
-                        <tr>
-                            <td>Gracklstugh</td>
-                            <td>252 km</td>
-                            <td>180 km</td>
-                            <td>–</td>
-                            <td>180 km</td>
-                            <td>180 km</td>
-                            <td>243 km</td>
-                        </tr>
-                        <tr>
-                            <td>Bosque Nunca Claro</td>
-                            <td>324 km</td>
-                            <td>234 km</td>
-                            <td>108 km</td>
-                            <td>–</td>
-                            <td>144 km</td>
-                            <td>216 km</td>
-                        </tr>
-                        <tr>
-                            <td>Pedra do Massacre do Refúgio</td>
-                            <td>270 km</td>
-                            <td>180 km</td>
-                            <td>180 km</td>
-                            <td>144 km</td>
-                            <td>–</td>
-                            <td>72 km</td>
-                        </tr>
-                        <tr>
-                            <td>Menzoberranzan</td>
-                            <td>234 km</td>
-                            <td>180 km</td>
-                            <td>243 km</td>
-                            <td>216 km</td>
-                            <td>72 km</td>
-                            <td>–</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <p class="regras-titulo"><strong><br><br>DISTÂNCIA DE VIAGEM NO SUBTERRÂNEO</strong></p>
+
+            <!-- Tabela: visível em desktop -->
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Localidade</th>
+                        <th>Velkynvelve</th>
+                        <th>Sloobludop</th>
+                        <th class="botao-lugar"><a href="lugares\gracklstugh.html">Gracklstugh</a></th>
+                        <th>Bosque Nunca Claro</th>
+                        <th>Pedra do Massacre do Refúgio</th>
+                        <th>Menzoberranzan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Velkynvelve</td>
+                        <td>–</td>
+                        <td>72 km</td>
+                        <td>252 km</td>
+                        <td>324 km</td>
+                        <td>180 km</td>
+                        <td>234 km</td>
+                    </tr>
+                    <tr>
+                        <td>Sloobludop</td>
+                        <td>72 km</td>
+                        <td>–</td>
+                        <td>180 km</td>
+                        <td>234 km</td>
+                        <td>180 km</td>
+                        <td>180 km</td>
+                    </tr>
+                    <tr>
+                        <td>Gracklstugh</td>
+                        <td>252 km</td>
+                        <td>180 km</td>
+                        <td>–</td>
+                        <td>180 km</td>
+                        <td>180 km</td>
+                        <td>243 km</td>
+                    </tr>
+                    <tr>
+                        <td>Bosque Nunca Claro</td>
+                        <td>324 km</td>
+                        <td>234 km</td>
+                        <td>108 km</td>
+                        <td>–</td>
+                        <td>144 km</td>
+                        <td>216 km</td>
+                    </tr>
+                    <tr>
+                        <td>Pedra do Massacre do Refúgio</td>
+                        <td>270 km</td>
+                        <td>180 km</td>
+                        <td>180 km</td>
+                        <td>144 km</td>
+                        <td>–</td>
+                        <td>72 km</td>
+                    </tr>
+                    <tr>
+                        <td>Menzoberranzan</td>
+                        <td>234 km</td>
+                        <td>180 km</td>
+                        <td>243 km</td>
+                        <td>216 km</td>
+                        <td>72 km</td>
+                        <td>–</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Cards: visíveis apenas em mobile -->
+            <div class="dist-cards">
+                <div class="dist-card">
+                    <div class="dist-origem">Velkynvelve</div>
+                    <div class="dist-row"><span>Sloobludop</span><span>72 km</span></div>
+                    <div class="dist-row"><span><a href="lugares/gracklstugh.html" style="color:inherit;">Gracklstugh</a></span><span>252 km</span></div>
+                    <div class="dist-row"><span>Bosque Nunca Claro</span><span>324 km</span></div>
+                    <div class="dist-row"><span>Pedra do Massacre</span><span>180 km</span></div>
+                    <div class="dist-row"><span>Menzoberranzan</span><span>234 km</span></div>
+                </div>
+                <div class="dist-card">
+                    <div class="dist-origem">Sloobludop</div>
+                    <div class="dist-row"><span>Velkynvelve</span><span>72 km</span></div>
+                    <div class="dist-row"><span><a href="lugares/gracklstugh.html" style="color:inherit;">Gracklstugh</a></span><span>180 km</span></div>
+                    <div class="dist-row"><span>Bosque Nunca Claro</span><span>234 km</span></div>
+                    <div class="dist-row"><span>Pedra do Massacre</span><span>180 km</span></div>
+                    <div class="dist-row"><span>Menzoberranzan</span><span>180 km</span></div>
+                </div>
+                <div class="dist-card">
+                    <div class="dist-origem">Gracklstugh</div>
+                    <div class="dist-row"><span>Velkynvelve</span><span>252 km</span></div>
+                    <div class="dist-row"><span>Sloobludop</span><span>180 km</span></div>
+                    <div class="dist-row"><span>Bosque Nunca Claro</span><span>180 km</span></div>
+                    <div class="dist-row"><span>Pedra do Massacre</span><span>180 km</span></div>
+                    <div class="dist-row"><span>Menzoberranzan</span><span>243 km</span></div>
+                </div>
+                <div class="dist-card">
+                    <div class="dist-origem">Bosque Nunca Claro</div>
+                    <div class="dist-row"><span>Velkynvelve</span><span>324 km</span></div>
+                    <div class="dist-row"><span>Sloobludop</span><span>234 km</span></div>
+                    <div class="dist-row"><span><a href="lugares/gracklstugh.html" style="color:inherit;">Gracklstugh</a></span><span>108 km</span></div>
+                    <div class="dist-row"><span>Pedra do Massacre</span><span>144 km</span></div>
+                    <div class="dist-row"><span>Menzoberranzan</span><span>216 km</span></div>
+                </div>
+                <div class="dist-card">
+                    <div class="dist-origem">Pedra do Massacre do Refúgio</div>
+                    <div class="dist-row"><span>Velkynvelve</span><span>270 km</span></div>
+                    <div class="dist-row"><span>Sloobludop</span><span>180 km</span></div>
+                    <div class="dist-row"><span><a href="lugares/gracklstugh.html" style="color:inherit;">Gracklstugh</a></span><span>180 km</span></div>
+                    <div class="dist-row"><span>Bosque Nunca Claro</span><span>144 km</span></div>
+                    <div class="dist-row"><span>Menzoberranzan</span><span>72 km</span></div>
+                </div>
+                <div class="dist-card">
+                    <div class="dist-origem">Menzoberranzan</div>
+                    <div class="dist-row"><span>Velkynvelve</span><span>234 km</span></div>
+                    <div class="dist-row"><span>Sloobludop</span><span>180 km</span></div>
+                    <div class="dist-row"><span><a href="lugares/gracklstugh.html" style="color:inherit;">Gracklstugh</a></span><span>243 km</span></div>
+                    <div class="dist-row"><span>Bosque Nunca Claro</span><span>216 km</span></div>
+                    <div class="dist-row"><span>Pedra do Massacre</span><span>72 km</span></div>
+                </div>
             </div>
+
         </div>
         </div>
     </main>
@@ -635,18 +768,15 @@
 
 <script>
     const container = document.getElementById('firefly-container');
-    const fireflyCount = 30; // Quantidade de vagalumes
+    const fireflyCount = 30;
 
     for (let i = 0; i < fireflyCount; i++) {
         const firefly = document.createElement('div');
         firefly.className = 'firefly';
 
-        // Posições iniciais aleatórias
         const posX = Math.random() * 100;
         const posY = Math.random() * 100;
-
-        // Variáveis para a animação (duração e atraso)
-        const duration = Math.random() * 10 + 10; // Entre 10s e 20s
+        const duration = Math.random() * 10 + 10;
         const delay = Math.random() * 5;
 
         firefly.style.left = `${posX}vw`;
@@ -654,7 +784,6 @@
         firefly.style.animationDuration = `${duration}s`;
         firefly.style.animationDelay = `${delay}s`;
 
-        // Criamos uma variação de movimento para cada um
         firefly.style.setProperty('--move-x', `${(Math.random() - 0.5) * 30}vw`);
         firefly.style.setProperty('--move-y', `${(Math.random() - 0.5) * 30}vh`);
 
