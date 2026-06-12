@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="../midia/foundryicon.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracklstugh</title>
+    <link rel="stylesheet" href="../css/lugares_shared.css">
+    <style>
+        /* exclusivo de Gracklstugh */
+        .brasa {
+            position: absolute;
+            bottom: -20px;
+            background: #ffcc00;
+            border-radius: 50%;
+            opacity: 0.8;
+            filter: blur(1px);
+            box-shadow: 0 0 10px #ff4500, 0 0 20px #ff8c00;
+            animation: subir var(--duracao) infinite ease-in;
+        }
+
+        @keyframes subir {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-50vh) translateX(var(--oscilacao)) scale(0.8);
+            }
+            100% {
+                transform: translateY(-110vh) translateX(calc(var(--oscilacao) * 2)) scale(0.2);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- FAÍSCAS: filho direto do body, fora de qualquer container com overflow:hidden -->
+    <div id="forja-container" class="particulas-container"></div>
+
+    <div class="container">
+        <header class="local-header">
+            <div class="nome-local" style="margin-top: 1rem; margin-left: 1rem;">
+                <a href="../index.html" class="btn-voltar">← Voltar</a>
+                <h1>Gracklstugh</h1>
+                <div class="subtitle">A Cidade das Lâminas</div>
+            </div>
+
+            <div>
+                <img src="https://static.wikia.nocookie.net/forgottenrealms/images/5/50/Gracklstugh.jpg/revision/latest/scale-to-width-down/1000?cb=20151217163217"
+                    alt="Gracklstugh" class="local-photo">
+            </div>
+        </header>
+
+        <div class="tab-menu">
+            <button class="tab-button active" onclick="openTab(event, 'Descricao')">Descrição</button>
+            <button class="tab-button" onclick="openTab(event, 'criaturasimportantes')">Criaturas Importantes</button>
+            <button class="tab-button" onclick="openTab(event, 'LocaisNotaveis')">Missões</button>
+        </div>
+
+    </div>
+
+    <div id="Descricao" class="tab-content" style="display: block;">
+        <p style="text-align: justify;">Gracklstugh (pronuncia-se GRACS-TUG), é uma cidade
+            duergar às margens do Lago Negro, na Underdark.</p>
+
+        <h2>Geografia</h2>
+        <p style="text-align: justify;">A cidade fica a cerca de 243km de Menzoberranzan, do outro lado do Lago
+            Negro.
+            <br>O acesso a Gracklstugh pode ser alcançado pelo Lago Negro.
+        </p>
+
+        <h2>Estrutura</h2>
+        <p style="text-align: justify;">Gracklstugh is uma cidade caverna anexada
+            ao Lago negro como um porto subterrâneo. A cidade é iluminada pela luz do fogo de fundições misturadas entre
+            estalagmites. O ar cheira acre e é carregado de sons industriais: fogo, vapor e ferro
+            zumbindo. A fumaça persistente que preenche a caverna pode causar uma tosse persistente, e às vezes fatal,
+            conhecida como Pulmão de Grackle.</p>
+
+        <h2>Habitantes</h2>
+        <p style="text-align: justify;">A cidade é principalmente lar de duergars, mas há uma minoria considerável
+            de derros que vivem lá, assim como vários durzagon, orogs e gigantes de pedra. Um terço da população total é
+            composto por escravos, nomeadamente goblins, anões do escudo, orcs, svirfneblin e humanos.
+            <br>A cidade recebia muitos mercadores visitantes, especialmente drow, duergar e kuo-toa. Estrangeiros são
+            obrigados a obter mandados de passagem para atravessar a cidade (além do distrito dos cais) and seus
+            territórios. Um forasteiro que adentre Gracklstugh, só consegue sair pacificamente se alguém o conceder
+            permissão oficial.
+            <br> Grupos só tem permissão para sair caso fundem uma guilda oficialmente.
+        </p>
+    </div>
+
+    <div id="criaturasimportantes" class="tab-content">
+        <div class="criaturasimportantes">
+            <div>
+                <h2>Criaturas Importantes</h2>
+
+                <div class="card">
+                    <img src="../midia/gracklstugh/ariana.png" alt="Ariana" class="card-avatar">
+                    <div class="card-content">
+                        <h4>Ariana</h4>
+                        <p>Duergar mercadora que trazia itens especiais à Gracklstugh. Foi morta por Sarith Kzekarit sob
+                            efeito de fungos demoníacos de Zuggtmoy. Estava sempre acompanhada de seu Elemental de
+                            Pedra, que após a morte de sua aliada, passa a proteger Vaal magicamente.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../midia/gracklstugh/droki.webp" alt="Droki" class="card-avatar">
+                    <div class="card-content">
+                        <h4>Droki</h4>
+                        <p>Derro mensageiro excêntrico, está sendo investigado por Errde Crânio Negro. É frequentemente
+                            visto correndo em velocidade alarmante pela cidade enquanto murmura algo para si mesmo em
+                            tom de reprovação.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../midia/gracklstugh/errde.webp" alt="Errde Crânio Negro" class="card-avatar">
+                    <div class="card-content">
+                        <h4>Errde Crânio Negro</h4>
+                        <p>Capitã Errde Crânio Negro, comandante da Guarda de Pedra. Trata Vaal com respeito ímpar,
+                            enquanto subestima Atena e vê os demais como possíveis escravos valorosos. Recentemente,
+                            Errde Crânio Negro tem achado que uma CONSPIRAÇÃO SECRETA está se instaurando na Cidade das
+                            Lâminas.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../midia/gracklstugh/gartokkar.webp" alt="Gartokkar" class="card-avatar">
+                    <div class="card-content">
+                        <h4>Gartokkar</h4>
+                        <p>Duergar líder dos Guardiões da Chama, conselheiro direto de Themberchaud e irmão de Gorglak.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../midia/gracklstugh/gorglak.webp" alt="Gorglak" class="card-avatar">
+                    <div class="card-content">
+                        <h4>Gorglak</h4>
+                        <p>Faz parte dos Guargas de Pedra, a milícia de menor patente em Gracklstugh. É um duergar
+                            guardião da chama, irmão de Gartokkar, com corrupção exarcebada.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../midia/gracklstugh/hgraam.webp" alt="Hgraam" class="card-avatar">
+                    <div class="card-content">
+                        <h4>Hgraam, Orador de Pedra</h4>
+                        <p>O líder dos gigantes de pedra é um sacerdote de Skoraeus Ossos de
+                            Pedra, o deus de seu povo. Hgraam é sábio e bem informado, além de demonstrar grande
+                            gratidão pela ajuda que os aventureiros deram a ele quando teve de lidar com um gigante
+                            bicéfalo enlouquecido. Envergonhado pelo ocorrido, convidou os aventureiros a uma reunião.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../midia/gracklstugh/horgarv.webp" alt="Horgar Sombra de Aço V" class="card-avatar">
+                    <div class="card-content">
+                        <h4>Horgar Sombra de Aço V, o Rei das Profundezas</h4>
+                        <p>Um governante impiedoso e astuto. Existem diversas especulações a respeito de suas ações, mas
+                            ninguém sabe com precisão.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../midia/gracklstugh/themberchaud.webp" alt="Themberchaud" class="card-avatar">
+                    <div class="card-content">
+                        <h4>Themberchaud, o Dragão Ferreiro</h4>
+                        <p>Este dragão vermelho adulto mantém as fundidoras e forjas da cidade acesas, recebendo
+                            tesouros, refeições e constantes regalias em troca.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../midia/gracklstugh/werz.webp" alt="Werz" class="card-avatar">
+                    <div class="card-content">
+                        <h4>Werz, Barão do Sal</h4>
+                        <p>Mercador Duergar, patriarca líder do clã Barão de Sal.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../midia/gracklstugh/ylsa.webp" alt="Ylsa henstak" class="card-avatar">
+                    <div class="card-content">
+                        <h4>Ylsa henstak</h4>
+                        <p>Uma duergar membro do Conselho Mercantil. Ela é uma mestra de caravana hábil e orgulha-se de
+                            sempre chegar ao seu destino antes do combinado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="LocaisNotaveis" class="tab-content">
+        <p><em>A seguir, seres que passaram missões ao grupo.</em></p>
+
+        <div class="missao">
+            <div class="card-content">
+                <h4>AGENTES DUPLOS</h4>
+                <p><strong>Themberchaud</strong> ordenou que os aventureiros seguissem as ordens dos Guardiões da Chama,
+                    mas que relatassem a ele primeiro e não aos guardiões.</p>
+            </div>
+        </div>
+
+        <div class="missao">
+            <div class="card-content">
+                <h4>CONSPIRAÇÕES EM GRACKLSTUGH?!</h4>
+                <p><strong>Errde Crânio Negro</strong> acredita que uma CONSPIRAÇÃO está se infiltrando entre as pessoas
+                    de Gracklstugh. Ela recompensará os aventureiros se trouxerem evidências dessas CONSPIRAÇÕES para
+                    ela. Prometeu solicitar ao <strong>Horgar Sombra de Aço V, O Rei das Profundezas</strong> passagem
+                    dos aventureiros para fora de Gracklstugh, desde que eles cumpram.</p>
+                <h4>Recompensa: 50 peças de ouro por evidência.</h4>
+            </div>
+        </div>
+
+        <div class="missao">
+            <div class="card-content">
+                <h4>DROKI É UM CONSPIRACIONISTA?!</h4>
+                <p><strong>Errde Crânio Negro</strong> quer que os
+                    aventureiros sigam Droki, vejam o que ele faz e
+                    aonde vai, e reportem a ela. Ou, caso vejam uma
+                    oportunidade, capturam-no e tragam-no para
+                    interrogatório ou matem-no e lhe tragam evidências de
+                    suas atividades.</p>
+                <h4>Recompensa: Passagem para fora de Gracklstugh.</h4>
+            </div>
+        </div>
+
+        <div class="missao">
+            <div class="card-content">
+                <h4>ORIGEM DOS ITENS</h4>
+                <p><strong>Ylsa Henstak</strong> é a única habitante de Gracklstugh com ítens da superfície. Ou ao menos costumava ser. Os derros recentemente estão utilizando dinheiro e joias da superfície para pagar por comida.</p>
+                <h4>Recompensa: Ylsa irá fornecer aos aventureiros orientação para pelo menos o próximo estágio de sua jornada, incluindo conselhos valiosos sobre rotas.</h4>
+            </div>
+        </div>
+
+        <div class="missao">
+            <div class="card-content">
+                <h4>REUNIÃO COM OS GIGANTES DE PEDRA</h4>
+                <p><strong>Hgraam Orador de Pedra</strong>, após o incidente do gigante bicéfalo, convidou os
+                    aventureiros para uma reunião.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function gerarBrasas() {
+            const container = document.getElementById('forja-container');
+            const quantidade = 40;
+
+            for (let i = 0; i < quantidade; i++) {
+                const brasa = document.createElement('div');
+                brasa.className = 'brasa';
+
+                const tamanho = Math.random() * 4 + 2 + 'px';
+                const posicaoX = Math.random() * 100 + 'vw';
+                const duracao = Math.random() * 3 + 3 + 's';
+                const atraso = Math.random() * 7 + 's';
+                const oscilacao = (Math.random() * 150 - 75) + 'px';
+
+                brasa.style.width = tamanho;
+                brasa.style.height = tamanho;
+                brasa.style.left = posicaoX;
+                brasa.style.setProperty('--duracao', duracao);
+                brasa.style.setProperty('--oscilacao', oscilacao);
+                brasa.style.animationDelay = atraso;
+
+                container.appendChild(brasa);
+            }
+        }
+
+        window.addEventListener('load', gerarBrasas);
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+
+</html>

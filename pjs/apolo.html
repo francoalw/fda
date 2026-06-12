@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <link rel="icon" type="image/png" href="../midia/foundryicon.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Apolo">
+    <title>Apolo</title>
+    <link rel="stylesheet" href="../css/pjs_shared.css">
+
+    <style>
+        .card-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--secondary-color);
+            box-shadow: 0 0 10px rgba(69, 162, 158, 0.2);
+            flex-shrink: 0;
+            /* Impede que a foto amasse em telas menores */
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header class="character-header">
+            <div class="header-content">
+                <a href="../index.html" class="btn-voltar">← Voltar</a>
+
+                <h1>Apolo</h1>
+                <div class="subtitle">Orc | Kineticista | Chama da Esperança</div>
+            </div>
+
+            <div class="header-photo">
+                <img src="apolo.png" alt="Apolo" class="pj-photo">
+            </div>
+        </header>
+
+        <div class="tab-menu">
+            <button class="tab-button active" onclick="openTab(event, 'Lore')">História</button>
+            <button class="tab-button" onclick="openTab(event, 'Objetivos')">Convicções</button>
+            <button class="tab-button" onclick="openTab(event, 'MinhaOpiniao')">Relações</button>
+        </div>
+
+    </div>
+
+    <div id="Lore" class="tab-content" style="display: block;">
+        <h2>QUEM É APOLO?</h2>
+
+        <hr style="border-color: #333;">
+        <p style="text-align: justify;">Graahk e Karina faziam parte de um grupo de sobreviventes no abismo, a jornada
+            ja havia castigado muito o grupo que ja muito enfraquecidos decidiram morar em Grathkslug, ali os dois
+            casaram e sabendo que nao voltariam pra superficie ambos começaram a escrever livros sobre a superficie,
+            alguns descrevendo precisamente como é e outros exagerando em poesia, nos livros estava guardado muito da
+            cultura, fauna e flora que existia FORA DO ABISMO. Essa vontade de escrever sobre a superficie era uma forma
+            deles nunca esquecerem do paraíso que eles um dia viveram.</p>
+
+        <p style="text-align: justify;">Karina estava gravida, durante todo o periodo de gravides a magia da feiticeira
+            elemental ficava cada vez mais instavel como se a criança ali dentro puxasse pra si toda magia. Quando a
+            criança nasceu a magia de Karina criava vultos faíscantes e o bebe brilhava como o sol, por causa disso ela
+            deu o nome de Apolo o deus do sol e pediu para que Graahk, o pai de apolo, alimentasse a criança com sonhos
+            do que um dia ele veria na superficie, antes de morrer Karina abriu um sorriso agradecendo aos deuses por
+            poder ver o Sol uma ultima vez.</p>
+
+        <p style="text-align: justify;">O menino Apolo crescia e era ensinado pelo seu pai que ensinava tudo sobre o
+            abismo e sobre a superficie, ensinava ele a usar algumas armas e usar armaduras, curar ferimentos e a
+            controlar seus poderes elementais, o amuleto em formato de Sol que Karina usava parecia fortalecer as chamas
+            de Apolo. Infelizmente quando Apolo tinha cerca de 12 anos Graahk morreu devido a uma infecção pulmonar e
+            sozinho Apolo aceitava todo e qualquer serviço para sobreviver. Apesar da vida sofrida, no final de cada dia
+            Apolo olhava pra cima e jurava pelo nome de seus pais q ele iria pra FORA DO ABISMO.</p>
+
+        <p style="text-align: justify;">O pequeno sol se dedicava ao maximo acreditando numa oportunidade de fugir dali,
+            mas a oportunidade nunca chegava, ele tinha sido instruido dos perigos do Abismo e que sozinho ele nao
+            conseguiria sobreviver nem até metade do caminho. Sua paciencia foi abalada quando um dia teve uma terrivel
+            crise de tosse, tosses tão violentas que Apolo até cuspia sangue, tosses que tmb eram nostálgicas ja que era
+            as mesmas tosses de seu pai. Apolo estava desesperado e sua angustia era quase palpavel, por sorte um raio
+            de luz iluminou a vida do sonhador, uma senhora apareceu para tirar ele da vida de miseria e dar uma vida um
+            pouco mais digna.</p>
+
+        <p style="text-align: justify;">Agora Apolo com ajuda de Dona Atena espera ansioso por uma oportunidade de sair pra FORA DO ABISMO e um dia poder ver o brilho e sentir o calor do VERDADEIRO SOL</p>
+    </div>
+
+    <div id="Objetivos" class="tab-content">
+        <div class="grid-2">
+            <div>
+                <h2>Desejos Profundos</h2>
+                <div class="card">
+                    <h3>Conhecer a si mesmo</h3>
+                    <p>Apolo quer saber mais sobre seus pais, sobre o antigo grupo deles, e sobre a tribo de onde eles vieram.</p>
+                </div>
+                <div class="card">
+                    <h3>Controle do Fogo</h3>
+                    <p>Apolo quer ter mais controle sobre seus impulsos elementais, tanto para se fortalecer como pra se conectar com sua mãe.</p>
+                </div>
+                <div class="card">
+                    <h3>Ser um bom filho</h3>
+                    <p>Apolo quer trazer orgulho e alegria para sua "mãe" Dona Atena.</p>
+                </div>
+                <div class="card">
+                    <h3>Ser o Sol</h3>
+                    <p>Apolo quer trazer esperanças para aqueles que estão perdidos no Abismo.</p>
+                </div>
+            </div>
+
+            <div>
+                <h2>Missões Pessoais</h2>
+                <div class="card card-danger">
+                    <h3>Ver a Superfície</h3>
+                    <p>Apolo quer a todo custo ir para FORA DO ABISMO ver o que tem lá.</p>
+                    <h3>Encontrar uma Cura</h3>
+                    <p>Apolo está doente, e não sabe se vai sobreviver por muito tempo, por isso ele busca uma cura.</p>
+                    <h3>Encontrar uma Solução para a Névoa</h3>
+                    <p>Existe um grande mal no abismo, antes de sair dele Apolo quer abrir caminho para os que ainda estão presos lá eliminando esse empecilho.</p>
+                    <h3>Derrubar velkynvelve</h3>
+                    <p>"Um grupo de Drows malditos que sequestram pessoas para esse inferno, essas desgraçados devem ser queimadas."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="MinhaOpiniao" class="tab-content">
+        <p><em>"AGUARDANDO."</em></p>
+        <h2>Opinião de Apolo sobre seus aliados</h2>
+
+        <!-- <div class="card">
+            <span class="npc-name">Buppido:</span>
+            <p><em>"Alguém que o abismo conseguiu corromper, acredito que ele em algum momento já foi alguém são, mas
+                    que infelizmente não tivemos a sorte de conhecer. E por isso, infelizmente, perdemos outro alguém."
+        </div> -->
+
+        <div class="card card-danger">
+            <span class="pj-name">Atena:</span>
+            <p>"AGUARDANDO."</p>
+        </div>
+
+        <div class="card card-danger">
+            <span class="pj-name">Rudeus:</span>
+            <p>"AGUARDANDO."</p>
+        </div>
+
+        <div class="card card-danger">
+            
+            <span class="pj-name">Fane Aurel:</span>
+            <p>"AGUARDANDO."</p>
+        </div>
+
+        <!-- <div class="card">
+            <span class="npc-name">Jimjar:</span>
+            <p>"Por incrível que pareça, eu gosto dele. É quase como se fosse um alívio em meio a situação que nos
+                encontramos. Cada passo é perigoso, e suas apostas tiram a tensão de forma positiva. pode ser um vício,
+                pode ser algo ruim, mas no momento é o que o mantém são."</p>
+        </div> -->
+
+        <!-- <div class="card">
+            <span class="npc-name">Príncipe Derendil:</span>
+            <p>"Até o momento, tem sido uma grande ajuda e em momento algum ele me deu motivos para desconfiar. Eu
+                espero estar presente no momento que ele reverter essa situação, para eu o conhecer verdadeiramente.
+                Mesmo que ainda transformado ele se mantenha um príncipe, acredito que só o conhecerei de forma
+                integral, quando o ver em forma original."</p>
+        </div> -->
+
+        <!-- <div class="card">
+            <span class="npc-name">Ront:</span>
+            <p>"Gosto muito dele. Ele me parece um pouco o Rudeus, de forma mais excêntrica, no sentido de que ela um
+                valentão, mas tudo de fachada. Agora, fico feliz que ele não precise ser alguma coisa, e que ele possa
+                demonstrar que ele não sabe as coisas e está disposto a aprender. Gosto dele, e o considero uma pessoa
+                com quem posso contar, e é uma ajuda ao grupo, física e mentalmente, pois a melhor forma de aprender
+                algo é ensinando, e Ront nos permite sempre ensinar algo."</p>
+        </div>
+
+        <div class="card">
+            <span class="npc-name">Sarith Kzekarith:</span>
+            <p>"Eu acredito no que ele é <strong>HOJE</strong>, Independente do que tenha feito no passado. Ele está ali
+                pela gente, e não se opõe a nada que proponhamos. Ele esteve conosco mesmo perante Demogorgon. Ele está
+                indo literalmente contra a própria raça, por pessoas que sequer conhece. Seu presente o define bem.."
+            </p>
+        </div>
+
+        <div class="card">
+            <span class="npc-name">Stool:</span>
+            <p>"Tenho pena dele. Ele carrega a pureza, sem algo obscuro dentro de si. E isso me dá pena, pela situação
+                que se encontra."</p>
+        </div>
+
+        <div class="card">
+            <span class="npc-name">Topsy & Turvy:</span>
+            <p>"Eles quebram o clima, de forma cômica. Para mim, são duas crianças, que ajudam a quebrar o clima aqui
+                embaixo. Enquanto um parece um psicopata, e o outro parece amenizar; ambos precisam existir ao mesmo
+                tempo. A inexistência de algum deles, causaria um caos completo. Ambos se completam de forma bonita,
+                ainda que um deles nos xinguem a todo momento, e é legal ter isso por mais estranho que seja."</p>
+        </div> -->
+
+        <div class="card card-danger">
+            <span class="pj-name">Vaal:</span>
+            <p>"AGUARDANDO."</p>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+
+            // Esconde todo o conteúdo das abas
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Remove a classe "active" de todos os botões
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Mostra a aba atual e adiciona a classe "active" no botão clicado
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+
+</html>
