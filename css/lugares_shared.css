@@ -89,12 +89,14 @@ header {
 
 .local-photo {
     flex-shrink: 0;
-    width: 28rem;
-    max-width: 50%;
+    width: 55%;
+    max-width: 55%;
     border-radius: 1rem;
-    align-self: flex-end;  /* ← substitui margin-top: -3rem */
+    align-self: stretch;
+    margin-left: auto;
     display: block;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* ── BOTÃO VOLTAR ────────────────────────────────────────────── */
