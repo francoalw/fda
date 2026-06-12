@@ -92,7 +92,7 @@ header {
     width: 28rem;
     max-width: 50%;
     border-radius: 1rem;
-    margin-top: -3rem;
+    align-self: flex-end;  /* ← substitui margin-top: -3rem */
     display: block;
     height: auto;
 }
