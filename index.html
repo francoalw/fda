@@ -8,7 +8,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fora do Abismo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Special+Elite&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --abyss-black: #050507;
@@ -119,14 +121,27 @@
         }
 
         @keyframes fade {
-            0% { opacity: 0; }
-            50% { opacity: 1; }
-            100% { opacity: 0; }
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
         }
 
         @keyframes move {
-            from { transform: translate(0, 0); }
-            to { transform: translate(var(--move-x), var(--move-y)); }
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(var(--move-x), var(--move-y));
+            }
         }
 
         .lore-entry {
@@ -211,6 +226,14 @@
             left: 100%;
         }
 
+        .npc-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
         .npc-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -225,6 +248,9 @@
             padding: 10px;
             border-left: 2px solid var(--stone-grey);
             font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .npc-tag:hover {
@@ -488,9 +514,17 @@
             }
 
             /* esconde tabelas, mostra cards */
-            .data-table { display: none; }
-            .ritmo-cards { display: flex; }
-            .dist-cards { display: flex; }
+            .data-table {
+                display: none;
+            }
+
+            .ritmo-cards {
+                display: flex;
+            }
+
+            .dist-cards {
+                display: flex;
+            }
 
             /* remove margin do <p><strong> que precede as tabelas */
             .regras-titulo {
@@ -566,19 +600,26 @@
 
             <h3 style="color: var(--secondary-color); margin-bottom: 8px;">Sobreviventes</h3>
             <div class="npc-grid">
-                <a href="npcs/jimjar.html" class="npc-tag"><strong>Jimjar</strong><br>Gnomo Apostador</a>
-                <a href="npcs/derendil.html" class="npc-tag"><strong>Prince Derendil</strong><br>Elfo Amaldiçoado</a>
-                <a href="npcs/ront.html" class="npc-tag"><strong>Ront</strong><br>Orc Valentão</a>
-                <a href="npcs/sarith.html" class="npc-tag"><strong>Sarith Kzekarith</strong><br>Drow Acusado</a>
-                <a href="npcs/stool.html" class="npc-tag"><strong>Stool</strong><br>Miconide Broto</a>
-                <a href="npcs/topsy.html" class="npc-tag"><strong>Topsy</strong><br>Gnomo das Profundezas irmão de Turvy</a>
-                <a href="npcs/turvy.html" class="npc-tag"><strong>Turvy</strong><br>Gnomo das Profundezas irmão de Topsy</a>
+                <a href="npcs/jimjar.html" class="npc-tag"><img src="npcs/jimjar.webp" class="npc-avatar"
+                        alt="Jimjar"><strong>Jimjar</strong></a>
+                <a href="npcs/derendil.html" class="npc-tag"><img src="npcs/derendil.webp" class="npc-avatar"
+                        alt="Derendil"><strong>Prince Derendil</strong></a>
+                <a href="npcs/ront.html" class="npc-tag"><img src="npcs/ront.webp" class="npc-avatar"
+                        alt="Ront"><strong>Ront</strong></a>
+                <a href="npcs/sarith.html" class="npc-tag"><img src="npcs/sarith.webp" class="npc-avatar"
+                        alt="Sarith"><strong>Sarith Kzekarith</strong></a>
+                <a href="npcs/stool.html" class="npc-tag"><img src="npcs/stool.webp" class="npc-avatar"
+                        alt="Stool"><strong>Stool</strong></a>
+                <a href="npcs/topsy.html" class="npc-tag"><img src="npcs/topsy.webp" class="npc-avatar"
+                        alt="Topsy"><strong>Topsy</strong></a>
+                <a href="npcs/turvy.html" class="npc-tag"><img src="npcs/turvy.webp" class="npc-avatar"
+                        alt="Turvy"><strong>Turvy</strong></a>
             </div>
 
             <h3 style="color: var(--blood-red); margin-top: 20px; margin-bottom: 8px;">Mortos</h3>
             <div class="npc-grid">
-                <a href="npcs/eldeth.html" class="npc-tag"
-                    style="opacity: 0.5; border-color: var(--blood-red);"><strong>Eldeth Feldrun</strong><br>Anã do Escudo</a>
+                <a href="npcs/eldeth.html" class="npc-tag"><img src="npcs/eldeth.webp" class="npc-avatar"
+                        alt="Eldeth Feldrun"><strong>Eldeth</strong></a>
             </div>
         </div>
 
@@ -713,7 +754,8 @@
                 <div class="dist-card">
                     <div class="dist-origem">Velkynvelve</div>
                     <div class="dist-row"><span>Sloobludop</span><span>72 km</span></div>
-                    <div class="dist-row"><span><a href="lugares/gracklstugh.html" style="color:inherit;">Gracklstugh</a></span><span>252 km</span></div>
+                    <div class="dist-row"><span><a href="lugares/gracklstugh.html"
+                                style="color:inherit;">Gracklstugh</a></span><span>252 km</span></div>
                     <div class="dist-row"><span>Bosque Nunca Claro</span><span>324 km</span></div>
                     <div class="dist-row"><span>Pedra do Massacre</span><span>180 km</span></div>
                     <div class="dist-row"><span>Menzoberranzan</span><span>234 km</span></div>
@@ -721,7 +763,8 @@
                 <div class="dist-card">
                     <div class="dist-origem">Sloobludop</div>
                     <div class="dist-row"><span>Velkynvelve</span><span>72 km</span></div>
-                    <div class="dist-row"><span><a href="lugares/gracklstugh.html" style="color:inherit;">Gracklstugh</a></span><span>180 km</span></div>
+                    <div class="dist-row"><span><a href="lugares/gracklstugh.html"
+                                style="color:inherit;">Gracklstugh</a></span><span>180 km</span></div>
                     <div class="dist-row"><span>Bosque Nunca Claro</span><span>234 km</span></div>
                     <div class="dist-row"><span>Pedra do Massacre</span><span>180 km</span></div>
                     <div class="dist-row"><span>Menzoberranzan</span><span>180 km</span></div>
@@ -738,7 +781,8 @@
                     <div class="dist-origem">Bosque Nunca Claro</div>
                     <div class="dist-row"><span>Velkynvelve</span><span>324 km</span></div>
                     <div class="dist-row"><span>Sloobludop</span><span>234 km</span></div>
-                    <div class="dist-row"><span><a href="lugares/gracklstugh.html" style="color:inherit;">Gracklstugh</a></span><span>108 km</span></div>
+                    <div class="dist-row"><span><a href="lugares/gracklstugh.html"
+                                style="color:inherit;">Gracklstugh</a></span><span>108 km</span></div>
                     <div class="dist-row"><span>Pedra do Massacre</span><span>144 km</span></div>
                     <div class="dist-row"><span>Menzoberranzan</span><span>216 km</span></div>
                 </div>
@@ -746,7 +790,8 @@
                     <div class="dist-origem">Pedra do Massacre do Refúgio</div>
                     <div class="dist-row"><span>Velkynvelve</span><span>270 km</span></div>
                     <div class="dist-row"><span>Sloobludop</span><span>180 km</span></div>
-                    <div class="dist-row"><span><a href="lugares/gracklstugh.html" style="color:inherit;">Gracklstugh</a></span><span>180 km</span></div>
+                    <div class="dist-row"><span><a href="lugares/gracklstugh.html"
+                                style="color:inherit;">Gracklstugh</a></span><span>180 km</span></div>
                     <div class="dist-row"><span>Bosque Nunca Claro</span><span>144 km</span></div>
                     <div class="dist-row"><span>Menzoberranzan</span><span>72 km</span></div>
                 </div>
@@ -754,7 +799,8 @@
                     <div class="dist-origem">Menzoberranzan</div>
                     <div class="dist-row"><span>Velkynvelve</span><span>234 km</span></div>
                     <div class="dist-row"><span>Sloobludop</span><span>180 km</span></div>
-                    <div class="dist-row"><span><a href="lugares/gracklstugh.html" style="color:inherit;">Gracklstugh</a></span><span>243 km</span></div>
+                    <div class="dist-row"><span><a href="lugares/gracklstugh.html"
+                                style="color:inherit;">Gracklstugh</a></span><span>243 km</span></div>
                     <div class="dist-row"><span>Bosque Nunca Claro</span><span>216 km</span></div>
                     <div class="dist-row"><span>Pedra do Massacre</span><span>72 km</span></div>
                 </div>
