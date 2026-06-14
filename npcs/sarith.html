@@ -167,6 +167,43 @@
     </div>
 
     <script>
+        function lancarMoedas() {
+        const origemX = window.innerWidth / 2;
+        const origemY = window.innerHeight * 0.35;
+        const totalMoedas = 50;
+        const moedas = ['🪙', '💰'];
+
+        for (let i = 0; i < totalMoedas; i++) {
+            const moeda = document.createElement('div');
+            moeda.className = 'coin-confetti';
+            moeda.textContent = moedas[Math.floor(Math.random() * moedas.length)];
+
+            // Posição inicial (ponto de estouro)
+            moeda.style.left = origemX + 'px';
+            moeda.style.top = origemY + 'px';
+
+            // Direção e distância aleatórias (efeito de estouro radial)
+            const angulo = Math.random() * Math.PI * 2;
+            const distancia = 150 + Math.random() * 350;
+            const tx = Math.cos(angulo) * distancia;
+            const ty = Math.sin(angulo) * distancia + 200; // empurra um pouco para baixo (gravidade)
+            const rot = (Math.random() - 0.5) * 720;
+
+            moeda.style.setProperty('--tx', tx + 'px');
+            moeda.style.setProperty('--ty', ty + 'px');
+            moeda.style.setProperty('--rot', rot + 'deg');
+
+            moeda.style.animationDelay = (Math.random() * 0.15) + 's';
+
+            document.body.appendChild(moeda);
+
+            // Remove o elemento após a animação para não acumular no DOM
+            moeda.addEventListener('animationend', () => moeda.remove());
+        }
+    }
+
+    window.addEventListener('load', lancarMoedas);
+    
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
 

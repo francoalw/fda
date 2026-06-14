@@ -299,6 +299,7 @@ ul li span {
 
     .local-header h1 {
         font-size: 1.6em;
+        overflow: visible;
     }
 
     /* foto ocupa largura total, sem margin negativa */
@@ -307,10 +308,6 @@ ul li span {
         max-width: 100%;
         margin-top: 0;
         border-radius: 0.5rem;
-    }
-
-    .nome-local {
-        padding-left: 0.5rem;
     }
 
     .tab-button {
@@ -330,10 +327,6 @@ ul li span {
         height: 50px;
     }
 
-    .btn-voltar {
-        margin-bottom: 0.5rem;
-    }
-
     h2 {
         font-size: 1.1rem;
     }
@@ -344,5 +337,41 @@ ul li span {
 
     h4 {
         font-size: 0.95rem;
+    }
+
+    .nome-local {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        gap: 8px;
+    }
+
+    .btn-voltar {
+        margin-bottom: 0;
+        order: 1;
+        flex-shrink: 0;
+    }
+
+     .local-header h1 {
+        order: 2;
+        margin: 0;
+        text-align: right;
+        flex: 1 1 0%;        /* era: flex: 1 1 auto; */
+        min-width: 0;
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: break-word;   /* reforço extra */
+        font-size: clamp(1.1em, 6vw, 1.6em);
+        padding-right: 2rem;
+    }
+
+    .subtitle {
+        order: 3;
+        width: 100%;
+        text-align: right;
+        margin-top: 0;
+        padding-right: 2rem;
     }
 }
