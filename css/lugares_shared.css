@@ -10,7 +10,9 @@
     --glow-violet: #8a2be2;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -27,7 +29,9 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: 'Cinzel', serif;
     color: var(--primary-color);
     text-shadow: 0 0 10px rgba(102, 252, 241, 0.3);
@@ -263,8 +267,13 @@ header {
 }
 
 @keyframes fadeEffect {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 ul {
@@ -321,7 +330,19 @@ ul li span {
         height: 50px;
     }
 
-    h2 { font-size: 1.1rem; }
-    h3 { font-size: 1rem; }
-    h4 { font-size: 0.95rem; }
+    .btn-voltar {
+        margin-bottom: 0.5rem;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    h4 {
+        font-size: 0.95rem;
+    }
 }
