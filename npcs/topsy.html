@@ -2,42 +2,40 @@
 <html lang="pt-BR">
 
 <head>
-
-    <link rel="icon" type="image/png"
-        href="https://preview.redd.it/dnd-ampersand-tokens-for-world-maps-v0-criv1vtambf31.png?width=256&format=png&auto=webp&s=dc236ed2b6c19de305ad43944d1b306b652093b3">
-
+    <link rel="icon" type="image/png" href="https://preview.redd.it/dnd-ampersand-tokens-for-world-maps-v0-criv1vtambf31.png?width=256&format=png&auto=webp&s=dc236ed2b6c19de305ad43944d1b306b652093b3">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Topsy</title>
     <link rel="stylesheet" href="../css/npcs_shared.css">
 
-   <style>
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
-    
-    .coin-confetti {
-        position: fixed;
-        top: 0;
-        left: 0;
-        font-size: 28px;
-        pointer-events: none;
-        z-index: 9999;
-        will-change: transform, opacity;
-        animation: coin-burst-anim 1.4s ease-out forwards;
-    }
 
-    @keyframes coin-burst-anim {
-        0% {
-            transform: translate(0, 0) scale(0.4) rotate(0deg);
-            opacity: 1;
+        .coin-confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            font-size: 28px;
+            pointer-events: none;
+            z-index: 9999;
+            will-change: transform, opacity;
+            animation: coin-burst-anim 1.4s ease-out forwards;
         }
-        60% {
-            opacity: 1;
+
+        @keyframes coin-burst-anim {
+            0% {
+                transform: translate(0, 0) scale(0.4) rotate(0deg);
+                opacity: 1;
+            }
+            60% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(1) rotate(var(--rot));
+                opacity: 0;
+            }
         }
-        100% {
-            transform: translate(var(--tx), var(--ty)) scale(1) rotate(var(--rot));
-            opacity: 0;
-        }
-    }</style>
+    </style>
 </head>
 
 <body>
@@ -65,16 +63,8 @@
 
     <div id="Lore" class="tab-content" style="display: block;">
         <h2>QUEM É TOPSY?</h2>
-
         <hr style="border-color: #333;">
-        <p style="text-align: justify;">Gnomo das profundezas gêmeo de Turvy, Topsy é originalmente da Pedra do Massacre do
-            Refúgio, no Subterrâneo. Ele foi capturado pelos
-            drows enquanto tinha saído para coletar cogumelos
-            nos túneis perto de sua casa. Como a maior parte
-            dos outros svirfneblin, Topsy tem um cabelo fibroso
-            emaranhado. Topsy é de longe mais sociável que seu irmão, e constantemente repete ou traduz o
-            que seu irmão diz. Topsy possuem alguma fixação inexplicável com as fases da lua, sempre buscando saber
-            qual a próxima Lua Cheia.
+        <p style="text-align: justify;">Gnomo das profundezas gêmeo de Turvy, Topsy é originalmente da Pedra do Massacre do Refúgio, no Subterrâneo. Ele foi capturado pelos drows enquanto tinha saído para coletar cogumelos nos túneis perto de sua casa. Como a maior parte dos outros svirfneblin, Topsy tem um cabelo fibroso emaranhado. Topsy é de longe mais sociável que seu irmão, e constantemente repete ou traduz o que seu irmão diz. Topsy possuem alguma fixação inexplicável com as fases da lua, sempre buscando saber qual a próxima Lua Cheia.</p>
     </div>
 
     <div id="Objetivos" class="tab-content">
@@ -83,7 +73,7 @@
                 <h2>Desejos Profundos</h2>
                 <div class="card">
                     <h3>Saber quando será a próxima Lua Cheia</h3>
-                    <p>Topsy anseia por essa informação.
+                    <p>Topsy anseia por essa informação.</p>
                 </div>
             </div>
 
@@ -91,120 +81,92 @@
                 <h2>Missões Pessoais</h2>
                 <div class="card card-danger">
                     <h3>Retornar a Pedra do Massacre do Refúgio</h3>
-                    <p>Topsy desejam retornar ao seu lar.
+                    <p>Topsy desejam retornar ao seu lar.</p>
                 </div>
             </div>
         </div>
     </div>
 
     <div id="relacoes" class="tab-content">
-        <p><em>"O que meu irmão quer dizer, é que ele está com muita fome.."
-                <h2>Opinião de Topsy e Turvy sobre seus aliados</h2>
+        <p><em>"O que meu irmão quer dizer, é que ele está com muita fome.."</em></p>
+        <h2>Opinião de Topsy e Turvy sobre seus aliados</h2>
 
-                <div class="card">
-                    <span class="npc-name">Buppido:</span>
-        <p><em>"Não acreditamos muito no seu posto divino."
-                </div>
-
-                <div class="card card-danger">
-                    <span class="pj-name">Rudeus:</span>
-        <p><em>"Meu irmão acredita que o senhor fala mais do que deveria, como se desse fungos aos cães, senhor."
-                </div>
-
-                <div class="card">
-                    <span class="npc-name">Eldeth Feldrun:</span>
-        <p><em>"A relação dela com Fane é de partir o coração. Sinto muito por tudo que ocorreu, e meu irmão também."
-                </div>
-
-                <div class="card card-danger">
-                    <span class="pj-name">Fane:</span>
-        <p><em>"Achamos sua barba maneira, senhor."
-                </div>
-
-                <div class="card">
-                    <span class="npc-name">Jimjar:</span>
-        <p><em>"Meu irmão tenta pregar peças nele, usando apostas. Ainda não funcionou. Eu acho ele maluco."
-                </div>
-
-                <div class="card">
-                    <span class="npc-name">Príncipe Derendil:</span>
-        <p><em>"Não acreditamos muito no que ele tem a dizer. Achamos que aqui embaixo quase todos mentem."
-                </div>
-
-                <div class="card">
-                    <span class="npc-name">Ront:</span>
-        <p><em>"Ele é grande. E perigoso. Mas tem uma mente frágil. Combinação perigosa."
-                </div>
-
-                <div class="card">
-                    <span class="npc-name">Stool:</span>
-        <p><em>"Meu irmão não vê utilidade nele. Eu acho que ele serve pra eu subir e alcançar cogumelos saborosos."
-                </div>
-
-                <div class="card card-danger">
-                    <span class="pj-name">Vaal:</span>
-        <p><em>"Meu irmão sente algo que não compreendo direito, a respeito do Vaal. Eu acho ele legal e gostaria de ser amigo dele, suas habilidades com magia me inspiram."
-                </div>
+        <div id="container-relacoes">
+            </div>
     </div>
 
     <script>
-        function lancarMoedas() {
-        const origemX = window.innerWidth / 2;
-        const origemY = window.innerHeight * 0.35;
-        const totalMoedas = 50;
-        const moedas = ['🌕'];
+        const relacoesPadrao = {
+            "Apolo": { texto: '"Hamm, eu gosto da adição dele ao grupo. Indo para a superfície, quanto mais, melhor!"', classe: "card card-danger", tipo: "pj-name" },
+            "Atena VII": { texto: '"É realmente interessante a confiança que ela tem no Jimjar, estou interessado para ver o decorrer dessa decisão!"', classe: "card card-danger", tipo: "pj-name" },
+            "Fane": { texto: '<em>"Achamos sua barba maneira, senhor."</em>', classe: "card card-danger", tipo: "pj-name" },
+            "Jimjar": { texto: '<em>"Meu irmão tenta pregar peças nele, usando apostas. Ainda não funcionou. Eu acho ele maluco."</em>', classe: "card", tipo: "npc-name" },
+            "Príncipe Derendil": { texto: '<em>"Não acreditamos muito no que ele tem a dizer. Achamos que aqui embaixo quase todos mentem."</em>', classe: "card", tipo: "npc-name" },
+            "Ront": { texto: '<em>"Ele é grande. E perigoso. Mas tem uma mente frágil. Combinação perigosa."</em>', classe: "card", tipo: "npc-name" },
+            "Rudeus": { texto: '<em>"Meu irmão acredita que o senhor fala mais do que deveria, como se desse fungos aos cães, senhor."</em>', classe: "card card-danger", tipo: "pj-name" },
+            "Stool": { texto: '<em>"Meu irmão não vê utilidade nele. Eu acho que ele serve pra eu subir e alcançar cogumelos saborosos."</em>', classe: "card", tipo: "npc-name" },
+            "Vaal": { texto: '<em>"Meu irmão sente algo que não compreendo direito, a respeito do Vaal. Eu acho ele legal e gostaria de ser amigo dele, suas habilidades com magia me inspiram."</em>', classe: "card card-danger", tipo: "pj-name" }
+        };
 
-        for (let i = 0; i < totalMoedas; i++) {
-            const moeda = document.createElement('div');
-            moeda.className = 'coin-confetti';
-            moeda.textContent = moedas[Math.floor(Math.random() * moedas.length)];
+        function carregarRelacoes() {
+            const container = document.getElementById('container-relacoes');
+            const dadosSalvos = localStorage.getItem('topsy_relacoes');
+            const relacoes = dadosSalvos ? JSON.parse(dadosSalvos) : relacoesPadrao;
 
-            // Posição inicial (ponto de estouro)
-            moeda.style.left = origemX + 'px';
-            moeda.style.top = origemY + 'px';
-
-            // Direção e distância aleatórias (efeito de estouro radial)
-            const angulo = Math.random() * Math.PI * 2;
-            const distancia = 150 + Math.random() * 350;
-            const tx = Math.cos(angulo) * distancia;
-            const ty = Math.sin(angulo) * distancia + 200; // empurra um pouco para baixo (gravidade)
-            const rot = (Math.random() - 0.5) * 720;
-
-            moeda.style.setProperty('--tx', tx + 'px');
-            moeda.style.setProperty('--ty', ty + 'px');
-            moeda.style.setProperty('--rot', rot + 'deg');
-
-            moeda.style.animationDelay = (Math.random() * 0.15) + 's';
-
-            document.body.appendChild(moeda);
-
-            // Remove o elemento após a animação para não acumular no DOM
-            moeda.addEventListener('animationend', () => moeda.remove());
+            container.innerHTML = '';
+            for (const [nome, info] of Object.entries(relacoes)) {
+                container.innerHTML += `
+                    <div class="${info.classe}">
+                        <span class="${info.tipo}">${nome}:</span>
+                        <p>${info.texto}</p>
+                    </div>
+                `;
+            }
         }
-    }
 
-    window.addEventListener('load', lancarMoedas);
+        window.addEventListener('load', () => {
+            lancarMoedas();
+            carregarRelacoes();
+        });
+
+        function lancarMoedas() {
+            const origemX = window.innerWidth / 2;
+            const origemY = window.innerHeight * 0.35;
+            const totalMoedas = 50;
+            const moedas = ['🌕'];
+
+            for (let i = 0; i < totalMoedas; i++) {
+                const moeda = document.createElement('div');
+                moeda.className = 'coin-confetti';
+                moeda.textContent = moedas[Math.floor(Math.random() * moedas.length)];
+                moeda.style.left = origemX + 'px';
+                moeda.style.top = origemY + 'px';
+
+                const angulo = Math.random() * Math.PI * 2;
+                const distancia = 150 + Math.random() * 350;
+                const tx = Math.cos(angulo) * distancia;
+                const ty = Math.sin(angulo) * distancia + 200;
+                const rot = (Math.random() - 0.5) * 720;
+
+                moeda.style.setProperty('--tx', tx + 'px');
+                moeda.style.setProperty('--ty', ty + 'px');
+                moeda.style.setProperty('--rot', rot + 'deg');
+                moeda.style.animationDelay = (Math.random() * 0.15) + 's';
+
+                document.body.appendChild(moeda);
+                moeda.addEventListener('animationend', () => moeda.remove());
+            }
+        }
 
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
-
-            // Esconde todo o conteúdo das abas
             tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-
-            // Remove a classe "active" de todos os botões
+            for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
             tablinks = document.getElementsByClassName("tab-button");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-
-            // Mostra a aba atual e adiciona a classe "active" no botão clicado
+            for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
     </script>
 </body>
-
 </html>

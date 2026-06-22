@@ -2,44 +2,39 @@
 <html lang="pt-BR">
 
 <head>
-
-    <link rel="icon" type="image/png"
-        href="https://preview.redd.it/dnd-ampersand-tokens-for-world-maps-v0-criv1vtambf31.png?width=256&format=png&auto=webp&s=dc236ed2b6c19de305ad43944d1b306b652093b3">
-
+    <link rel="icon" type="image/png" href="https://preview.redd.it/dnd-ampersand-tokens-for-world-maps-v0-criv1vtambf31.png?width=256&format=png&auto=webp&s=dc236ed2b6c19de305ad43944d1b306b652093b3">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jimjar</title>
-    <script type="text/javascript" charset="UTF-8"></script>
     <link rel="stylesheet" href="../css/npcs_shared.css">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
-    
-    
-        .coin-confetti {
-        position: fixed;
-        top: 0;
-        left: 0;
-        font-size: 28px;
-        pointer-events: none;
-        z-index: 9999;
-        will-change: transform, opacity;
-        animation: coin-burst-anim 1.4s ease-out forwards;
-    }
 
-    @keyframes coin-burst-anim {
-        0% {
-            transform: translate(0, 0) scale(0.4) rotate(0deg);
-            opacity: 1;
+        .coin-confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            font-size: 28px;
+            pointer-events: none;
+            z-index: 9999;
+            will-change: transform, opacity;
+            animation: coin-burst-anim 1.4s ease-out forwards;
         }
-        60% {
-            opacity: 1;
+
+        @keyframes coin-burst-anim {
+            0% {
+                transform: translate(0, 0) scale(0.4) rotate(0deg);
+                opacity: 1;
+            }
+            60% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(1) rotate(var(--rot));
+                opacity: 0;
+            }
         }
-        100% {
-            transform: translate(var(--tx), var(--ty)) scale(1) rotate(var(--rot));
-            opacity: 0;
-        }
-    }
     </style>
 </head>
 
@@ -55,7 +50,7 @@
             </div>
 
             <div class="header-photo">
-                <img src="jimjar.webp" alt="´Jimjar" class="icon-photo">
+                <img src="jimjar.webp" alt="Jimjar" class="icon-photo">
             </div>
         </header>
     </div>
@@ -68,19 +63,10 @@
 
     <div id="Lore" class="tab-content" style="display: block;">
         <h2>QUEM É JIMJAR?</h2>
-
         <hr style="border-color: #333;">
-        <p style="text-align: justify;">O gnomo das profundezas é um ladino imprudente com uma atitude despreocupada,
-            apaixonado por
-            moedas e obsessão por apostar qualquer coisa em praticamente qualquer situação. No entanto, ele é um homem
-            de palavra e anota todas as dívidas e créditos, que sempre honrava. Jimjar também possui uma
-            habilidade incrível de esconder riquezas significativas em seu corpo.</p>
-        <p style="text-align: justify;">Jimjar foi exilado por seu povo por causa de sua obsessão por jogos de azar, que
-            outros gnomos das profundezas viam como sinal de loucura do abismo. Embora não faça questão de retornar para
-            sua casa, ele guia
-            os outros se solicitado.</p>
-        <p style="text-align: justify;">Jimjar foi capturado por elfos negros quando estava saqueando espólios de uma
-            batalha.</p>
+        <p style="text-align: justify;">O gnomo das profundezas é um ladino imprudente com uma atitude despreocupada, apaixonado por moedas e obsessão por apostar qualquer coisa em praticamente qualquer situação...</p>
+        <p style="text-align: justify;">Jimjar foi exilado por seu povo por causa de sua obsessão por jogos de azar...</p>
+        <p style="text-align: justify;">Jimjar foi capturado por elfos negros quando estava saqueando espólios de uma batalha.</p>
     </div>
 
     <div id="Objetivos" class="tab-content">
@@ -89,27 +75,22 @@
                 <h2>Desejos Profundos</h2>
                 <div class="card">
                     <h3>Vingança</h3>
-                    <p>Jimjar não se importa de ganhar ou perder uma aposta, o que importa para ele é a satifação da
-                        competição. Porém, ele se recusa a perder tantas apostas para Vaal, e gostaria de vencer alguma
-                        em algum momento.</p>
+                    <p>Jimjar não se importa de ganhar ou perder uma aposta, o que importa para ele é a satifação da competição...</p>
                 </div>
             </div>
-
             <div>
                 <h2>Missões Pessoais</h2>
                 <div class="card card-danger">
                     <h3>Lâmina Divina</h3>
-                    <p>Jimjar deseja obter a lâmina que pertence a Buppido, pois ela tem efeitos visuais que o cativam.</p>
+                    <p>Jimjar deseja obter a lâmina que pertenceu a Buppido, pois ela tem efeitos visuais que o cativam.</p>
                 </div>
                 <div class="card card-danger">
                     <h3>ODD 99x</h3>
-                    <p>Ainda que vencer ou perder seja irrelevante para ele, Jimjar tem em mente que só morrerá
-                        satisfeito após vencer uma aposta impossível..</p>
+                    <p>Ainda que vencer ou perder seja irrelevante para ele, Jimjar tem em mente que só morrerá satisfeito após vencer uma aposta impossível..</p>
                 </div>
                 <div class="card card-danger">
                     <h3>Rei Jimjar</h3>
-                    <p>Nos últimos dias, Jimjar chegou a conclusão que seria um excelente rei, então decidiu obter o
-                        reinado dos elfos dourados, o reino Nelrindenvane do Príncipe Derendil, através de apostas.</p>
+                    <p>Nos últimos dias, Jimjar chegou a conclusão que seria um excelente rei, então decidiu obter o reinado dos elfos dourados...</p>
                 </div>
             </div>
         </div>
@@ -119,120 +100,83 @@
         <p><em>"A sorte sempre me sorri!"</em></p>
         <h2>Opinião de Jimjar sobre seus aliados</h2>
 
-        <div class="card">
-            <span class="npc-name">Buppido:</span>
-            <p><em>"Ainda não entendi qual a desse tio.. Mas essa faca que ele usa.. Vai ser minha."
-        </div>
-
-        <div class="card card-danger">
-            <span class="pj-name">Rudeus:</span>
-            <p>"Esse tio é bem forte, aposto que será o único sobrevivente no fim disso tudo."</p>
-        </div>
-
-        <div class="card">
-            <span class="npc-name">Eldeth Feldrun:</span>
-            <p>"Era gente boa. Mas não aceitava apostar o escudo.."</p>
-        </div>
-
-        <div class="card card-danger">
-            <span class="pj-name">Fane:</span>
-            <p>"Era bem apegado à Eldeth. Espero que, agora que ela se foi, o tio aceite apostar esse escudo
-                eventualmente."</p>
-        </div>
-
-        <div class="card">
-            <span class="npc-name">Príncipe Derendil:</span>
-            <p>"Aposto que ele não vai conseguir voltar a sua forma élfica... Já era, tio!"</p>
-        </div>
-
-        <div class="card">
-            <span class="npc-name">Ront:</span>
-            <p>"Esse deve valer uma boa aposta de carteado."</p>
-        </div>
-
-        <div class="card">
-            <span class="npc-name">Sarith Kzekarith:</span>
-            <p>"Aposto que ele vai nos trair.. Mas também aposto que não.. Se fosse o fazer, já teria feito.<br>De toda
-                forma, caso formos para a Pedra do Massacre do Refúgio, precisaremos nos distanciar dele, lá drows não
-                são permitidos.
-            </p>
-        </div>
-
-        <div class="card">
-            <span class="npc-name">Stool:</span>
-            <p>"Aposto que vai ser o próximo a morrer.."</p>
-        </div>
-
-        <div class="card">
-            <span class="npc-name">Topsy & Turvy:</span>
-            <p>"Esses dois tem algo muito sombrio a esconder.. E eu não sei o que é.."</p>
-        </div>
-
-        <div class="card card-danger">
-            <span class="pj-name">Vaal:</span>
-            <p>"Eu não sei o que ele tem de especial, mas é IMPOSSÍVEL ele perder alguma aposta.. Esse tio esconde algum segredo, e eu vou descobrir qual é.."
-            </p>
-        </div>
+        <div id="container-relacoes">
+            </div>
     </div>
 
     <script>
-        function lancarMoedas() {
-        const origemX = window.innerWidth / 2;
-        const origemY = window.innerHeight * 0.35;
-        const totalMoedas = 100;
-        const moedas = ['🎰'];
+        // Dados Padrão de Relações do Jimjar
+        const relacoesPadrao = {
+            "Apolo": { texto: '"Não vi nada de interessante com ele, mas aposto que ele carrega algum segredo que nem ele conhece.. Sou bem sensitivo, sabe?"', classe: "card card-danger", tipo: "pj-name" },
+            "Atena VII": { texto: '"Essa coroa reconhece um cara dominante quando vê um. Assim que ela me viu o coração já disparou no papai e ela fez questão de me designar como CAPITÃO DOS BARRELAS. Topsy e Turvy, aposto que posso liderar vocês!"', classe: "card card-danger", tipo: "pj-name" },
+            "Fane": { texto: '"Era bem apegado à Eldeth. Espero que, agora que ela se foi, o tio aceite apostar esse escudo eventualmente."', classe: "card card-danger", tipo: "pj-name" },
+            "Príncipe Derendil": { texto: '"Aposto que ele não vai conseguir voltar a sua forma élfica... Já era, tio!"', classe: "card", tipo: "npc-name" },
+            "Ront": { texto: '"Esse deve valer uma boa aposta de carteado."', classe: "card", tipo: "npc-name" },
+            "Rudeus": { texto: '"Esse tio é bem forte, aposto que será o único sobrevivente no fim disso tudo."', classe: "card card-danger", tipo: "pj-name" },
+            "Stool": { texto: '"Aposto que vai ser o próximo a morrer.."', classe: "card", tipo: "npc-name" },
+            "Topsy & Turvy": { texto: '"Esses dois tem algo muito sombrio a esconder.. E eu não sei o que é.."', classe: "card", tipo: "npc-name" },
+            "Vaal": { texto: '"Eu não sei o que ele tem de especial, mas é IMPOSSÍVEL ele perder alguma aposta.. Esse tio esconde algum segredo, e eu vou descobrir qual é.."', classe: "card card-danger", tipo: "pj-name" }
+        };
 
-        for (let i = 0; i < totalMoedas; i++) {
-            const moeda = document.createElement('div');
-            moeda.className = 'coin-confetti';
-            moeda.textContent = moedas[Math.floor(Math.random() * moedas.length)];
+        function carregarRelacoes() {
+            const container = document.getElementById('container-relacoes');
+            const dadosSalvos = localStorage.getItem('jimjar_relacoes');
+            const relacoes = dadosSalvos ? JSON.parse(dadosSalvos) : relacoesPadrao;
 
-            // Posição inicial (ponto de estouro)
-            moeda.style.left = origemX + 'px';
-            moeda.style.top = origemY + 'px';
-
-            // Direção e distância aleatórias (efeito de estouro radial)
-            const angulo = Math.random() * Math.PI * 2;
-            const distancia = 150 + Math.random() * 350;
-            const tx = Math.cos(angulo) * distancia;
-            const ty = Math.sin(angulo) * distancia + 200; // empurra um pouco para baixo (gravidade)
-            const rot = (Math.random() - 0.5) * 720;
-
-            moeda.style.setProperty('--tx', tx + 'px');
-            moeda.style.setProperty('--ty', ty + 'px');
-            moeda.style.setProperty('--rot', rot + 'deg');
-
-            moeda.style.animationDelay = (Math.random() * 0.15) + 's';
-
-            document.body.appendChild(moeda);
-
-            // Remove o elemento após a animação para não acumular no DOM
-            moeda.addEventListener('animationend', () => moeda.remove());
+            container.innerHTML = '';
+            for (const [nome, info] of Object.entries(relacoes)) {
+                container.innerHTML += `
+                    <div class="${info.classe}">
+                        <span class="${info.tipo}">${nome}:</span>
+                        <p>${info.texto}</p>
+                    </div>
+                `;
+            }
         }
-    }
 
-    window.addEventListener('load', lancarMoedas);
+        window.addEventListener('load', () => {
+            lancarMoedas();
+            carregarRelacoes();
+        });
+
+        function lancarMoedas() {
+            const origemX = window.innerWidth / 2;
+            const origemY = window.innerHeight * 0.35;
+            const totalMoedas = 100;
+            const moedas = ['🎰'];
+
+            for (let i = 0; i < totalMoedas; i++) {
+                const moeda = document.createElement('div');
+                moeda.className = 'coin-confetti';
+                moeda.textContent = moedas[Math.floor(Math.random() * moedas.length)];
+                moeda.style.left = origemX + 'px';
+                moeda.style.top = origemY + 'px';
+
+                const angulo = Math.random() * Math.PI * 2;
+                const distancia = 150 + Math.random() * 350;
+                const tx = Math.cos(angulo) * distancia;
+                const ty = Math.sin(angulo) * distancia + 200;
+                const rot = (Math.random() - 0.5) * 720;
+
+                moeda.style.setProperty('--tx', tx + 'px');
+                moeda.style.setProperty('--ty', ty + 'px');
+                moeda.style.setProperty('--rot', rot + 'deg');
+                moeda.style.animationDelay = (Math.random() * 0.15) + 's';
+
+                document.body.appendChild(moeda);
+                moeda.addEventListener('animationend', () => moeda.remove());
+            }
+        }
 
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
-
-            // Esconde todo o conteúdo das abas
             tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-
-            // Remove a classe "active" de todos os botões
+            for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
             tablinks = document.getElementsByClassName("tab-button");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-
-            // Mostra a aba atual e adiciona a classe "active" no botão clicado
+            for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
     </script>
 </body>
-
 </html>

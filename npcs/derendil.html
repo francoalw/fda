@@ -2,43 +2,40 @@
 <html lang="pt-BR">
 
 <head>
-
-    <link rel="icon" type="image/png"
-        href="https://preview.redd.it/dnd-ampersand-tokens-for-world-maps-v0-criv1vtambf31.png?width=256&format=png&auto=webp&s=dc236ed2b6c19de305ad43944d1b306b652093b3">
-
+    <link rel="icon" type="image/png" href="https://preview.redd.it/dnd-ampersand-tokens-for-world-maps-v0-criv1vtambf31.png?width=256&format=png&auto=webp&s=dc236ed2b6c19de305ad43944d1b306b652093b3">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Príncipe Derendil</title>
-    <script type="text/javascript" charset="UTF-8"></script>
     <link rel="stylesheet" href="../css/npcs_shared.css">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
-    
-    .coin-confetti {
-        position: fixed;
-        top: 0;
-        left: 0;
-        font-size: 28px;
-        pointer-events: none;
-        z-index: 9999;
-        will-change: transform, opacity;
-        animation: coin-burst-anim 1.4s ease-out forwards;
-    }
 
-    @keyframes coin-burst-anim {
-        0% {
-            transform: translate(0, 0) scale(0.4) rotate(0deg);
-            opacity: 1;
+        .coin-confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            font-size: 28px;
+            pointer-events: none;
+            z-index: 9999;
+            will-change: transform, opacity;
+            animation: coin-burst-anim 1.4s ease-out forwards;
         }
-        60% {
-            opacity: 1;
+
+        @keyframes coin-burst-anim {
+            0% {
+                transform: translate(0, 0) scale(0.4) rotate(0deg);
+                opacity: 1;
+            }
+            60% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(1) rotate(var(--rot));
+                opacity: 0;
+            }
         }
-        100% {
-            transform: translate(var(--tx), var(--ty)) scale(1) rotate(var(--rot));
-            opacity: 0;
-        }
-    }</style>
+    </style>
 </head>
 
 <body>
@@ -66,17 +63,8 @@
 
     <div id="Lore" class="tab-content" style="display: block;">
         <h2>QUEM É O PRÍNCIPE DERENDIL?</h2>
-
         <hr style="border-color: #333;">
-        <p style="text-align: justify;">Esse massivo quaggoth fala fluentemente élfico urbano. Acontece que ele não é,
-            de fato, um quaggoth, mas um príncipe dos elfos dourados transformado em um quaggoth por uma maldição. Ele
-            clama ser o príncipe Derendil do reino de Nelrindenvane, na Floresta Alta. Sua coroa foi usurpada pelo
-            maligno mago Terrestor, que o aprisionou nesta forma e o exilou de seu povo. Embora Derendil se comporte
-            como o nobre príncipe que é, ele responde ao estresse – e particularmente às ameaças – como
-            um quaggoth: violentamente arrancando membro por membro de seus inimigos e rasgando sua carne com dentes e
-            garras afiadas. Ele volta a si somente após a batalha, ou quando alguém reforça sua “verdadeira identidade”
-            para despertá-lo. Derendil lamenta que ele esteja lentamente, mas sem sombra de dúvidas, se perdendo para a
-            selvageria de sua forma quaggoth.</p>
+        <p style="text-align: justify;">Esse massivo quaggoth fala fluentemente élfico urbano. Acontece que ele não é, de fato, um quaggoth, mas um príncipe dos elfos dourados transformado em um quaggoth por uma maldição...</p>
     </div>
 
     <div id="Objetivos" class="tab-content">
@@ -85,22 +73,18 @@
                 <h2>Desejos Profundos</h2>
                 <div class="card">
                     <h3>Eliminar Sarith Kzekarith</h3>
-                    <p>Por tudo que passou em velkynvelve, Derendil sente no fundo seu coração, o desejo de esmagar
-                        Sarith da maneira mais brutal possível. Porém, este é seu lado Quaggoth falando, o elfo Derendil
-                        ainda segura seus instintos.</p>
+                    <p>Por tudo que passou em velkynvelve, Derendil sente no fundo seu coração, o desejo de esmagar Sarith da maneira mais brutal possível...</p>
                 </div>
             </div>
-
             <div>
                 <h2>Missões Pessoais</h2>
                 <div class="card card-danger">
                     <h3>Retornar ao seu povo</h3>
-                    <p>Derendil não tem conhecimento a respeito do que o mago Terrestor está fazendo com seu povo, então
-                        precisa retornar o quanto antes.</p>
+                    <p>Derendil não tem conhecimento a respeito do que o mago Terrestor está fazendo com seu povo...</p>
                 </div>
                 <div class="card card-danger">
                     <h3>Visitar Gauntlgrym</h3>
-                    <p>Seu lado élfico, como príncipe, foi tocado pela história de Eldeth. Derendil pretende conhcer o clã de eldeth, e formar uma aliança com seu reino, dos elfos dourados.</p>
+                    <p>Seu lado élfico, como príncipe, foi tocado pela história de Eldeth...</p>
                 </div>
             </div>
         </div>
@@ -110,120 +94,83 @@
         <p><em>"Eu estive no topo da montanha, e agora no fundo do poço..."</em></p>
         <h2>Opinião do Príncipe Derendil sobre seus aliados</h2>
 
-        <div class="card">
-            <span class="npc-name">Buppido:</span>
-            <p><em>"Ele me enche de elogios a todo momento. Eu o aceitaria como bobo da corte."
-        </div>
-
-        <div class="card card-danger">
-            <span class="pj-name">Rudeus:</span>
-            <p>"Sua coragem é digna de nota. Eu aceitaria ele como um sargento no exército de ataque em Nelrindenvane."
-            </p>
-        </div>
-
-        <div class="card">
-            <span class="npc-name">Eldeth Feldrun:</span>
-            <p>"Uma pena que a pequena teve de partir. Seus esforços não serão esquecidos. Iremos a Gauntlgrym e conversaremos com o Clã do Escudo em seu nome! Além disso, irei propor uma aliança com seu povo."</p>
-        </div>
-
-        <div class="card card-danger">
-            <span class="pj-name">Fane:</span>
-            <p>"Um príncipe reconhece um nobre quando vê um. Eu o tornaria um sargento no exército defensivo da Floresta
-                Alta."</p>
-        </div>
-
-        <div class="card">
-            <span class="npc-name">Jimjar:</span>
-            <p>"Volta e meia ele tenta apostar meu reino. Acredito que este pobre tolo não tem ideia do que diz."</p>
-        </div>
-
-        <div class="card">
-            <span class="npc-name">Ront:</span>
-            <p>"Esse desmiolado deveria parar de caçar encrenca e entender que essa tribo dele foi extinta e ele vai ser
-                o próximo se tocar um dedo em mim ou em alguns dos meus amigos."</p>
-        </div>
-
-        <div class="card">
-            <span class="npc-name">Sarith Kzekarith:</span>
-            <p>"Sou grato a ele por ter nos ajudado a sair de Velkynvelve. Por isso, não ordenarei sua morte imediata
-                quando retornar a Nelrindenvane. Sarith ficará preso em algum calabouço pela eternidade."
-            </p>
-        </div>
-
-        <div class="card">
-            <span class="npc-name">Stool:</span>
-            <p>"Este querido será bem vindo sempre que quiser, no reino dos elfos dourados."</p>
-        </div>
-
-        <div class="card">
-            <span class="npc-name">Topsy & Turvy:</span>
-            <p>"Morte rápida e justa a ambos. Não possuem a classe necessária para irem a Nelrindenvane."</p>
-        </div>
-
-        <div class="card card-danger">
-            <span class="pj-name">Vaal:</span>
-            <p>"Sua sabedoria seria bem vinda no Conselho de Nelrindenvane."</p>
-        </div>
+        <div id="container-relacoes">
+            </div>
     </div>
 
     <script>
-        function lancarMoedas() {
-        const origemX = window.innerWidth / 2;
-        const origemY = window.innerHeight * 0.35;
-        const totalMoedas = 50;
-        const moedas = ['🧝🏻'];
+        // Dados Padrão do Derendil
+        const relacoesPadrao = {
+            "Apolo": { texto: '"Se quer ouvir minha opinião élfica, eu não vejo nada de valoroso neste plebeu. Sendo elficamente sincero, penso também que ele deveria ir para o calabouço!"', classe: "card card-danger", tipo: "pj-name" },
+            "Atena VII": { texto: '"Há gerações não vejo uma figura tão... Cativante.. Ela ficaria formidável ostentando em sua adorável cabeça uma coroa do Reino de Nelrindenvane, na Floresta Alta."', classe: "card card-danger", tipo: "pj-name" },
+            "Fane": { texto: '"Um príncipe reconhece um nobre quando vê um. Eu o tornaria um sargento no exército defensivo da Floresta Alta."', classe: "card card-danger", tipo: "pj-name" },
+            "Jimjar": { texto: '"Volta e meia ele tenta apostar meu reino. Acredito que este pobre tolo não tem ideia do que diz."', classe: "card", tipo: "npc-name" },
+            "Ront": { texto: '"Esse desmiolado deveria parar de caçar encrenca e entender que essa tribo dele foi extinta e ele vai ser o próximo se tocar um dedo em mim ou em alguns dos meus amigos."', classe: "card", tipo: "npc-name" },
+            "Rudeus": { texto: '"Sua coragem é digna de nota. Eu aceitaria ele como um sargento no exército de ataque em Nelrindenvane."', classe: "card card-danger", tipo: "pj-name" },
+            "Stool": { texto: '"Este querido será bem vindo sempre que quiser, no reino dos elfos dourados."', classe: "card", tipo: "npc-name" },
+            "Topsy & Turvy": { texto: '"Morte rápida e justa a ambos. Não possuem a classe necessária para irem a Nelrindenvane."', classe: "card", tipo: "npc-name" },
+            "Vaal": { texto: '"Sarea sabedoria seria bem vindo no Conselho de Nelrindenvane."', classe: "card card-danger", tipo: "pj-name" }
+        };
 
-        for (let i = 0; i < totalMoedas; i++) {
-            const moeda = document.createElement('div');
-            moeda.className = 'coin-confetti';
-            moeda.textContent = moedas[Math.floor(Math.random() * moedas.length)];
+        function carregarRelacoes() {
+            const container = document.getElementById('container-relacoes');
+            const dadosSalvos = localStorage.getItem('derendil_relacoes');
+            const relacoes = dadosSalvos ? JSON.parse(dadosSalvos) : relacoesPadrao;
 
-            // Posição inicial (ponto de estouro)
-            moeda.style.left = origemX + 'px';
-            moeda.style.top = origemY + 'px';
-
-            // Direção e distância aleatórias (efeito de estouro radial)
-            const angulo = Math.random() * Math.PI * 2;
-            const distancia = 150 + Math.random() * 350;
-            const tx = Math.cos(angulo) * distancia;
-            const ty = Math.sin(angulo) * distancia + 200; // empurra um pouco para baixo (gravidade)
-            const rot = (Math.random() - 0.5) * 720;
-
-            moeda.style.setProperty('--tx', tx + 'px');
-            moeda.style.setProperty('--ty', ty + 'px');
-            moeda.style.setProperty('--rot', rot + 'deg');
-
-            moeda.style.animationDelay = (Math.random() * 0.15) + 's';
-
-            document.body.appendChild(moeda);
-
-            // Remove o elemento após a animação para não acumular no DOM
-            moeda.addEventListener('animationend', () => moeda.remove());
+            container.innerHTML = '';
+            for (const [nome, info] of Object.entries(relacoes)) {
+                container.innerHTML += `
+                    <div class="${info.classe}">
+                        <span class="${info.tipo}">${nome}:</span>
+                        <p>${info.texto}</p>
+                    </div>
+                `;
+            }
         }
-    }
 
-    window.addEventListener('load', lancarMoedas);
-    
-    function openTab(evt, tabName) {
+        window.addEventListener('load', () => {
+            lancarMoedas();
+            carregarRelacoes();
+        });
+
+        function lancarMoedas() {
+            const origemX = window.innerWidth / 2;
+            const origemY = window.innerHeight * 0.35;
+            const totalMoedas = 50;
+            const moedas = ['🧝🏻'];
+
+            for (let i = 0; i < totalMoedas; i++) {
+                const moeda = document.createElement('div');
+                moeda.className = 'coin-confetti';
+                moeda.textContent = moedas[Math.floor(Math.random() * moedas.length)];
+                moeda.style.left = origemX + 'px';
+                moeda.style.top = origemY + 'px';
+
+                const angulo = Math.random() * Math.PI * 2;
+                const distancia = 150 + Math.random() * 350;
+                const tx = Math.cos(angulo) * distancia;
+                const ty = Math.sin(angulo) * distancia + 200;
+                const rot = (Math.random() - 0.5) * 720;
+
+                moeda.style.setProperty('--tx', tx + 'px');
+                moeda.style.setProperty('--ty', ty + 'px');
+                moeda.style.setProperty('--rot', rot + 'deg');
+                moeda.style.animationDelay = (Math.random() * 0.15) + 's';
+
+                document.body.appendChild(moeda);
+                moeda.addEventListener('animationend', () => moeda.remove());
+            }
+        }
+
+        function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
-
-            // Esconde todo o conteúdo das abas
             tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-
-            // Remove a classe "active" de todos os botões
+            for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
             tablinks = document.getElementsByClassName("tab-button");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-
-            // Mostra a aba atual e adiciona a classe "active" no botão clicado
+            for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
     </script>
 </body>
-
 </html>
