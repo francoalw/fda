@@ -83,7 +83,7 @@
 
         <h2>Estrutura</h2>
         <p style="text-align: justify;">Gracklstugh is uma cidade caverna anexada
-            ao Lago negro como um porto subterrâneo. A cidade é iluminada pela luz do fogo de fundições misturadas entre
+            do Lago negro como um porto subterrâneo. A cidade é iluminada pela luz do fogo de fundições misturadas entre
             estalagmites. O ar cheira acre e é carregado de sons industriais: fogo, vapor e ferro
             zumbindo. A fumaça persistente que preenche a caverna pode causar uma tosse persistente, e às vezes fatal,
             conhecida como Pulmão de Grackle.</p>
@@ -212,6 +212,11 @@
         <script id="missoes-padrao" type="application/json">
         [
             {
+                "titulo": "ADVOGADOS DO DIABO",
+                "descricao": "<strong>Turvy</strong> foi detido por guardas após topar em um invisível e praguejar contra o mesmo. Possivelmente, Turvy está sendo escravizado desde então, ou morto. Topsy clama pela vida e segurança de seu irmão. Jimjar não estava presente no momento do conflito, estava distraído apostando com um pescador na costa de Gracklstugh com o Lago Escuro.",
+                "recompensa": "A presença de Turvy no grupo novamente."
+            },
+            {
                 "titulo": "AGENTES DUPLOS",
                 "descricao": "<strong>Themberchaud</strong> ordenou que os aventureiros seguissem as ordens dos Guardiões da Chama, mas que relatassem a ele primeiro e não aos guardiões.",
                 "recompensa": ""
@@ -237,9 +242,19 @@
                 "recompensa": "Passagem para fora de Gracklstugh."
             },
             {
+                "titulo": "HISTÓRIA DE PESCADOR",
+                "descricao": "<strong>Jimjar</strong> apostou com um pescador local que não existe nenhum GARRECIFE ABISSAL no Lago Escuro próxima à costa. Agora, o grupo deve provar a existência da criatura, pescando e levando-a ao pescador.",
+                "recompensa": "Desconhecida."
+            },
+            {
                 "titulo": "ORIGEM DOS ITENS",
                 "descricao": "<strong>Ylsa Henstak</strong> é a única habitante de Gracklstugh com ítens da superfície. Ou ao menos costumava ser. Os derros recentemente estão utilizando dinheiro e joias da superfície para pagar por comida.",
                 "recompensa": "Ylsa irá fornecer aos aventureiros orientação para pelo menos o próximo estágio de sua jornada, incluindo conselhos valiosos sobre rotas."
+            },
+            {
+                "titulo": "REPORTAR A SITUAÇÃO DE GORGLAK",
+                "descricao": "<strong>Gorglak</strong> traiu Horgar Sombra de Aço V, O Rei das Profundezas; Themberchaud, o Dragão Ferreiro; Errde, Crânio Negro; e os Fantasmas Cinzentos. A situação deve ser reportada a algum eles. Traição em Gracklstugh gera sentença de morte.",
+                "recompensa": "Desconhecida, dependendo de quem for informado primeiro."
             },
             {
                 "titulo": "REUNIÃO COM OS GIGANTES DE PEDRA",
@@ -286,8 +301,6 @@
             }
         }
 
-        window.addEventListener('load', gerarBrasas);
-
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
 
@@ -304,24 +317,19 @@
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
-        // Função que junta, ordena de A-Z e renderiza todas as missões
+
+        // Função simplificada que renderiza e ordena apenas o JSON estático
         function renderizarMissoesOrdenadas() {
             const container = document.getElementById('container-missoes-ordenadas');
-            container.innerHTML = ''; // Limpa o container
+            container.innerHTML = ''; 
 
-            // 1. Pega as missões padrões (do script JSON acima)
-            const missoesPadrao = JSON.parse(document.getElementById('missoes-padrao').textContent);
+            // Pega as missões do script JSON
+            const todasAsMissoes = JSON.parse(document.getElementById('missoes-padrao').textContent);
 
-            // 2. Pega as missões dinâmicas (do LocalStorage do Painel ADM)
-            const missoesDinamicas = JSON.parse(localStorage.getItem('missoes_gracklstugh')) || [];
-
-            // 3. Junta as duas listas em uma só
-            const todasAsMissoes = [...missoesPadrao, ...missoesDinamicas];
-
-            // 4. Ordena alfabeticamente pelo Título (ignora maiúsculas/minúsculas e acentos básicos)
+            // Ordena alfabeticamente pelo Título
             todasAsMissoes.sort((a, b) => a.titulo.localeCompare(b.titulo, 'pt-BR'));
 
-            // 5. Renderiza na tela
+            // Renderiza na tela
             todasAsMissoes.forEach(missao => {
                 const divMissao = document.createElement('div');
                 divMissao.className = 'missao';
@@ -339,37 +347,10 @@
             });
         }
 
-        // Modifique o seu window.load para chamar a nova função
+        // Event listener único para a inicialização da página
         window.addEventListener('load', () => {
-            gerarBrasas(); // Mantém o efeito visual das brasas rodando
-            renderizarMissoesOrdenadas(); // Carrega o quadro em ordem alfabética
-        });
-        // Função para carregar as missões criadas no painel ADM
-        function carregarMissoesDinamicas() {
-            const container = document.getElementById('missoes-dinamicas');
-            const missoes = JSON.parse(localStorage.getItem('missoes_gracklstugh')) || [];
-
-            missoes.forEach(missao => {
-                const divMissao = document.createElement('div');
-                divMissao.className = 'missao';
-
-                let recompensaHTML = missao.recompensa ? `<h4>Recompensa: ${missao.recompensa}</h4>` : '';
-
-                divMissao.innerHTML = `
-                    <div class="card-content">
-                        <h4>${missao.titulo}</h4>
-                        <p>${missao.descricao}</p>
-                        ${recompensaHTML}
-                    </div>
-                `;
-                container.appendChild(divMissao);
-            });
-        }
-
-        // Chame a função para rodar quando a página carregar (junto com suas brasas)
-        window.addEventListener('load', () => {
-            gerarBrasas();
-            carregarMissoesDinamicas();
+            gerarBrasas(); 
+            renderizarMissoesOrdenadas(); 
         });
     </script>
 </body>
