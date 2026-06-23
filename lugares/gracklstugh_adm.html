@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Mestre - Gracklstugh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/lugares_shared.css">
+    <style>
+        body { padding: 2rem; color: #fff; background-color: #121212; font-family: 'Lora', serif; }
+        h1, h2, h3 { font-family: 'Cinzel', serif; color: #ffcc00; }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: bold; }
+        input[type="text"], textarea {
+            width: 100%; padding: 0.5rem; border: 1px solid #ffcc00; background: #222; color: #fff; border-radius: 4px; font-family: 'Lora', serif;
+        }
+        .btn {
+            background: #ff4500; color: white; border: none; padding: 0.7rem 1.5rem; font-family: 'Cinzel', serif; cursor: pointer; font-weight: bold; transition: 0.3s;
+        }
+        .btn:hover { background: #ff8c00; }
+        .btn-danger { background: #cc0000; }
+        .btn-danger:hover { background: #ff0000; }
+        .btn-secondary { background: #555; color: #fff; margin-left: 0.5rem; }
+        .btn-secondary:hover { background: #777; }
+        .btn-warning { background: #d4a373; color: #000; margin-right: 0.5rem; }
+        .btn-warning:hover { background: #e9c46a; }
+        .missao-item {
+            background: #1a1a1a; padding: 1rem; margin-bottom: 1rem; border-left: 4px solid #ffcc00; display: flex; justify-content: space-between; align-items: center;
+        }
+        .botoes-acoes {
+            display: flex;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="gracklstugh.html" class="btn-voltar">← Voltar para a Cidade</a>
+        <h1>Painel do Mestre</h1>
+        <div class="subtitle">Gerenciador de Missões de Gracklstugh</div>
+        <hr>
+
+        <h2 id="formTitulo">Adicionar Nova Missão</h2>
+        <form id="missaoForm">
+            <input type="hidden" id="editIndex" value="-1">
+            
+            <div class="form-group">
+                <label for="titulo">Título da Missão:</label>
+                <input type="text" id="titulo" required placeholder="Ex: ROUBAR O COFRE DROW">
+            </div>
+            <div class="form-group">
+                <label for="descricao">Descrição (Aceita HTML/Bolding):</label>
+                <textarea id="descricao" rows="4" required placeholder="Use <strong>Nome</strong> para destacar personagens..."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="recompensa">Recompensa (Opcional):</label>
+                <input type="text" id="recompensa" placeholder="Ex: 200 peças de ouro.">
+            </div>
+            <button type="submit" id="btnSubmit" class="btn">Adicionar ao Quadro</button>
+            <button type="button" id="btnCancelar" class="btn btn-secondary" style="display: none;" onclick="resetarFormulario()">Cancelar Edição</button>
+        </form>
+
+        <hr style="margin-top: 3rem;">
+
+        <h2>Missões Adicionadas Manualmente</h2>
+        <div id="listaMissoes"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('missaoForm');
+        const lista = document.getElementById('listaMissoes');
+        const formTitulo = document.getElementById('formTitulo');
+        const btnSubmit = document.getElementById('btnSubmit');
+        const btnCancelar = document.getElementById('btnCancelar');
+        const editIndexInput = document.getElementById('editIndex');
+
+        // Carrega as missões já salvas
+        function carregarMissoes() {
+            lista.innerHTML = '';
+            let missoes = JSON.getObjLocalStorage('missoes_gracklstugh');
+            
+            if(missoes.length === 0) {
+                lista.innerHTML = '<p>Nenhuma missão personalizada criada ainda.</p>';
+                return;
+            }
+
+            missoes.forEach((missao, index) => {
+                const div = document.createElement('div');
+                div.className = 'missao-item';
+                div.innerHTML = `
+                    <div>
+                        <strong>${missao.titulo}</strong>
+                        <p style="margin: 5px 0 0 0; font-size: 0.9rem; opacity: 0.8;">${missao.descricao}</p>
+                        ${missao.recompensa ? `<small style="color: #ffcc00">Recompensa: ${missao.recompensa}</small>` : ''}
+                    </div>
+                    <div class="botoes-acoes">
+                        <button class="btn btn-warning" onclick="editarMissao(${index})">Editar</button>
+                        <button class="btn btn-danger" onclick="deletarMissao(${index})">Remover</button>
+                    </div>
+                `;
+                lista.appendChild(div);
+            });
+        }
+
+        // Helper para pegar dados do LocalStorage
+        JSON.getObjLocalStorage = function(key) {
+            return JSON.parse(localStorage.getItem(key)) || [];
+        }
+
+        // Adiciona ou edita uma missão
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const index = parseInt(editIndexInput.value);
+            const dadosMissao = {
+                titulo: document.getElementById('titulo').value.toUpperCase(),
+                descricao: document.getElementById('descricao').value,
+                recompensa: document.getElementById('recompensa').value
+            };
+
+            let missoes = JSON.getObjLocalStorage('missoes_gracklstugh');
+
+            if (index === -1) {
+                // Modo Adicionar
+                missoes.push(dadosMissao);
+            } else {
+                // Modo Editar
+                missoes[index] = dadosMissao;
+            }
+
+            localStorage.setItem('missoes_gracklstugh', JSON.stringify(missoes));
+
+            resetarFormulario();
+            carregarMissoes();
+        });
+
+        // Prepara o formulário para edição
+        window.editarMissao = function(index) {
+            let missoes = JSON.getObjLocalStorage('missoes_gracklstugh');
+            const missao = missoes[index];
+
+            document.getElementById('titulo').value = missao.titulo;
+            document.getElementById('descricao').value = missao.descricao;
+            document.getElementById('recompensa').value = missao.recompensa;
+            editIndexInput.value = index;
+
+            // Altera o visual do formulário para o modo de edição
+            formTitulo.innerText = "Editar Missão";
+            btnSubmit.innerText = "Salvar Alterações";
+            btnCancelar.style.display = "inline-block";
+
+            // Rola a página suavemente até o formulário
+            form.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Reseta o formulário voltando ao padrão de adicionar
+        window.resetarFormulario = function() {
+            form.reset();
+            editIndexInput.value = "-1";
+            formTitulo.innerText = "Adicionar Nova Missão";
+            btnSubmit.innerText = "Adicionar ao Quadro";
+            btnCancelar.style.display = "none";
+        }
+
+        // Remove uma missão
+        window.deletarMissao = function(index) {
+            if (confirm("Tem certeza que deseja remover esta missão do quadro?")) {
+                let missoes = JSON.getObjLocalStorage('missoes_gracklstugh');
+                missoes.splice(index, 1);
+                localStorage.setItem('missoes_gracklstugh', JSON.stringify(missoes));
+                
+                // Se a missão que estava sendo editada for excluída, reseta o formulário
+                if (editIndexInput.value == index) {
+                    resetarFormulario();
+                }
+                
+                carregarMissoes();
+            }
+        }
+
+        // Inicializa a página
+        carregarMissoes();
+    </script>
+</body>
+</html>
