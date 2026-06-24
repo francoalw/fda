@@ -120,11 +120,10 @@
 
         function carregarRelacoes() {
             const container = document.getElementById('container-relacoes');
-            const dadosSalvos = localStorage.getItem('jimjar_relacoes');
-            const relacoes = dadosSalvos ? JSON.parse(dadosSalvos) : relacoesPadrao;
-
+            
+            // Alterado para ler diretamente o objeto fixo acima, sem buscar do localStorage
             container.innerHTML = '';
-            for (const [nome, info] of Object.entries(relacoes)) {
+            for (const [nome, info] of Object.entries(relacoesPadrao)) {
                 container.innerHTML += `
                     <div class="${info.classe}">
                         <span class="${info.tipo}">${nome}:</span>

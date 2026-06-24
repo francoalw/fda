@@ -102,7 +102,7 @@
             "Fane": { texto: '<em>"Acho sua barba maneira, senhor."</em>', classe: "card card-danger", tipo: "pj-name" },
             "Jimjar": { texto: '<em>"Meu irmão tenta pregar peças nele, usando apostas. Ainda não funcionou. Eu acho ele maluco."</em>', classe: "card", tipo: "npc-name" },
             "Príncipe Derendil": { texto: '<em>"Não acreditamos muito no que ele tem a dizer. Achamos que aqui embaixo quase todos mentem."</em>', classe: "card", tipo: "npc-name" },
-            "Ront": { texto: '<em>"Ele é grande. E perigoso. Mas tem uma mente frágil. Combinação perigosa."</em>', classe: "card", tipo: "npc-name" },
+            "Ront": { texto: '<em>"Ele é grande. Mas tem uma mente frágil. Combinação perigosa.."</em>', classe: "card", tipo: "npc-name" },
             "Rudeus": { texto: '<em>"Meu irmão acredita que o senhor fala mais do que deveria, como se desse fungos aos cães, senhor."</em>', classe: "card card-danger", tipo: "pj-name" },
             "Stool": { texto: '<em>"Meu irmão não vê utilidade nele. Eu acho que ele serve pra eu subir e alcançar cogumelos saborosos."</em>', classe: "card", tipo: "npc-name" },
             "Vaal": { texto: '<em>"Suas habiliddes mágicas me inspiram."</em>', classe: "card card-danger", tipo: "pj-name" }
@@ -110,11 +110,10 @@
 
         function carregarRelacoes() {
             const container = document.getElementById('container-relacoes');
-            const dadosSalvos = localStorage.getItem('topsy_relacoes');
-            const relacoes = dadosSalvos ? JSON.parse(dadosSalvos) : relacoesPadrao;
-
+            
+            // Alterado para ler diretamente o objeto fixo acima, sem buscar do localStorage
             container.innerHTML = '';
-            for (const [nome, info] of Object.entries(relacoes)) {
+            for (const [nome, info] of Object.entries(relacoesPadrao)) {
                 container.innerHTML += `
                     <div class="${info.classe}">
                         <span class="${info.tipo}">${nome}:</span>

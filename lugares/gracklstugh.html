@@ -7,14 +7,15 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
-    <link rel="icon" type="image/png" href="../midia/foundryicon.png">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📍</text></svg>">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gracklstugh</title>
     <link rel="stylesheet" href="../css/lugares_shared.css">
     <style>
-        /* exclusivo de Gracklstugh */
+        /* ── EXCLUSIVO DE GRACKLSTUGH ── */
         .brasa {
             position: absolute;
             bottom: -20px;
@@ -40,6 +41,55 @@
                 transform: translateY(-110vh) translateX(calc(var(--oscilacao) * 2)) scale(0.2);
                 opacity: 0;
             }
+        }
+
+        /* ── CONFIGURAÇÃO DE TRANSIÇÃO BASE (Garante a suavidade na ENTRADA e SAÍDA) ── */
+        .card,
+        .missao {
+            position: relative;
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+                border-color 0.3s ease,
+                background-color 0.3s ease,
+                box-shadow 0.3s ease !important;
+        }
+
+        /* Suavização dos elementos internos */
+        .card-content h4 {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        }
+
+        /* ── INTERATIVIDADE DO CARD INTEIRO CLICÁVEL (Truque do Link Expandido) ── */
+        .npc-link {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+        }
+
+        .npc-link::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* ── ANIMAÇÃO DE HOVER (CRIATURAS / CARDS) ── */
+        .card:hover {
+            transform: scale(1.01) translateY(-2px);
+            background: linear-gradient(90deg, rgba(255, 145, 0, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%) !important;
+            border-color: var(--blood-red) !important;
+            /* Força a troca para vermelho sangue */
+            box-shadow: 0 10px 20px rgba(138, 3, 3, 0.25), 0 0 15px rgba(255, 145, 0, 0.1);
+        }
+
+        /* ── ANIMAÇÃO DE HOVER (MISSÕES GERADAS VIA JS) ── */
+        .missao:hover {
+            transform: scale(1.01) translateY(-2px);
+            border-color: var(--blood-red) !important;
+            /* Missões brilham em ciano */
+            box-shadow: 0 10px 20px rgba(229, 115, 0, 0.2);
         }
     </style>
 </head>
@@ -105,13 +155,23 @@
             <div>
                 <h2>Criaturas Importantes</h2>
 
+                <!-- <div class="card">
+                    <a href="../npcs/regionais/gracklstugh/arianarock.html" class="npc-link">
+                        <img src="../midia/gracklstugh/ariana.png" alt="Ariana" class="card-avatar">
+                    </a>
+                    <div class="card-content">
+                        <a href="../npcs/regionais/gracklstugh/arianarock.html" class="npc-link">
+                            <h4 style="margin: 0; display: inline-block;">Ariana</h4>
+                        </a>
+                        <p>Duergar mercadora que trazia itens especiais...</p>
+                    </div>
+                </div> -->
+
                 <div class="card">
-                    <img src="../midia/gracklstugh/ariana.png" alt="Ariana" class="card-avatar">
+                    <img src="../midia/gracklstugh/ariana.webp" alt="Droki" class="card-avatar">
                     <div class="card-content">
                         <h4>Ariana</h4>
-                        <p>Duergar mercadora que trazia itens especiais à Gracklstugh. Foi morta por Sarith Kzekarit sob
-                            efeito de fungos demoníacos de Zuggtmoy. Estava sempre acompanhada de seu Elemental de
-                            Pedra, que após a morte de sua aliada, passa a proteger Vaal magicamente.</p>
+                        <p>Duergar mercadora que trazia alguns itens especiais para Gracklstugh.</p>
                     </div>
                 </div>
 
@@ -318,18 +378,14 @@
             evt.currentTarget.className += " active";
         }
 
-        // Função simplificada que renderiza e ordena apenas o JSON estático
         function renderizarMissoesOrdenadas() {
             const container = document.getElementById('container-missoes-ordenadas');
-            container.innerHTML = ''; 
+            container.innerHTML = '';
 
-            // Pega as missões do script JSON
             const todasAsMissoes = JSON.parse(document.getElementById('missoes-padrao').textContent);
 
-            // Ordena alfabeticamente pelo Título
             todasAsMissoes.sort((a, b) => a.titulo.localeCompare(b.titulo, 'pt-BR'));
 
-            // Renderiza na tela
             todasAsMissoes.forEach(missao => {
                 const divMissao = document.createElement('div');
                 divMissao.className = 'missao';
@@ -347,10 +403,9 @@
             });
         }
 
-        // Event listener único para a inicialização da página
         window.addEventListener('load', () => {
-            gerarBrasas(); 
-            renderizarMissoesOrdenadas(); 
+            gerarBrasas();
+            renderizarMissoesOrdenadas();
         });
     </script>
 </body>

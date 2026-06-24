@@ -316,12 +316,6 @@ ul li span {
         letter-spacing: 0;
     }
 
-    .card,
-    .missao {
-        gap: 12px;
-        padding: 12px;
-    }
-
     .card-avatar {
         width: 50px;
         height: 50px;
@@ -354,15 +348,17 @@ ul li span {
         flex-shrink: 0;
     }
 
-     .local-header h1 {
+    .local-header h1 {
         order: 2;
         margin: 0;
         text-align: right;
-        flex: 1 1 0%;        /* era: flex: 1 1 auto; */
+        flex: 1 1 0%;
+        /* era: flex: 1 1 auto; */
         min-width: 0;
         white-space: normal;
         overflow-wrap: break-word;
-        word-break: break-word;   /* reforço extra */
+        word-break: break-word;
+        /* reforço extra */
         font-size: clamp(1.1em, 6vw, 1.6em);
         padding-right: 2rem;
     }

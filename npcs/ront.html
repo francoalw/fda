@@ -95,29 +95,28 @@
         <h2>Opinião de Ront sobre seus aliados</h2>
 
         <div id="container-relacoes">
-            </div>
+        </div>
     </div>
 
     <script>
         const relacoesPadrao = {
-            "Apolo": { texto: '"Ela era amiga de Ront. Ront era inimigo dela. Ront arrependido. Ront vai trazer Eldeth de volta."', classe: "card", tipo: "npc-name" },
-            "Atena VII": { texto: '"Homem ruivo tem força. Ront respeita isso. Fane é bem vindo na Tribo do Gelo."', classe: "card card-danger", tipo: "pj-name" },
+            "Apolo": { texto: '"Ront ouviu histórias de um Orc mais forte que os outros escravos, Ront quer ver se é isso tudo."', classe: "card", tipo: "npc-name" },
+            "Atena VII": { texto: 'DESCONHECIDA', classe: "card card-danger", tipo: "pj-name" },
             "Fane": { texto: '"Homem ruivo tem força. Ront respeita isso. Fane é bem vindo na Tribo do Gelo."', classe: "card card-danger", tipo: "pj-name" },
             "Jimjar": { texto: '"Ront não faz apostas. Gruumsh faz Ront perder, como punição."', classe: "card", tipo: "npc-name" },
             "Príncipe Derendil": { texto: '"Ele entende Ront. Corpo forte, mente fraca."', classe: "card", tipo: "npc-name" },
-            "Rudeus": { texto: '"Rudeus é mentor de Ront. Ront tem muito a aprender com Rudeus. Farei a escolha certa"', classe: "card card-danger", tipo: "pj-name" },
+            "Rudeus": { texto: '"Ront está fazendo a escolha certa?"', classe: "card card-danger", tipo: "pj-name" },
             "Stool": { texto: '"Ront não entende Stool."', classe: "card", tipo: "npc-name" },
             "Topsy & Turvy": { texto: '"Ront acha gêmeos estranhos. Gêmeos não são bem vindos na Tribo do Gelo."', classe: "card", tipo: "npc-name" },
-            "Vaal": { texto: '"Ront acha Vaal estranho, ele parece ser... Deixa pra lá. Na Tribo do Gelo ele não pisa."', classe: "card card-danger", tipo: "pj-name" }
+            "Vaal": { texto: '"Ront ouviu que Vaal vai lutar contra ele... Ront vai acabar com frutinha."', classe: "card card-danger", tipo: "pj-name" }
         };
 
         function carregarRelacoes() {
             const container = document.getElementById('container-relacoes');
-            const dadosSalvos = localStorage.getItem('ront_relacoes');
-            const relacoes = dadosSalvos ? JSON.parse(dadosSalvos) : relacoesPadrao;
-
+            
+            // Alterado para ler diretamente o objeto fixo acima, sem buscar do localStorage
             container.innerHTML = '';
-            for (const [nome, info] of Object.entries(relacoes)) {
+            for (const [nome, info] of Object.entries(relacoesPadrao)) {
                 container.innerHTML += `
                     <div class="${info.classe}">
                         <span class="${info.tipo}">${nome}:</span>

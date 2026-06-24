@@ -115,7 +115,7 @@
             "Fane": { texto: '"É amigo do Vaal, então é amigo de Stool também."', classe: "card card-danger", tipo: "pj-name" },
             "Jimjar": { texto: '"Ele vive perdendo apostas pro Vaal, tadinho.."', classe: "card", tipo: "npc-name" },
             "Príncipe Derendil": { texto: '"Stool ouve alguns pensamentos altos dele, pobrezinho, não tem muita esperança sobre voltar a ver seu povo."', classe: "card", tipo: "npc-name" },
-            "Ront": { texto: '"Ele acha Vaal estranho e o chama de frutinha em pensamentos.. Não gosto dele."', classe: "card", tipo: "npc-name" },
+            "Ront": { texto: '"Ele acha Vaal sombrio e o chama de frutinha em pensamentos.. Não gosto dele."', classe: "card", tipo: "npc-name" },
             "Rudeus": { texto: '"Stool aprecia a força de Rudeus, e suas belas palavras."', classe: "card card-danger", tipo: "pj-name" },
             "Topsy & Turvy": { texto: '"Stool não gosta da forma que Turvy fala com Vaal e seus companheiros."', classe: "card", tipo: "npc-name" },
             "Vaal": { texto: '"Vaal é o melhor amigo de Stool. Stool vai cuidar de Vaal até o fim. Stool quer muito muito muito mesmo que Vaal vá para o Bosque Nunca Claro com Stool para conhecer a família dele. Stool tem amigos para apresentar Vaal. Stool tem amigos e é feliz. Stool quer viajar mais e mais com Vaal, para todos os cantos."', classe: "card card-danger", tipo: "pj-name" }
@@ -123,11 +123,10 @@
 
         function carregarRelacoes() {
             const container = document.getElementById('container-relacoes');
-            const dadosSalvos = localStorage.getItem('stool_relacoes');
-            const relacoes = dadosSalvos ? JSON.parse(dadosSalvos) : relacoesPadrao;
-
+            
+            // Alterado para ler diretamente o objeto fixo acima, sem buscar do localStorage
             container.innerHTML = '';
-            for (const [nome, info] of Object.entries(relacoes)) {
+            for (const [nome, info] of Object.entries(relacoesPadrao)) {
                 container.innerHTML += `
                     <div class="${info.classe}">
                         <span class="${info.tipo}">${nome}:</span>

@@ -96,24 +96,23 @@
 
     <script>
         const relacoesPadrao = {
-            "Apolo": { texto: '"O que esse cabeça de fósforo quer aqui? Ele não percebe que já somos muitos?!"', classe: "card card-danger", tipo: "pj-name" },
+            "Apolo": { texto: '"O que esse cabeça de fósforo quer aqui? Ele não percebe que já somos muitos? Isso aqui virou a casa da mãe Joana."', classe: "card card-danger", tipo: "pj-name" },
             "Atena VII": { texto: '"Essa cabeça de nuvem escolheu o JIMJAR pra liderar o esquadrão barrela! O que esse doido tem que eu não tenho? Já matei por menos, mulher, já matei por muito menos!"', classe: "card card-danger", tipo: "pj-name" },
             "Fane": { texto: '<em>"Eu gosto da sua barba! Quando você morrer eu vou arrancar ela de você e colar na minha cabeça!"</em>', classe: "card card-danger", tipo: "pj-name" },
             "Jimjar": { texto: '<em>"Imbecil! Tentando assustar a Atena. Ele não sabe que não devemos brincar com comida!"</em>', classe: "card", tipo: "npc-name" },
             "Príncipe Derendil": { texto: '<em>"Não há escapatória pra você, maldito! Vai continuar um Quaggoth até o fim da vida!"</em>', classe: "card", tipo: "npc-name" },
             "Ront": { texto: '<em>"Foi tarde! que cara esquisito!"</em>', classe: "card", tipo: "npc-name" },
-            "Rudeus": { texto: '<em>"As luzes que ele faz quando enfrenta criaturas do abismo me espantam!"</em>', classe: "card card-danger", tipo: "pj-name" },
+            "Rudeus": { texto: '<em>"As luzes que esse cara faz quando enfrenta criaturas do abismo me espantam!"</em>', classe: "card card-danger", tipo: "pj-name" },
             "Stool": { texto: '<em>"Você não serve pra nada, criatura estranha!"</em>', classe: "card", tipo: "npc-name" },
-            "Vaal": { texto: '<em>"Ele não tem um cheiro muito agradável.."</em>', classe: "card card-danger", tipo: "pj-name" }
+            "Vaal": { texto: '<em>"Ele fede!"</em>', classe: "card card-danger", tipo: "pj-name" }
         };
 
         function carregarRelacoes() {
             const container = document.getElementById('container-relacoes');
-            const dadosSalvos = localStorage.getItem('turvy_relacoes');
-            const relacoes = dadosSalvos ? JSON.parse(dadosSalvos) : relacoesPadrao;
-
+            
+            // Alterado para ler diretamente o objeto fixo acima, sem buscar do localStorage
             container.innerHTML = '';
-            for (const [nome, info] of Object.entries(relacoes)) {
+            for (const [nome, info] of Object.entries(relacoesPadrao)) {
                 container.innerHTML += `
                     <div class="${info.classe}">
                         <span class="${info.tipo}">${nome}:</span>
