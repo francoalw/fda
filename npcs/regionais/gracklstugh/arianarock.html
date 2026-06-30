@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <link rel="icon" type="image/png"
+        href="https://preview.redd.it/dnd-ampersand-tokens-for-world-maps-v0-criv1vtambf31.png?width=256&format=png&auto=webp&s=dc236ed2b6c19de305ad43944d1b306b652093b3">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ariana</title>
+    <link rel="stylesheet" href="../../../css/npcs_shared.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header class="character-header">
+            <div class="header-content">
+                <a href="../../../lugares/gracklstugh.html" class="btn-voltar">← Voltar</a>
+
+                <h1>Ariana Rock</h1>
+                <div class="subtitle">Duergar Mercadora | Kineticista | Aliada do Ônix</div>
+            </div>
+
+            <div class="header-photo">
+                <img src="../../../midia/gracklstugh/ariana.webp" alt="Derendil" class="icon-photo">
+            </div>
+        </header>
+    </div>
+
+    <div class="tab-menu">
+        <button class="tab-button active" onclick="openTab(event, 'Lore')">História</button>
+        <button class="tab-button" onclick="openTab(event, 'Objetivos')">Convicções</button>
+        <button class="tab-button" onclick="openTab(event, 'relacoes')">Relações</button>
+    </div>
+
+    <div id="Lore" class="tab-content" style="display: block;">
+        <h2>QUEM É ARIANA ROCK?</h2>
+        <hr style="border-color: #333;">
+        <p style="text-align: justify;">Mercadora que buscava especiarias em Gracklstugh e ao redor dela para abastecer
+            o mercado BAZAR DA LÃMINA, Ariana frequentemente se via em apuros com os guardas hostis de Gracklstugh. Se
+            ela não
+            fosse uma duergar, certamente já teria sido escravizada ou pior..<br>Ariana veio a óbito pelas mãos de
+            Sarith Kzekarit. Deixou para trás um elemental chamado Ônix.</p>
+    </div>
+
+    <!-- Adicionado style="display: none;" para começar escondido -->
+    <div id="Objetivos" class="tab-content" style="display: none;">
+        <div class="grid-2">
+            <div>
+                <h2>Desejos Profundos</h2>
+                <div class="card">
+                    <h3>Libertar Ônix</h3>
+                    <p>Uma vez sozinha vagando pelo abismo, Ariana foi cercada por duergares que queriam se aproveitar de sua inocência e impotence. Eis que, Ônix surgiu do chão e a defendeu. Ariana anda com ele desde então, sem sequer compreender muito a criatura, e adquiriu poderes desta conexão. Ariana almeja algum dia compreender Ônix e o libertar dessa conexão que ela acredita ser prejudicial a ele.</p>
+                </div>
+            </div>
+            <div>
+                <h2>Missões Pessoais</h2>
+                <div class="card card-danger">
+                    <h3>Aprender a andar em Gracklstugh</h3>
+                    <p>Ariana Rock sempre depende de um guia para se movimentar em Gracklstugh, mas detesta ser um fardo a qualquer pessoa. Planeja aprender a andar em Gracklstugh para não depender de ninguém.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Adicionado style="display: none;" para começar escondido -->
+    <div id="relacoes" class="tab-content" style="display: none;">
+        <p><em>"Você me protegeu sem me conhecer. Agora eu irei retribuir..."</em></p>
+        <h2>Opinião de Ariana Rock sobre os aventureiros</h2>
+
+        <div id="container-relacoes">
+        </div>
+    </div>
+
+    <script>
+        const relacoesPadrao = {
+            "Apolo": { texto: '"Se quer ouvir minha opinião élfica, eu não vejo nada de valoroso neste plebeu. Sendo elficamente sincero, penso também que ele deveria ir para o calabouço!"', classe: "card card-danger", tipo: "pj-name" },
+            "Atena VII": { texto: '"Há gerações não vejo uma figura tão... Cativante. Ela ficaria formidável dançando ao meu lado no baile invernal do outono, no reino de Nelrindenvane, na Floresta Alta."', classe: "card card-danger", tipo: "pj-name" },
+            "Fane": { texto: '"Tentou me ajudar até o último instante..."', classe: "card card-danger", tipo: "pj-name" },
+            "Rudeus": { texto: '"O cheiro dele tem mudado recentemente. Temo pelo pior."', classe: "card card-danger", tipo: "pj-name" },
+            "Vaal": { texto: '"Você parece carregar uma energia poderosa."', classe: "card card-danger", tipo: "pj-name" }
+        };
+
+        function carregarRelacoes() {
+            const container = document.getElementById('container-relacoes');
+
+            container.innerHTML = '';
+            for (const [nome, info] of Object.entries(relacoesPadrao)) {
+                container.innerHTML += `
+                    <div class="${info.classe}">
+                        <span class="${info.tipo}">${nome}:</span>
+                        <p>${info.texto}</p>
+                    </div>
+                `;
+            }
+        }
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // CORREÇÃO: Chama a função automaticamente assim que a página carrega
+        window.onload = carregarRelacoes;
+    </script>
+</body>
+
+</html>
