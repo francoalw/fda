@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <link rel="icon" type="image/png" href="https://preview.redd.it/dnd-ampersand-tokens-for-world-maps-v0-criv1vtambf31.png?width=256&format=png&auto=webp&s=dc236ed2b6c19de305ad43944d1b306b652093b3">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turvy</title>
+    <link rel="stylesheet" href="../css/npcs_shared.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
+    
+        .coin-confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            font-size: 28px;
+            pointer-events: none;
+            z-index: 9999;
+            will-change: transform, opacity;
+            animation: coin-burst-anim 1.4s ease-out forwards;
+        }
+
+        @keyframes coin-burst-anim {
+            0% {
+                transform: translate(0, 0) scale(0.4) rotate(0deg);
+                opacity: 1;
+            }
+            60% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(1) rotate(var(--rot));
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header class="character-header">
+            <div class="header-content">
+                <a href="../index.html" class="btn-voltar">← Voltar</a>
+
+                <h1>Turvy</h1>
+                <div class="subtitle">Gnomo das Profundezas | Especialista em Fungos</div>
+            </div>
+            <div class="header-photo">
+                <img src="turvy.webp" alt="Turvy" class="icon-photo">
+            </div>
+        </header>
+    </div>
+
+    <div class="tab-menu">
+        <button class="tab-button active" onclick="openTab(event, 'Lore')">História</button>
+        <button class="tab-button" onclick="openTab(event, 'Objetivos')">Convicções</button>
+        <button class="tab-button" onclick="openTab(event, 'relacoes')">Relações</button>
+    </div>
+
+    <div id="Lore" class="tab-content" style="display: block;">
+        <h2>QUEM É TURVY?</h2>
+        <hr style="border-color: #333;">
+        <p style="text-align: justify;">Gnomo das profundezas gêmeo de Topsy, Turvy é originalmente da Pedra do Massacre do Refúgio, no Subterrâneo. Foi capturado pelos drows enquanto tinha saído para coletar cogumelos nos túneis perto de sua casa. Turvy tem apenas alguns tufos de cabelo no topo de sua cabeça, não fosse por isso, careca. Turvy constantemente resmunga e murmura sombriamente, e possui alguma fixação inexplicável com as fases da lua, sempre buscando saber qual a próxima Lua Cheia.</p>
+    </div>
+
+    <div id="Objetivos" class="tab-content">
+        <div class="grid-2">
+            <div>
+                <h2>Desejos Profundos</h2>
+                <div class="card">
+                    <h3>Saber quando será a próxima Lua Cheia</h3>
+                    <p>Turvy anseia por essa informação.</p>
+                </div>
+            </div>
+
+            <div>
+                <h2>Missões Pessoais</h2>
+                <div class="card card-danger">
+                    <h3>Retornar a Pedra do Massacre do Refúgio</h3>
+                    <p>Turvy deseja retornar ao seu lar.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="relacoes" class="tab-content">
+        <p><em>"Vaal desgraçado, irei te estripar e devorar seus órgãos!!"</em></p>
+        <h2>Opinião de Turvy sobre seus aliados</h2>
+
+        <div id="container-relacoes">
+            </div>
+    </div>
+
+    <script>
+        const relacoesPadrao = {
+            "Apolo": { texto: '"O que esse cabeça de fósforo quer aqui? Ele não percebe que já somos muitos? Isso aqui virou a casa da mãe Joana."', classe: "card card-danger", tipo: "pj-name" },
+            "Atena VII": { texto: '"Essa cabeça de nuvem escolheu o JIMJAR pra liderar o esquadrão barrela! O que esse doido tem que eu não tenho? Já matei por menos, mulher, já matei por muito menos!"', classe: "card card-danger", tipo: "pj-name" },
+            "Fane": { texto: '<em>"Eu gosto da sua barba! Quando você morrer eu vou arrancar ela de você e colar na minha cabeça!"</em>', classe: "card card-danger", tipo: "pj-name" },
+            "Jimjar": { texto: '<em>"Imbecil! Tentando assustar a Atena. Ele não sabe que não devemos brincar com comida!"</em>', classe: "card", tipo: "npc-name" },
+            "Príncipe Derendil": { texto: '<em>"Não há escapatória pra você, maldito! Vai continuar um Quaggoth até o fim da vida!"</em>', classe: "card", tipo: "npc-name" },
+            "Ront": { texto: '<em>"Foi tarde! que cara esquisito!"</em>', classe: "card", tipo: "npc-name" },
+            "Rudeus": { texto: '<em>"As luzes que esse cara faz quando enfrenta criaturas do abismo me espantam!"</em>', classe: "card card-danger", tipo: "pj-name" },
+            "Stool": { texto: '<em>"Você não serve pra nada, criatura estranha!"</em>', classe: "card", tipo: "npc-name" },
+            "Vaal": { texto: '<em>"Ele fede!"</em>', classe: "card card-danger", tipo: "pj-name" }
+        };
+
+        function carregarRelacoes() {
+            const container = document.getElementById('container-relacoes');
+            
+            // Alterado para ler diretamente o objeto fixo acima, sem buscar do localStorage
+            container.innerHTML = '';
+            for (const [nome, info] of Object.entries(relacoesPadrao)) {
+                container.innerHTML += `
+                    <div class="${info.classe}">
+                        <span class="${info.tipo}">${nome}:</span>
+                        <p>${info.texto}</p>
+                    </div>
+                `;
+            }
+        }
+
+        window.addEventListener('load', () => {
+            lancarMoedas();
+            carregarRelacoes();
+        });
+
+        function lancarMoedas() {
+            const origemX = window.innerWidth / 2;
+            const origemY = window.innerHeight * 0.35;
+            const totalMoedas = 50;
+            const moedas = ['🌕'];
+
+            for (let i = 0; i < totalMoedas; i++) {
+                const moeda = document.createElement('div');
+                moeda.className = 'coin-confetti';
+                moeda.textContent = moedas[Math.floor(Math.random() * moedas.length)];
+                moeda.style.left = origemX + 'px';
+                moeda.style.top = origemY + 'px';
+
+                const angulo = Math.random() * Math.PI * 2;
+                const distancia = 150 + Math.random() * 350;
+                const tx = Math.cos(angulo) * distancia;
+                const ty = Math.sin(angulo) * distancia + 200;
+                const rot = (Math.random() - 0.5) * 720;
+
+                moeda.style.setProperty('--tx', tx + 'px');
+                moeda.style.setProperty('--ty', ty + 'px');
+                moeda.style.setProperty('--rot', rot + 'deg');
+                moeda.style.animationDelay = (Math.random() * 0.15) + 's';
+
+                document.body.appendChild(moeda);
+                moeda.addEventListener('animationend', () => moeda.remove());
+            }
+        }
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>

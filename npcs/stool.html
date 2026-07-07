@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <link rel="icon" type="image/png" href="https://preview.redd.it/dnd-ampersand-tokens-for-world-maps-v0-criv1vtambf31.png?width=256&format=png&auto=webp&s=dc236ed2b6c19de305ad43944d1b306b652093b3">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stool</title>
+    <link rel="stylesheet" href="../css/npcs_shared.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
+    
+        .coin-confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            font-size: 28px;
+            pointer-events: none;
+            z-index: 9999;
+            will-change: transform, opacity;
+            animation: coin-burst-anim 1.4s ease-out forwards;
+        }
+
+        @keyframes coin-burst-anim {
+            0% {
+                transform: translate(0, 0) scale(0.4) rotate(0deg);
+                opacity: 1;
+            }
+            60% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(1) rotate(var(--rot));
+                opacity: 0;
+            }
+        }
+
+        .btn-adm {
+            float: right;
+            background: #333;
+            color: #fff;
+            padding: 5px 10px;
+            text-decoration: none;
+            font-size: 12px;
+            border-radius: 4px;
+            font-family: 'Lora', serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header class="character-header">
+            <div class="header-content">
+                <a href="../index.html" class="btn-voltar">← Voltar</a>
+
+                <h1>Stool</h1>
+                <div class="subtitle">Miconide | Broto</div>
+            </div>
+
+            <div class="header-photo">
+                <img src="stool.webp" alt="Stool" class="icon-photo">
+            </div>
+        </header>
+    </div>
+
+    <div class="tab-menu">
+        <button class="tab-button active" onclick="openTab(event, 'Lore')">História</button>
+        <button class="tab-button" onclick="openTab(event, 'Objetivos')">Convicções</button>
+        <button class="tab-button" onclick="openTab(event, 'relacoes')">Relações</button>
+    </div>
+
+    <div id="Lore" class="tab-content" style="display: block;">
+        <h2>QUEM É STOOL?</h2>
+        <hr style="border-color: #333;">
+        <p style="text-align: justify;">Stool é um miconide broto capturado por Sarith Kzekarit. Stool está sozinho e assustado, querendo apenas retornar para seu lar no Bosque Nunca Claro. Stool fica feliz em guiar seus amigos até sua casa, prometendo a eles refúgio com seu povo. Stool utiliza esporos harmoniosos para estabelecer comunicação telepática com outras criaturas, e faz isso para se comunicar com personagens que sejam gentis e amigáveis com ele. O miconide também ajuda a estabelecer comunicação com habitantes do Subterrâneo com quem os personagens não compartilhem uma linguagem. Uma vez que ele se apegue a alguém, Stool se comporta como um irmão mais novo entusiasmado e curioso, ficando próximo dos personagens e fazendo todo tipo de perguntas.</p>
+    </div>
+
+    <div id="Objetivos" class="tab-content">
+        <div class="grid-2">
+            <div>
+                <h2>Desejos Profundos</h2>
+                <div class="card">
+                    <h3>Viajar com Vaal</h3>
+                    <p>Por mais que tudo que Stool deseja seja retornar para casa, o Miconide aproveita cada segundo ao lado de Vaal.</p>
+                </div>
+            </div>
+
+            <div>
+                <h2>Missões Pessoais</h2>
+                <div class="card card-danger">
+                    <h3>Retornar ao Bosque Nunca Claro</h3>
+                    <p>Stool não pode orientar e não tem nenhum conhecimento a respeito de como viajar no Subterrâneo, mas quer desesperadamente retornar ao seu lar no Bosque Nunca Claro.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABA RELAÇÕES DINÂMICA -->
+    <div id="relacoes" class="tab-content">
+        <p><em>"Stool quer ir pra casa.."</em></p>
+        <h2>Opinião de Stool sobre seus aliados</h2>
+
+        <div id="container-relacoes">
+            <!-- Injetado via Javascript -->
+        </div>
+    </div>
+
+    <script>
+        const relacoesPadrao = {
+            "Apolo": { texto: '"Stool não entendeu muito ele. Mas quando Stool se concentra, consegue ouvir duas vozes ao mesmo tempo..."', classe: "card card-danger", tipo: "pj-name" },
+            "Atena VII": { texto: '"Ela parece alguém confiante, e isso é bom."', classe: "card card-danger", tipo: "pj-name" },
+            "Fane": { texto: '"É amigo do Vaal, então é amigo de Stool também."', classe: "card card-danger", tipo: "pj-name" },
+            "Jimjar": { texto: '"Ele vive perdendo apostas pro Vaal, tadinho.."', classe: "card", tipo: "npc-name" },
+            "Príncipe Derendil": { texto: '"Stool ouve alguns pensamentos altos dele, pobrezinho, não tem muita esperança sobre voltar a ver seu povo."', classe: "card", tipo: "npc-name" },
+            "Ront": { texto: '"Ele acha Vaal sombrio e o chama de frutinha em pensamentos.. Não gosto dele."', classe: "card", tipo: "npc-name" },
+            "Rudeus": { texto: '"Stool aprecia a força de Rudeus, e suas belas palavras."', classe: "card card-danger", tipo: "pj-name" },
+            "Topsy & Turvy": { texto: '"Stool não gosta da forma que Turvy fala com Vaal e seus companheiros."', classe: "card", tipo: "npc-name" },
+            "Vaal": { texto: '"Vaal é o melhor amigo de Stool. Stool vai cuidar de Vaal até o fim. Stool quer muito muito muito mesmo que Vaal vá para o Bosque Nunca Claro com Stool para conhecer a família dele. Stool tem amigos para apresentar Vaal. Stool tem amigos e é feliz. Stool quer viajar mais e mais com Vaal, para todos os cantos."', classe: "card card-danger", tipo: "pj-name" }
+        };
+
+        function carregarRelacoes() {
+            const container = document.getElementById('container-relacoes');
+            
+            // Alterado para ler diretamente o objeto fixo acima, sem buscar do localStorage
+            container.innerHTML = '';
+            for (const [nome, info] of Object.entries(relacoesPadrao)) {
+                container.innerHTML += `
+                    <div class="${info.classe}">
+                        <span class="${info.tipo}">${nome}:</span>
+                        <p>${info.texto}</p>
+                    </div>
+                `;
+            }
+        }
+
+        window.addEventListener('load', () => {
+            lancarMoedas();
+            carregarRelacoes();
+        });
+
+        function lancarMoedas() {
+            const origemX = window.innerWidth / 2;
+            const origemY = window.innerHeight * 0.35;
+            const totalMoedas = 50;
+            const moedas = ['🍄'];
+
+            for (let i = 0; i < totalMoedas; i++) {
+                const moeda = document.createElement('div');
+                moeda.className = 'coin-confetti';
+                moeda.textContent = moedas[Math.floor(Math.random() * moedas.length)];
+                moeda.style.left = origemX + 'px';
+                moeda.style.top = origemY + 'px';
+
+                const angulo = Math.random() * Math.PI * 2;
+                const distancia = 150 + Math.random() * 350;
+                const tx = Math.cos(angulo) * distancia;
+                const ty = Math.sin(angulo) * distancia + 200;
+                const rot = (Math.random() - 0.5) * 720;
+
+                moeda.style.setProperty('--tx', tx + 'px');
+                moeda.style.setProperty('--ty', ty + 'px');
+                moeda.style.setProperty('--rot', rot + 'deg');
+                moeda.style.animationDelay = (Math.random() * 0.15) + 's';
+
+                document.body.appendChild(moeda);
+                moeda.addEventListener('animationend', () => moeda.remove());
+            }
+        }
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>

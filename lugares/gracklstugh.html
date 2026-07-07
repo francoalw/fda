@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📍</text></svg>">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracklstugh</title>
+    <link rel="stylesheet" href="../css/lugares_shared.css">
+    <style>
+        /* ── EXCLUSIVO DE GRACKLSTUGH ── */
+        .brasa {
+            position: absolute;
+            bottom: -20px;
+            background: #ffcc00;
+            border-radius: 50%;
+            opacity: 0.8;
+            filter: blur(1px);
+            box-shadow: 0 0 10px #ff4500, 0 0 20px #ff8c00;
+            animation: subir var(--duracao) infinite ease-in;
+        }
+
+        @keyframes subir {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: translateY(-50vh) translateX(var(--oscilacao)) scale(0.8);
+            }
+
+            100% {
+                transform: translateY(-110vh) translateX(calc(var(--oscilacao) * 2)) scale(0.2);
+                opacity: 0;
+            }
+        }
+
+        /* ── CONFIGURAÇÃO DE TRANSIÇÃO BASE (Garante a suavidade na ENTRADA e SAÍDA) ── */
+        .card,
+        .missao {
+            position: relative;
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+                border-color 0.3s ease,
+                background-color 0.3s ease,
+                box-shadow 0.3s ease !important;
+        }
+
+        /* Suavização dos elementos internos */
+        .card-content h4 {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        }
+
+        /* ── INTERATIVIDADE DO CARD INTEIRO CLICÁVEL (Truque do Link Expandido) ── */
+        .npc-link {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+        }
+
+        .npc-link::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* ── ANIMAÇÃO DE HOVER (CRIATURAS / CARDS) ── */
+        .card:hover {
+            transform: scale(1.01) translateY(-2px);
+            background: linear-gradient(90deg, rgba(255, 145, 0, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%) !important;
+            border-color: var(--blood-red) !important;
+            /* Força a troca para vermelho sangue */
+            box-shadow: 0 10px 20px rgba(138, 3, 3, 0.25), 0 0 15px rgba(255, 145, 0, 0.1);
+        }
+
+        /* ── ANIMAÇÃO DE HOVER (MISSÕES GERADAS VIA JS) ── */
+        .missao:hover {
+            transform: scale(1.01) translateY(-2px);
+            border-color: var(--blood-red) !important;
+            /* Missões brilham em ciano */
+            box-shadow: 0 10px 20px rgba(229, 115, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- FAÍSCAS: filho direto do body, fora de qualquer container com overflow:hidden -->
+    <div id="forja-container" class="particulas-container"></div>
+
+    <div class="container">
+        <header class="local-header">
+            <div class="nome-local" style="margin-top: 1rem; margin-left: 1rem;">
+                <a href="../index.html" class="btn-voltar">← Voltar</a>
+                <h1>Gracklstugh</h1>
+                <div class="subtitle">A Cidade das Lâminas</div>
+            </div>
+
+            <div>
+                <img src="https://static.wikia.nocookie.net/forgottenrealms/images/5/50/Gracklstugh.jpg/revision/latest/scale-to-width-down/1000?cb=20151217163217"
+                    alt="Gracklstugh" class="local-photo">
+            </div>
+        </header>
+
+        <div class="tab-menu">
+            <button class="tab-button active" onclick="openTab(event, 'Descricao')">Descrição</button>
+            <button class="tab-button" onclick="openTab(event, 'criaturasimportantes')">Criaturas Importantes</button>
+            <button class="tab-button" onclick="openTab(event, 'MissoesRegionais')">Missões</button>
+        </div>
+
+    </div>
+
+    <div id="Descricao" class="tab-content" style="display: block;">
+        <p style="text-align: justify;">Gracklstugh (pronuncia-se GRACS-TUG), é uma cidade
+            duergar às margens do Lago Negro, na Underdark.</p>
+
+        <h2>Geografia</h2>
+        <p style="text-align: justify;">A cidade fica a cerca de 243km de Menzoberranzan, do outro lado do Lago
+            Negro.
+            <br>O acesso a Gracklstugh pode ser alcançado pelo Lago Negro.
+        </p>
+
+        <h2>Estrutura</h2>
+        <p style="text-align: justify;">Gracklstugh is uma cidade caverna anexada
+            do Lago negro como um porto subterrâneo. A cidade é iluminada pela luz do fogo de fundições misturadas entre
+            estalagmites. O ar cheira acre e é carregado de sons industriais: fogo, vapor e ferro
+            zumbindo. A fumaça persistente que preenche a caverna pode causar uma tosse persistente, e às vezes fatal,
+            conhecida como Pulmão de Grackle.</p>
+
+        <h2>Habitantes</h2>
+        <p style="text-align: justify;">A cidade é principalmente lar de duergars, mas há uma minoria considerável
+            de derros que vivem lá, assim como vários durzagon, orogs e gigantes de pedra. Um terço da população total é
+            composto por escravos, nomeadamente goblins, anões do escudo, orcs, svirfneblin e humanos.
+            <br>A cidade recebia muitos mercadores visitantes, especialmente drow, duergar e kuo-toa. Estrangeiros são
+            obrigados a obter mandados de passagem para atravessar a cidade (além do distrito dos cais) and seus
+            territórios. Um forasteiro que adentre Gracklstugh, só consegue sair pacificamente se alguém o conceder
+            permissão oficial.
+            <br> Grupos só tem permissão para sair caso fundem uma guilda oficialmente.
+        </p>
+    </div>
+
+    <div id="criaturasimportantes" class="tab-content">
+        <div class="criaturasimportantes">
+            <div>
+                <h2>Criaturas Importantes</h2>
+
+                <!-- <div class="card">
+                    <a href="../npcs/regionais/gracklstugh/arianarock.html" class="npc-link">
+                        <img src="../midia/gracklstugh/ariana.png" alt="Ariana" class="card-avatar">
+                    </a>
+                    <div class="card-content">
+                        <a href="../npcs/regionais/gracklstugh/arianarock.html" class="npc-link">
+                            <h4 style="margin: 0; display: inline-block;">Ariana</h4>
+                        </a>
+                        <p>Duergar mercadora que trazia itens especiais...</p>
+                    </div>
+                </div> -->
+
+                <div class="card">
+                    <img src="../midia/gracklstugh/ariana.webp" alt="Droki" class="card-avatar">
+                    <div class="card-content">
+                        <h4>Ariana</h4>
+                        <p>Duergar mercadora que trazia alguns itens especiais para Gracklstugh.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../midia/gracklstugh/droki.webp" alt="Droki" class="card-avatar">
+                    <div class="card-content">
+                        <h4>Droki</h4>
+                        <p>Derro mensageiro excêntrico, está sendo investigado por Errde Crânio Negro. É frequentemente
+                            visto correndo em velocidade alarmante pela cidade enquanto murmura algo para si mesmo em
+                            tom de reprovação.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../midia/gracklstugh/errde.webp" alt="Errde Crânio Negro" class="card-avatar">
+                    <div class="card-content">
+                        <h4>Errde Crânio Negro</h4>
+                        <p>Capitã Errde Crânio Negro, comandante da Guarda de Pedra. Trata Vaal com respeito ímpar,
+                            enquanto subestima Atena e vê os demais como possíveis escravos valorosos. Recentemente,
+                            Errde Crânio Negro tem achado que uma CONSPIRAÇÃO SECRETA está se instaurando na Cidade das
+                            Lâminas.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../midia/gracklstugh/gartokkar.webp" alt="Gartokkar" class="card-avatar">
+                    <div class="card-content">
+                        <h4>Gartokkar</h4>
+                        <p>Duergar líder dos Guardiões da Chama, conselheiro direto de Themberchaud e irmão de Gorglak.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../midia/gracklstugh/gorglak.webp" alt="Gorglak" class="card-avatar">
+                    <div class="card-content">
+                        <h4>Gorglak</h4>
+                        <p>Faz parte dos Guargas de Pedra, a milícia de menor patente em Gracklstugh. É um duergar
+                            guardião da chama, irmão de Gartokkar, com corrupção exarcebada.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../midia/gracklstugh/hgraam.webp" alt="Hgraam" class="card-avatar">
+                    <div class="card-content">
+                        <h4>Hgraam, Orador de Pedra</h4>
+                        <p>O líder dos gigantes de pedra é um sacerdote de Skoraeus Ossos de
+                            Pedra, o deus de seu povo. Hgraam é sábio e bem informado, além de demonstrar grande
+                            gratidão pela ajuda que os aventureiros deram a ele quando teve de lidar com um gigante
+                            bicéfalo enlouquecido. Envergonhado pelo ocorrido, convidou os aventureiros a uma reunião.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../midia/gracklstugh/horgarv.webp" alt="Horgar Sombra de Aço V" class="card-avatar">
+                    <div class="card-content">
+                        <h4>Horgar Sombra de Aço V, o Rei das Profundezas</h4>
+                        <p>Um governante impiedoso e astuto. Existem diversas especulações a respeito de suas ações, mas
+                            ninguém sabe com precisão.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../midia/gracklstugh/themberchaud.webp" alt="Themberchaud" class="card-avatar">
+                    <div class="card-content">
+                        <h4>Themberchaud, o Dragão Ferreiro</h4>
+                        <p>Este dragão vermelho adulto mantém as fundidoras e forjas da cidade acesas, recebendo
+                            tesouros, refeições e constantes regalias em troca.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../midia/gracklstugh/werz.webp" alt="Werz" class="card-avatar">
+                    <div class="card-content">
+                        <h4>Werz, Barão do Sal</h4>
+                        <p>Mercador Duergar, patriarca líder do clã Barão de Sal.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../midia/gracklstugh/ylsa.webp" alt="Ylsa henstak" class="card-avatar">
+                    <div class="card-content">
+                        <h4>Ylsa henstak</h4>
+                        <p>Uma duergar membro do Conselho Mercantil. Ela é uma mestra de caravana hábil e orgulha-se de
+                            sempre chegar ao seu destino antes do combinado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="MissoesRegionais" class="tab-content">
+        <p><em>A seguir, missões designadas ao grupo.</em></p>
+
+        <div id="container-missoes-ordenadas"></div>
+
+        <script id="missoes-padrao" type="application/json">
+        [
+            {
+                "titulo": "ADVOGADOS DO DIABO",
+                "descricao": "<strong>Turvy</strong> foi detido por guardas após topar em um invisível e praguejar contra o mesmo. Possivelmente, Turvy está sendo escravizado desde então, ou morto. Topsy clama pela vida e segurança de seu irmão. Jimjar não estava presente no momento do conflito, estava distraído apostando com um pescador na costa de Gracklstugh com o Lago Escuro.",
+                "recompensa": "A presença de Turvy no grupo novamente."
+            },
+            {
+                "titulo": "AGENTES DUPLOS",
+                "descricao": "<strong>Themberchaud</strong> ordenou que os aventureiros seguissem as ordens dos Guardiões da Chama, mas que relatassem a ele primeiro e não aos guardiões.",
+                "recompensa": ""
+            },
+            {
+                "titulo": "DESCANSO DE PELEK",
+                "descricao": "<strong>Pelek</strong>, uma humana morta por Buppido, precisa que seus restos mortais sejam enterrados na <strong>Pedra do Massacre do Refúgio</strong> para que ela descanse em paz.",
+                "recompensa": "Passagem para fora de Gracklstugh."
+            },
+            {
+                "titulo": "HISTÓRIA DE PESCADOR",
+                "descricao": "<strong>Jimjar</strong> apostou com um pescador local que não existe nenhum GARRECIFE ABISSAL no Lago Escuro próxima à costa. Agora, o grupo deve provar a existência da criatura, pescando e levando-a ao pescador.",
+                "recompensa": "Desconhecida."
+            }
+        ]
+        </script>
+    </div>
+
+    <script>
+        function gerarBrasas() {
+            const container = document.getElementById('forja-container');
+            const quantidade = 40;
+
+            for (let i = 0; i < quantidade; i++) {
+                const brasa = document.createElement('div');
+                brasa.className = 'brasa';
+
+                const tamanho = Math.random() * 4 + 2 + 'px';
+                const posicaoX = Math.random() * 100 + 'vw';
+                const duracao = Math.random() * 3 + 3 + 's';
+                const atraso = Math.random() * 7 + 's';
+                const oscilacao = (Math.random() * 150 - 75) + 'px';
+
+                brasa.style.width = tamanho;
+                brasa.style.height = tamanho;
+                brasa.style.left = posicaoX;
+                brasa.style.setProperty('--duracao', duracao);
+                brasa.style.setProperty('--oscilacao', oscilacao);
+                brasa.style.animationDelay = atraso;
+
+                container.appendChild(brasa);
+            }
+        }
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        function renderizarMissoesOrdenadas() {
+            const container = document.getElementById('container-missoes-ordenadas');
+            container.innerHTML = '';
+
+            const todasAsMissoes = JSON.parse(document.getElementById('missoes-padrao').textContent);
+
+            todasAsMissoes.sort((a, b) => a.titulo.localeCompare(b.titulo, 'pt-BR'));
+
+            todasAsMissoes.forEach(missao => {
+                const divMissao = document.createElement('div');
+                divMissao.className = 'missao';
+
+                let recompensaHTML = missao.recompensa ? `<h4>Recompensa: ${missao.recompensa}</h4>` : '';
+
+                divMissao.innerHTML = `
+                    <div class="card-content">
+                        <h4>${missao.titulo}</h4>
+                        <p>${missao.descricao}</p>
+                        ${recompensaHTML}
+                    </div>
+                `;
+                container.appendChild(divMissao);
+            });
+        }
+
+        window.addEventListener('load', () => {
+            gerarBrasas();
+            renderizarMissoesOrdenadas();
+        });
+    </script>
+</body>
+
+</html>
